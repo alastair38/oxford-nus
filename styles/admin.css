@@ -18,6 +18,20 @@
   src: local(''), url('../assets/fonts/Montserrat-Regular.woff') format('woff');
 }
 
+.editor-styles-wrapper {
+  width: 90%;
+  margin-inline: auto;
+}
+
+.editor-styles-wrapper
+  .edit-post-visual-editor__post-title-wrapper
+  > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+.editor-styles-wrapper
+  .block-editor-block-list__layout.is-root-container
+  > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: inherit;
+}
+
 .color-switcher .selected input[type='radio']:after {
   content: '';
   display: flex;
@@ -38,7 +52,8 @@ bg-accent-tertiary*/
   margin-bottom: 0.5rem;
 }
 
-.acf-field-group > .acf-label label {
+.acf-field-group > .acf-label label,
+.form-table > tbody > .acf-field > .acf-label label {
   background-color: var(--wp--preset--color--neutral-dark-100);
   color: white;
   font-weight: 900;
@@ -53,6 +68,10 @@ bg-accent-tertiary*/
 
 a.acf-button.button {
   margin-left: 1rem;
+}
+
+#edittag {
+  max-width: 100%;
 }
 
 .color-switcher .selected input[type='radio'][value='offset']:after {
@@ -342,4 +361,8 @@ li#wp-admin-bar-my-account .ab-item .display-name,
 
 .editor-styles-wrapper .blockhaus-hero .wp-block-post-featured-image img {
   aspect-ratio: auto;
+}
+
+.block-editor-block-icon > div {
+  display: flex;
 }

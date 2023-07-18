@@ -1,6 +1,6 @@
 <?php
 /**
- * * Template Name: Full Width Header
+ * * Template Name: Full Width Page
  *
  * @package blockhaus
  */
@@ -8,18 +8,14 @@
 get_header();
 ?>
 
-	<main id="primary" class="main-content lg:pb-20">
+<main id="primary" class="main-content w-11/12 mx-auto mt-12">
 
 		<?php
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'layouts/full-width' );
+			get_template_part( 'layouts/page-wide' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
 
 		endwhile; // End of the loop.
 		?>

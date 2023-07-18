@@ -12,9 +12,11 @@ get_header();
 
 	<main id="primary" class="main-content w-11/12 space-y-12 mx-auto mt-12">
 
-	<?php get_template_part('components/search-header'); ?>
+	
 
-		<div class="w-11/12 md:w-3/4 mx-auto space-y-12">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+			
+		<?php get_template_part('components/search-header'); ?>
 			
 		<?php if ( have_posts() ) : 
 		
@@ -32,7 +34,7 @@ get_header();
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'layouts/search' );
+				get_template_part( 'layouts/content' );
 				
 
 			endwhile;

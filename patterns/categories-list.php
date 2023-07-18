@@ -7,4 +7,4 @@
  */
 ?>
 
-<!-- wp:blockhaus/categories-list-enhanced {"name":"blockhaus/categories-list-enhanced","mode":"preview"} /-->
+<!-- wp:blockhaus/categories-list-enhanced {"templateLock": "contentOnly", "name":"blockhaus/categories-list-enhanced","mode":"preview"} /-->

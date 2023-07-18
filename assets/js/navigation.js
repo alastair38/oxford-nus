@@ -117,20 +117,13 @@
 })();
 
 const header = document.querySelector('.main-header');
-const toggleClass = 'sticky';
 
 window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  const startScrollY = window.scrollY;
-  // if (currentScroll > 350) {
-  //   header.classList.add(toggleClass);
-  // } else {
-  //   header.classList.remove(toggleClass);
-  // }
+  const currentScroll = window.scrollY;
 
   if (currentScroll > 350) {
-    header.classList.add('toggleClass');
+    header.classList.add('logo-scale');
   } else {
-    header.classList.remove('toggleClass');
+    header.classList.remove('logo-scale');
   }
 });

@@ -17,7 +17,7 @@ get_header();
 
 ?>
 
-	<main class="main-content w-11/12 mx-auto mt-12">
+	<main class="main-content w-11/12 mx-auto mt-6">
 
 		
 
@@ -26,7 +26,7 @@ get_header();
 
 			if ( is_home() && ! is_front_page() ) :?>
 
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+				<div class="grid grid-cols-1 md:grid-cols-6 2xl:grid-cols-12 gap-12">
 				<?php get_template_part('components/archive-header'); ?>
 				
 				

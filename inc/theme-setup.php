@@ -143,6 +143,7 @@ add_action( 'admin_head', 'blockhaus_fix_svg' );
   function blockhaus_custom_images() {
     add_image_size( 'landscape', 800, 450, array( 'center', 'center' ) ); // adds 800 pixels wide by 450 pixels tall image option, hard crop mode
     add_image_size( 'hero', 1600, 1100, array( 'center', 'center' ) ); // adds 1600 pixels wide by 1100 pixels tall image option, hard crop mode
+    add_image_size( 'header', 1500, 500, array( 'center', 'center' ) ); // adds 1600 pixels wide by 1100 pixels tall image option, hard crop mode
     add_image_size( 'blog', 500, 300, array( 'center', 'center' ) ); // adds 500 pixels wide by 300 pixels tall image option, hard crop mode
     add_image_size( 'social-media', 800, 418, array( 'center', 'center' ) ); // adds 800 pixels wide by 418 pixels tall image option, hard crop mode
   }
@@ -153,6 +154,7 @@ add_action( 'admin_head', 'blockhaus_fix_svg' );
       return array_merge( $sizes, array(
           'landscape' => __( 'Landscape' ),
           'hero' => __( 'Hero' ),
+          'header' => __( 'Header' ),
           'blog' => __( 'Blog layout' ),
           'social-media' => __( 'Social media' ),
       ) );
@@ -160,10 +162,17 @@ add_action( 'admin_head', 'blockhaus_fix_svg' );
   
   add_filter( 'image_size_names_choose', 'blockhaus_image_names' );
 
-  function blockhaus_custom_excerpt_length( $length ) {
-    return 20;
+// Custom excerpt to take the first paragraph of content if the_excerpt does not exist
+
+add_filter( 'wp_trim_excerpt', 'blockhaus_custom_excerpt', 10, 2 );
+
+function blockhaus_custom_excerpt($text, $raw_excerpt) {
+    if( ! $raw_excerpt ) {
+        $content = apply_filters( 'the_content', get_the_content() );
+        $text = substr( $content, 0, strpos( $content, '</p>' ) + 4 );
+    }
+    return $text;
 }
-add_filter( 'excerpt_length', 'blockhaus_custom_excerpt_length', 999 );
 
 // Ajaxify comments
 
@@ -233,3 +242,45 @@ function blockhaus_submit_ajax_comment(){
 	die();
 	
 }
+
+// order resources archive and resource-type archives alphabetically
+
+add_action( 'pre_get_posts', function ( $query ) {
+	if (( $query->is_post_type_archive('resource') && $query->is_main_query()) || is_tax('resource-type') ) { 
+    
+		$query->set( 'order', 'ASC' );
+		$query->set( 'orderby', 'title' );
+	  
+	};
+} );
+
+function remove_author_column( $columns ) {
+  unset($columns['author']);
+  return $columns;
+}
+   
+function remove_column_init() {
+  add_filter( 'manage_posts_columns' , 'remove_author_column' ); 
+}
+
+add_action( 'admin_init' , 'remove_column_init' );
+
+// Custom Post Type
+
+
+function add_post_tag_columns($columns){
+  unset($columns['description']);
+  unset($columns['slug']);
+  return $columns;
+}
+add_filter('manage_edit-contributor_columns', 'add_post_tag_columns');
+
+
+// Change author slug
+
+function new_author_base() {
+  global $wp_rewrite;
+  $myauthor_base = 'user';
+  $wp_rewrite->author_base = $myauthor_base;
+}
+add_action('init', 'new_author_base');

@@ -9,16 +9,12 @@
 
 ?>
 
-<div id="post-<?php the_ID(); ?>">
+<header class="entry-header screen-reader-text">
+	<?php the_title( '<h1>', '</h1>' ); ?>
+</header><!-- .entry-header -->
 
-	<header class="entry-header screen-reader-text">
-		<?php the_title( '<h1>', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-
-	<div class="space-y-24">
-		<?php
-		the_content();
-		?>
-	</div><!-- .entry-content -->
-
-</div><!-- #post-<?php the_ID(); ?> -->
+<div class="space-y-24">
+	<?php
+	the_content();
+	?>
+</div><!-- .entry-content -->

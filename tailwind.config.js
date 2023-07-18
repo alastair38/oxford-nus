@@ -18,11 +18,28 @@ module.exports = {
     'gap-x-12',
     'gap-y-6',
     'p-0',
-    'ring-offset-accent-default',
+    'ring-offset-primary',
+    'grid-cols-fit',
     'grid-cols-fill',
     'sticky',
   ],
   theme: {
+    screens: {
+      sm: '640px',
+      // => @media (min-width: 640px) { ... }
+
+      md: '768px',
+      // => @media (min-width: 768px) { ... }
+
+      lg: '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      xl: '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1700px',
+      // => @media (min-width: 1536px) { ... }
+    },
     fontFamily: {
       sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
       serif: ['Merriweather', ...defaultTheme.fontFamily.serif],
@@ -31,7 +48,7 @@ module.exports = {
     fontSize: {
       sm: 'var(--wp--preset--font-size--small)',
       tiny: 'var(--wp--preset--font-size--tiny)',
-      base: 'var(--wp--preset--font-size--normal)',
+      default: 'var(--wp--preset--font-size--normal)',
       lg: 'var(--wp--preset--font-size--large)',
       xl: 'var(--wp--preset--font-size--extra-large)',
       huge: 'var(--wp--preset--font-size--huge)',
@@ -40,17 +57,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        base: 'var(--wp--preset--color--base)',
+        contrast: 'var(--wp--preset--color--contrast)',
         primary: 'var(--wp--preset--color--primary)',
         secondary: 'var(--wp--preset--color--secondary)',
-        offset: 'var(--wp--preset--color--offset)',
-        accent: {
-          default: 'var(--wp--preset--color--accent)',
-          secondary: 'var(--wp--preset--color--accent-secondary)',
-          tertiary: 'var(--wp--preset--color--accent-tertiary)',
-          quarter: 'var(--wp--preset--color--accent-quarter)',
-        },
-        highlight: 'var(--wp--preset--color--highlight)',
-        'light-opacity': 'var(--wp--preset--color--light-opacity)',
         neutral: {
           light: {
             100: 'var(--wp--preset--color--neutral-light-100)',
@@ -86,18 +96,19 @@ module.exports = {
       },
       gridTemplateColumns: {
         // Complex site-specific column configuration
-        fill: 'repeat(auto-fit, minmax(300px, 1fr))',
+        fit: 'repeat(auto-fit, minmax(300px, 1fr))',
+        fill: 'repeat(auto-fill, minmax(300px, 1fr))',
       },
       typography: {
         DEFAULT: {
           css: {
-            color: 'var(--wp--preset--color--secondary)',
+            color: 'var(--wp--preset--color--contrast)',
             a: {
-              color: 'var(--wp--preset--color--accent)',
+              color: 'var(--wp--preset--color--primary)',
               textDecorationThickness: '2px',
               fontWeight: '900',
               '&:hover': {
-                color: 'var(--wp--preset--color--secondary)',
+                color: 'var(--wp--preset--color--contrast)',
               },
             },
           },

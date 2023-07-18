@@ -20,6 +20,7 @@
 		<aside class="md:sticky top-24 entry-meta col-span-1 text-sm md:p-6 md:bg-neutral-light-100 h-max space-y-6">
 
 		<?php get_template_part( 'components/post-meta' );?>
+		
 
 		</aside>
 

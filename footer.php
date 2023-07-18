@@ -47,9 +47,9 @@ if( have_rows('funder', 'option') ):?>
 		?>
 	</ul>
 	
-<div class="p-2 md:p-6 bg-secondary text-primary">
+<div class="p-2 md:p-6 bg-contrast text-base">
 	
-	<div class="place-items-center grid grid-flow-row md:grid-flow-col auto-cols-fr gap-6 py-6 bg-secondary text-primary ">
+	<div class="place-items-center grid grid-flow-row md:grid-flow-col auto-cols-fr gap-6 py-6 bg-contrast text-base ">
 		
 		<?php echo blockhaus_display_address();?>
 		

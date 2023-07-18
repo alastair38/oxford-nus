@@ -8,12 +8,12 @@
 }
 
 #hero-curves {
-  @apply row-start-1 z-10 place-self-end;
+  @apply z-10 row-start-1 place-self-end;
 }
 
 .grid-hero figure,
 .grid-hero figure img {
-  @apply h-96 md:h-full object-cover w-full;
+  @apply h-96 w-full object-cover md:h-full;
 }
 
 .grid-hero {
@@ -44,7 +44,7 @@
   left: 1rem;
   clip-path: polygon(0 0, 100% 100%, 0 100%);
   /* background-color: var(--wp--preset--color--accent-secondary); */
-  @apply bg-grain-dots bg-highlight rounded-bl-md;
+  @apply rounded-bl-md bg-secondary bg-grain-dots;
 }
 
 .triangles-default:before {
@@ -56,7 +56,7 @@
   top: 1rem;
   right: 1rem;
   clip-path: polygon(100% 0, 0 0, 100% 100%);
-  @apply bg-grain-dots bg-highlight rounded-tr-md;
+  @apply rounded-tr-md bg-secondary bg-grain-dots;
 }
 
 .triangles-alternate:after {
@@ -69,7 +69,7 @@
   left: 1rem;
   clip-path: polygon(100% 0, 0 0, 0 100%);
   background-color: var(--wp--preset--color--accent-tertiary);
-  @apply bg-grain-dots rounded-tl-md;
+  @apply rounded-tl-md bg-grain-dots;
 }
 
 .triangles-alternate:before {
@@ -82,7 +82,7 @@
   right: 1rem;
   clip-path: polygon(100% 100%, 100% 0, 0 100%);
   background-color: var(--wp--preset--color--accent-tertiary);
-  @apply bg-grain-dots rounded-br-md;
+  @apply rounded-br-md bg-grain-dots;
 }
 
 /* .blockhaus-mission:after {
@@ -116,11 +116,21 @@
 }
 
 [class*='blockhaus-quote'] cite {
-  @apply bg-primary px-2 rounded-full max-w-fit;
+  @apply max-w-fit rounded-full bg-base px-2;
+}
+
+.tax-contributor .grid article:first-of-type,
+.tax-contributor .grid > header {
+  @apply col-span-3;
+}
+
+.post-type-archive-resource article,
+.tax-resource-type article {
+  @apply border border-neutral-dark-100 p-12;
 }
 
 .blockhaus-search input[type='search'] {
-  @apply py-1 px-4 border border-current shadow-retro focus-visible:outline-none focus-visible:ring-green-400 focus-visible:ring-4;
+  @apply border border-current px-4 py-1 shadow-retro focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-400;
 }
 
 .blockhaus-search label {
@@ -128,7 +138,7 @@
 }
 
 .blockhaus-search button {
-  @apply border border-current rounded-full;
+  @apply rounded-full border border-current;
 }
 
 blockquote.blockhaus-quote:before {
@@ -170,7 +180,7 @@ blockquote.blockhaus-quote:after {
 }
 
 iframe {
-  @apply border-[6px] border-white rounded-md mx-auto;
+  @apply mx-auto rounded-md border-[6px] border-white;
 }
 
 @media (max-width: 640px) {
@@ -184,11 +194,11 @@ iframe {
 }
 
 .post-template-grid li {
-  @apply bg-white overflow-hidden m-0 flex flex-col rounded-md shadow-md;
+  @apply m-0 flex flex-col overflow-hidden rounded-md bg-white shadow-md;
 }
 
 .post-template-grid li a {
-  @apply inline-flex mt-auto;
+  @apply mt-auto inline-flex;
 }
 
 .post-template-grid li h3 {
@@ -232,15 +242,21 @@ iframe {
   @apply rounded-full;
 }
 
-.wp-block-button__link:hover {
-  @apply text-secondary bg-white transition-colors duration-200;
+.blockhaus-archive-link .wp-block-button__link:after {
+  content: '';
+  position: absolute;
+  inset: 0;
 }
 
-.wp-block-button.bg-primary:hover {
+.blockhaus-archive-link .wp-block-button__link:hover:after {
+  outline: 4px solid hotpink;
+}
+
+.wp-block-button.bg-base:hover {
   @apply bg-transparent;
 }
 
-.wp-block-button.bg-primary:hover > .wp-block-button__link {
+.wp-block-button.bg-base:hover > .wp-block-button__link {
   @apply bg-transparent;
 }
 
@@ -251,25 +267,25 @@ iframe {
   @apply my-8 flex justify-between;
 }
 
-.nav-previous a,
-.nav-next a {
-  @apply flex items-center text-neutral-dark-900 text-sm bg-accent-default rounded-full py-1 ring-2 ring-offset-2 ring-transparent transition-all duration-150;
-}
-
-.nav-next a {
-  @apply pl-3 pr-1 hover:ring-accent-default focus:ring-accent-default;
-}
-
-.nav-previous a {
-  @apply pl-1 pr-3 hover:ring-accent-default focus:ring-accent-default;
-}
-
 .nav-next {
   @apply ml-auto;
 }
 
-.navigation .nav-previous a,
-.navigation .nav-next a {
+.nav-previous a,
+.nav-next a {
+  @apply flex items-center rounded-full bg-primary py-1 text-sm text-neutral-dark-900 ring-2 ring-transparent ring-offset-2 transition-all duration-150 hover:ring-primary focus:ring-primary;
+}
+
+.single .nav-next a {
+  @apply pl-3 pr-1;
+}
+
+.single .nav-previous a {
+  @apply pl-1 pr-3;
+}
+
+.nav-previous a,
+.nav-next a {
   @apply px-3;
 }
 
@@ -287,12 +303,12 @@ iframe {
 
 /* STICKY HEADER */
 
-header.toggleClass svg.logo {
+header.logo-scale .logo {
   height: 2rem;
   transition: 500ms;
 }
 
-header svg.logo {
+header .logo {
   transition: 500ms;
 }
 
@@ -303,43 +319,40 @@ header svg.logo {
 /* SOCIAL LNKS BLOCKS */
 
 /* .wp-block-social-links.is-style-logos-only .wp-social-link {
-  @apply text-secondary;
+  @apply text-contrast;
 } */
 
 .wp-block-social-links.is-style-logos-only .wp-social-link svg {
-  @apply w-6 h-6 md:h-8 md:w-8;
+  @apply h-6 w-6 md:h-8 md:w-8;
 }
 
 /* LOGIN FORM */
 
 form#loginform {
-  @apply flex flex-col justify-center items-center gap-6;
+  @apply flex flex-col items-center justify-center gap-6;
 }
 
 form#loginform p {
-  @apply flex flex-col justify-center items-center gap-2;
+  @apply flex flex-col items-center justify-center gap-2;
 }
 
 form#loginform p.login-remember label {
-  @apply flex items-center gap-2 flex-row-reverse cursor-pointer mt-6;
+  @apply mt-6 flex cursor-pointer flex-row-reverse items-center gap-2;
 }
 
 form#loginform label {
-  @apply text-base;
+  @apply text-contrast;
 }
 
 form#loginform [type='checkbox'] {
-  @apply text-secondary rounded-full w-6 h-6 focus:ring-secondary;
+  @apply h-6 w-6 rounded-full text-contrast focus:ring-contrast;
 }
 
-form#loginform [type='password'] {
-  @apply py-1 bg-white rounded-full border border-neutral-light-500 focus:ring-2 ring-offset-2 ring-transparent focus:ring-secondary;
-}
-
+form#loginform [type='password'],
 form#loginform [type='text'] {
-  @apply bg-white rounded-full border border-neutral-light-500 focus:ring-2 ring-offset-2 ring-transparent focus:ring-secondary;
+  @apply rounded-full border border-neutral-light-500 bg-white py-1 ring-transparent ring-offset-2 focus:ring-2 focus:ring-contrast;
 }
 
 form#loginform input#wp-submit {
-  @apply rounded-md inline-block w-fit bg-secondary text-white px-6 py-2 hover:ring-2 focus:ring-2 ring-offset-2 ring-transparent hover:ring-secondary focus:ring-secondary cursor-pointer;
+  @apply inline-block w-fit cursor-pointer rounded-md bg-contrast px-6 py-2 text-white ring-transparent ring-offset-2 hover:ring-2 hover:ring-contrast focus:ring-2 focus:ring-contrast;
 }

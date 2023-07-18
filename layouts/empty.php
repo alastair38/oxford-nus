@@ -9,9 +9,9 @@
 
 ?>
 
-<section class="no-results col-span-full w-11/12 md:w-3/4 mx-auto not-found space-y-6">
-	<header class="page-header space-y-6">
-		<h1 class="page-title text-xl md:text-huge leading-none font-black font-sans sr-only"><?php esc_html_e( 'Nothing Found', 'blockhaus' ); ?></h1>
+<section class="no-results col-span-3 flex flex-col items-center justify-center not-found space-y-6">
+	<header class="page-header sr-only">
+		<h1 class="page-title text-xl md:text-huge leading-none font-black font-sans "><?php esc_html_e( 'Nothing Found', 'blockhaus' ); ?></h1>
 
 	</header><!-- .page-header -->
 
@@ -42,7 +42,7 @@
 			
 			if($referer):
 				
-				echo '<a class="rounded-full px-3 py-1 bg-accent-default focus:no-underline hover:no-underline hover:ring-2 hover:ring-offset-2 hover:ring-accent-default focus:ring-2 focus:ring-offset-2 focus:ring-accent-default" href="' . $referer . '">' . esc_html( 'Go back to previous page', 'blockhaus' ) . '</a>' ;
+				echo '<a class="rounded-full px-3 py-1 bg-primary focus:no-underline hover:no-underline hover:ring-2 hover:ring-offset-2 hover:ring-primary focus:ring-2 focus:ring-offset-2 focus:ring-primary" href="' . $referer . '">' . esc_html( 'Go back to previous page', 'blockhaus' ) . '</a>' ;
 
 			endif;
 

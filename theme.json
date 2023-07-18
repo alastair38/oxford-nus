@@ -5,75 +5,60 @@
       "defaultPalette": false,
       "palette": [
         {
+          "slug": "base",
+          "color": "hsl(0deg 0% 100%)",
+          "name": "Base"
+        },
+        {
+          "slug": "contrast",
+          "color": "hsl(221deg 39% 11%) ",
+          "name": "Contrast"
+        },
+        {
           "slug": "primary",
-          "color": "rgba(255 255 255 / 1)",
+          "color": "hsl(48deg 95.8% 53.1%)",
           "name": "Primary"
         },
         {
-          "slug": "offset",
-          "color": "rgba(0 20 137 / 1)",
-          "name": "Offset"
-        },
-        {
           "slug": "secondary",
-          "color": "rgba(17 24 39 / 1)",
+          "color": "hsl(188deg 76% 57.5%)",
           "name": "Secondary"
         },
         {
-          "slug": "accent",
-          "color": "rgba(250 204 21 / 1)",
-          "name": "Accent"
-        },
-        {
-          "slug": "accent-tertiary",
-          "color": "rgba(144 228 221 / 1)",
-          "name": "Tertiary Accent"
-        },
-        {
-          "slug": "highlight",
-          "color": "rgba(64 206 229 / 1)",
-          "name": "Highlight"
-        },
-        {
-          "slug": "light-opacity",
-          "color": "rgba(255 255 255 / .75)",
-          "name": "Light with Opacity"
-        },
-        {
           "slug": "neutral-light-900",
-          "color": "rgba(177 177 177 / 1)",
+          "color": "hsl(220deg 14.3% 86%)",
           "name": "Neutral Light (900)"
         },
         {
           "slug": "neutral-light-500",
-          "color": "rgba(208 210 215 / 1)",
+          "color": "hsl(220deg 14.3% 91%)",
           "name": "Neutral Lighter (500)"
         },
         {
           "slug": "neutral-light-100",
-          "color": "rgba(243 244 246 / 1)",
+          "color": "hsl(220deg 14.3% 95.9%)",
           "name": "Neutral Lightest (100)"
         },
         {
           "slug": "neutral-dark-100",
-          "color": "rgba(116 116 116 / 1)",
+          "color": "hsl(0deg 0% 36%)",
           "name": "Neutral Dark (100)"
         },
         {
           "slug": "neutral-dark-500",
-          "color": "rgba(68 68 68 / 1)",
+          "color": "hsl(0deg 0% 31%)",
           "name": "Neutral Darker (500)"
         },
         {
           "slug": "neutral-dark-900",
-          "color": "rgba(3 3 3 / 1)",
+          "color": "hsl(0deg 0% 26.7%)",
           "name": "Neutral Darkest (900)"
         }
       ],
       "gradients": [
         {
           "slug": "gray-to-cyan",
-          "gradient": "linear-gradient(180deg, var(--wp--preset--color--neutral-light-100), var(--wp--preset--color--accent-tertiary))",
+          "gradient": "linear-gradient(180deg, var(--wp--preset--color--neutral-light-100), var(--wp--preset--color--secondary))",
           "name": "Gray to cyan"
         }
       ],
@@ -234,8 +219,8 @@
   },
   "styles": {
     "color": {
-      "background": "var(--wp--preset--color--primary)",
-      "text": "var(--wp--preset--color--secondary)"
+      "background": "var(--wp--preset--color--base)",
+      "text": "var(--wp--preset--color--contrast)"
     },
     "spacing": {
       "blockGap": "1.5rem"
@@ -246,20 +231,12 @@
     },
     "elements": {
       "button": {
-        ":hover": {
-          "outline": {
-            "offset": "2px",
-            "width": "2px",
-            "style": "solid",
-            "color": "var(--wp--preset--color--secondary)"
-          }
-        },
         ":focus": {
           "outline": {
             "offset": "2px",
             "width": "2px",
             "style": "solid",
-            "color": "var(--wp--preset--color--secondary)"
+            "color": "var(--wp--preset--color--contrast)"
           }
         }
       }
@@ -267,7 +244,7 @@
     "blocks": {
       "core/button": {
         "color": {
-          "background": "inherit",
+          "background": "transparent",
           "text": "currentColor"
         },
         "spacing": {
@@ -287,13 +264,25 @@
           "fontSize": "var(--wp--preset--font-size--normal)"
         }
       },
+      "core/heading": {
+        "h1": {
+          "typography": {
+            "fontSize": "var(--wp--preset--font-size--extra-large)"
+          }
+        }
+      },
+      "core/image": {
+        "spacing": {
+          "margin": "0rem"
+        }
+      },
       "core/navigation-link": {
         "color": {
-          "text": "var(--wp--preset--color--secondary)"
+          "text": "var(--wp--preset--color--contrast)"
         },
         "border": {
           "radius": "30px",
-          "color": "var(--wp--preset--color--secondary)",
+          "color": "var(--wp--preset--color--contrast)",
           "width": "1px"
         }
       },
@@ -302,13 +291,13 @@
           "padding-top": "1rem"
         },
         "border": {
-          "color": "var(--wp--preset--color--secondary)",
+          "color": "var(--wp--preset--color--contrast)",
           "width": "1px"
         }
       },
       "core/post-terms": {
         "color": {
-          "text": "var(--wp--preset--color--secondary)"
+          "text": "var(--wp--preset--color--contrast)"
         }
       },
       "core/social-links": {
@@ -319,6 +308,14 @@
             "right": "0rem",
             "bottom": "0rem",
             "left": "0rem"
+          }
+        }
+      },
+      "core/quote": {
+        "spacing": {
+          "margin": {
+            "left": "auto",
+            "right": "auto"
           }
         }
       }

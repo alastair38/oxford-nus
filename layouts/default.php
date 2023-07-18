@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="space-y-6 ">
+<article id="post-<?php the_ID(); ?>" class="w-11/12 md:w-3/4 mx-auto space-y-6"">
 
 	
 
@@ -17,7 +17,7 @@
 
 	
  		<?php get_template_part('components/default-header'); ?>
-		<div class="w-11/12 md:w-3/4 mx-auto space-y-6">
+		<div class="space-y-6">
 		
 		<?php the_content(); ?>
 

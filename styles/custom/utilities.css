@@ -24,7 +24,7 @@ blockquote.is-style-default p {
 
 .wp-block-button__link:active,
 .wp-block-button__link:visited {
-  color: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--contrast);
 }
 
 /* Basic text shadow */

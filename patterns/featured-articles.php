@@ -2,7 +2,7 @@
 /**
  * Title: Featured Articles - Add the most recent post assigned the 'Featured' label
  * Slug: blockhaus/featured-articles
- * Categories: posts 
+ * Categories: featured 
  * Description: Adds the most recent post assigned the 'Featured' label
  */
 ?>
@@ -25,7 +25,7 @@
 
 <!-- wp:post-excerpt {"showMoreOnNewLine":false} /-->
 
-<!-- wp:read-more {"content":"View article","className":"rounded-md text-sm inline-block w-fit bg-secondary text-white px-6 py-2 ring-2 ring-offset-2 ring-transparent hover:ring-secondary focus:ring-secondary"} /--></div>
+<!-- wp:read-more {"content":"View article","className":"rounded-md text-sm inline-block w-fit bg-contrast text-white px-6 py-2 ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template --></section>
