@@ -88,11 +88,19 @@ add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mime
 
 }, 10, 4 );
 
-function blockhaus_mime_types( $mimes ){
-  $mimes['svg'] = 'image/svg+xml';
-  return $mimes;
-}
-add_filter( 'upload_mimes', 'blockhaus_mime_types' );
+function add_file_types_to_uploads($file_types){
+  $new_filetypes = array();
+  $new_filetypes['svg'] = 'image/svg+xml';
+  $file_types = array_merge($file_types, $new_filetypes );
+  return $file_types;
+  }
+  add_filter('upload_mimes', 'add_file_types_to_uploads');
+
+// function blockhaus_mime_types( $mimes ){
+//   $mimes['svg'] = 'image/svg+xml';
+//   return $mimes;
+// }
+// add_filter( 'upload_mimes', 'blockhaus_mime_types' );
 
 function blockhaus_fix_svg() {
   echo '<style type="text/css">
