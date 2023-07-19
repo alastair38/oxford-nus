@@ -91,7 +91,7 @@ hr {
 }
 
 .blockhaus-hero .wp-block-post-featured-image img {
-  @apply aspect-hero;
+  @apply aspect-hero h-full;
   /* min-height: 80vh; */
 }
 

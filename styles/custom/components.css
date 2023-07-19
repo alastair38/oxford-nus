@@ -291,7 +291,7 @@ iframe {
 
 /* MOBILE NAVIGATION */
 
-[aria-expanded='true'] + .menu-primary-menu-container > ul#primary-menu {
+nav.toggled > .menu-primary-menu-container > ul#primary-menu {
   transform: translateY(0%);
   transition: 250ms;
 }

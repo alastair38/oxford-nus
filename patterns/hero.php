@@ -7,10 +7,10 @@
  */
 ?>
 
-<!-- wp:query {"queryId":0,"query":{"perPage":"1","pages":"1","offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"label":[10]}},"tagName":"section","displayLayout":{"type":"list","columns":2},"align":"full","className":"blockhaus-hero","layout":{"type":"default"}} -->
+<!-- wp:query {"queryId":0,"query":{"perPage":"1","pages":"1","offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"label":[13]}},"tagName":"section","displayLayout":{"type":"list","columns":2},"align":"full","className":"blockhaus-hero","layout":{"type":"default"}} -->
 <section class="wp-block-query alignfull blockhaus-hero"><!-- wp:post-template -->
-<!-- wp:group {"className":"grid grid-cols-2 bg-primary","layout":{"type":"constrained"}} -->
-<div class="wp-block-group grid grid-cols-2 bg-primary"><!-- wp:post-featured-image {"sizeSlug":"hero","className":"aspect-hero"} /-->
+<!-- wp:group {"className":"grid grid-cols-1 lg:grid-cols-2 bg-primary","layout":{"type":"constrained"}} -->
+<div class="wp-block-group grid grid-cols-1 lg:grid-cols-2 bg-primary"><!-- wp:post-featured-image {"sizeSlug":"hero","className":"aspect-hero w-full h-full"} /-->
 
 <!-- wp:group {"style":{"spacing":{}},"className":"flex h-full items-center","layout":{"type":"constrained"}} -->
 <div class="wp-block-group flex h-full items-center"><!-- wp:group {"style":{"spacing":{}},"className":"p-6 md:p-12 flex-1","layout":{"type":"constrained","justifyContent":"left"}} -->
