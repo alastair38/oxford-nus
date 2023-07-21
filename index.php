@@ -19,8 +19,6 @@ get_header();
 
 	<main class="main-content w-11/12 mx-auto mt-6">
 
-		
-
 		<?php
 		if ( have_posts() ) :
 

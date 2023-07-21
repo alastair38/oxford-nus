@@ -292,3 +292,18 @@ function new_author_base() {
   $wp_rewrite->author_base = $myauthor_base;
 }
 add_action('init', 'new_author_base');
+
+
+function blockhaus_modify_contributor_posts_per_page( $query ) {
+
+  // Check we're on the frontend and modifying the main query.
+  if ( ! is_admin() && $query->is_main_query() ) {
+
+      // Change to 10 posts per page when viewing contributor taxonomy.
+      if ( $query->is_tax('contributor') ) {
+          $query->set( 'posts_per_page', 10 );
+      } 
+
+  } 
+}
+add_action( 'pre_get_posts', 'blockhaus_modify_contributor_posts_per_page' );
