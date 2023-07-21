@@ -132,9 +132,25 @@ function blockhaus_meta_description() {
 }
 add_action( 'wp_head', 'blockhaus_meta_description');
 
+
+// filter title tag for resource-type tax
+
+add_filter( 'pre_get_document_title', 'filter_document_title' );
+function filter_document_title( $title ) {
+  
+  if (is_tax('resource-type')) {
+      
+    $title = 'Resources: ' . get_the_archive_title() . ' - ' . get_bloginfo('name');
+  
+    return $title;
+  }
+
+}
+
 function blockhaus_opengraph() {
   
   $img = get_field('branding', 'options');
+  $type = 'website';
   
   if($img):
     
@@ -151,6 +167,7 @@ function blockhaus_opengraph() {
     if(is_singular()) {
 
       $title = get_the_title();
+      $type = 'article';
 
       if(has_post_thumbnail($post->ID)) {
         
@@ -166,9 +183,14 @@ function blockhaus_opengraph() {
       $excerpt = get_bloginfo('description');
       }
 
-    } elseif(is_archive() && ! is_search()) {
+    } elseif(is_archive() && ! is_search() && ! is_tax('resource-type')) {
 
       $title = get_the_archive_title();
+      $excerpt = get_bloginfo('description');
+      
+    } elseif(is_tax('resource-type')) {
+      
+      $title = 'Resources: ' . get_the_archive_title();
       $excerpt = get_bloginfo('description');
 
     } elseif ( is_home() && ! is_front_page() ) {
@@ -191,7 +213,7 @@ function blockhaus_opengraph() {
     ?>
     <meta property="og:title" content="<?php echo $title; ?>"/>
     <meta property="og:description" content="<?php echo $excerpt; ?>"/>
-    <meta property="og:type" content="article"/>
+    <meta property="og:type" content="<?php echo $type; ?>"/>
     <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
     <meta property="og:image" content="<?php echo $img; ?>"/>
