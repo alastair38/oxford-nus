@@ -12,7 +12,7 @@
 <h2 class="wp-block-heading col-span-full font-black underline">Featured articles</h2>
 <!-- /wp:heading -->
 
-<!-- wp:post-template {"className":"grid grid-cols-fill gap-12"} -->
+<!-- wp:post-template {"className":"grid grid-cols-fit gap-12"} -->
 <!-- wp:group {"style":{"spacing":{}},"className":"flex flex-col h-full","layout":{"type":"constrained","justifyContent":"left"}} -->
 <div class="wp-block-group flex flex-col h-full"><!-- wp:post-featured-image {"sizeSlug":"landscape"} /-->
 

@@ -301,13 +301,17 @@ function blockhaus_header_layout() {
 	$header = new stdClass;
 	$post_type = get_post_type();
 
-	if(is_archive() && ! is_search()):
+	if(is_archive() && ! is_search() && ! is_tax('resource-type')):
 
 		$header->title = get_the_archive_title();
 
 	elseif ( is_home() && ! is_front_page() ):
 
 		$header->title = single_post_title('',false);
+		
+	elseif ( is_tax('resource-type') ):
+
+		$header->title = 'Resources: ' . get_the_archive_title();
 
 	elseif (is_search()):
 

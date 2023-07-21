@@ -41,11 +41,12 @@
 				if ( $terms != null ):
 
 				foreach( $terms as $term ) {
+				
 				$term_link = get_term_link( $term);
 				// Print the name and URL
 				echo '<a class="absolute bottom-2 right-2 flex text-sm gap-2 items-center" href="' . $term_link . '"><span>' . $term->name . '
 				</span>
-				<svg class="w-6 h-6 rounded-full bg-primary p-1" height="24" width="24"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#' . strtolower($term->name) . '" /></svg>
+				<svg class="w-6 h-6 rounded-full bg-primary p-1" height="24" width="24"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#' . strtolower($term->slug) . '" /></svg>
 
 				</a>
 				';
