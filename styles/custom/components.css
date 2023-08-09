@@ -303,12 +303,12 @@ nav.toggled > .menu-primary-menu-container > ul#primary-menu {
 
 /* STICKY HEADER */
 
-header.logo-scale .logo {
+header.logo-scale .logo svg {
   height: 2rem;
   transition: 500ms;
 }
 
-header .logo {
+header .logo svg {
   transition: 500ms;
 }
 

@@ -1396,12 +1396,12 @@ nav.toggled > .menu-primary-menu-container > ul#primary-menu {
 
 /* STICKY HEADER */
 
-header.logo-scale .logo {
+header.logo-scale .logo svg {
   height: 2rem;
   transition: 500ms;
 }
 
-header .logo {
+header .logo svg {
   transition: 500ms;
 }
 
@@ -2474,6 +2474,10 @@ body.theme_funky {
   height: 2.5rem;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -2484,10 +2488,6 @@ body.theme_funky {
 
 .h-6 {
   height: 1.5rem;
-}
-
-.h-8 {
-  height: 2rem;
 }
 
 .h-full {
@@ -3259,10 +3259,6 @@ blockquote.is-style-default p {
 
   .md\:inline-block {
     display: inline-block;
-  }
-
-  .md\:h-12 {
-    height: 3rem;
   }
 
   .md\:w-3\/4 {

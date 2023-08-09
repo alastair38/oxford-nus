@@ -35,15 +35,13 @@
 		<div class="flex justify-between items-center">
 		<div class="flex items-center gap-2">
 
-			<a class="logo h-4 md:h-12 flex gap-2 items-center" aria-label="Home page" rel="home" href="/">
+			<a class="logo flex gap-2 items-center" aria-label="Home page" rel="home" href="/">
 			
-			<figure class="aspect-square flex items-center justify-center">
-			<img class="logo h-4 md:h-12 p-1" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/man.webp" alt="">
-		</figure>
+		
 				
 		<svg
 		aria-hidden="true"
-	class="h-8 w-auto"
+	class="h-12 w-auto"
    width="379.41858mm"
    height="62.751244mm"
    viewBox="0 0 379.41858 62.751244"
