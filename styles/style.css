@@ -2486,6 +2486,10 @@ body.theme_funky {
   height: 1.5rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .h-full {
   height: 100%;
 }
@@ -2518,6 +2522,10 @@ body.theme_funky {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .w-fit {
@@ -2940,11 +2948,6 @@ body.theme_funky {
   color: currentColor;
 }
 
-.text-gray-500 {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
 .text-neutral-dark-900 {
   color: var(--wp--preset--color--neutral-dark-900);
 }
@@ -2996,6 +2999,10 @@ body.theme_funky {
 
 .ring-offset-primary {
   --tw-ring-offset-color: var(--wp--preset--color--primary);
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition-colors {
