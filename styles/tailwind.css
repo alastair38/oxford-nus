@@ -7,14 +7,4 @@
 @import '/custom/cookies.css';
 @import 'tailwindcss/utilities';
 @import '/custom/utilities.css';
-
-/*
-@layer base {
-  :root {
-    --color-base: 0deg 0% 100%;
-    --color-contrast: 221deg 39% 11%;
-    --color-primary: 48deg 95.8% 53.1%;
-    --color-secondary: 188deg 76% 57.5%;
-  }
-}
-*/
+@import '/custom/editor.css';

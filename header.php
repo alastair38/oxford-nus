@@ -41,7 +41,7 @@
 				
 		<svg
 		aria-hidden="true"
-	class="h-12 w-auto"
+	class="h-4 md:h-12 w-auto"
    width="379.41858mm"
    height="62.751244mm"
    viewBox="0 0 379.41858 62.751244"
