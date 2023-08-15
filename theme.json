@@ -72,7 +72,9 @@
       }
     },
     "spacing": {
-      "blockGap": true
+      "blockGap": true,
+      "margin": true,
+      "padding": true
     },
     "typography": {
       "fluid": true,
@@ -284,6 +286,16 @@
           "radius": "30px",
           "color": "var(--wp--preset--color--contrast)",
           "width": "1px"
+        }
+      },
+      "core/query": {
+        "spacing": {
+          "blockGap": "0rem"
+        }
+      },
+      "core/post-template": {
+        "spacing": {
+          "blockGap": "0rem"
         }
       },
       "core/separator": {

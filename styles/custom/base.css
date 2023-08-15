@@ -94,18 +94,3 @@ hr {
   @apply aspect-hero h-full;
   /* min-height: 80vh; */
 }
-
-blockquote {
-  position: relative;
-  z-index: 1;
-}
-
-blockquote:before {
-  content: '';
-
-  @apply absolute left-4 top-2 -z-0 inline-block aspect-square h-1/2 rounded-full border-4 border-double border-primary opacity-10 outline-double outline-4 outline-offset-2 outline-primary;
-}
-
-ul.wp-block-post-template li {
-  margin-block-start: 0;
-}

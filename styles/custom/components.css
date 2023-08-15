@@ -141,38 +141,14 @@
   @apply rounded-full border border-current;
 }
 
-blockquote.blockhaus-quote:before {
-  content: '\201C';
-  font-size: 8rem;
-  width: auto;
-  height: 100%;
-  display: flex;
-  padding: 1rem;
-  line-height: 100%;
-  align-items: top;
-  font-family: serif;
-  text-shadow: 2px 2px var(--wp--preset--color--accent);
-  position: absolute;
-  top: 0rem;
-  bottom: 0rem;
-  left: 0rem;
+blockquote p {
+  position: relative;
+  z-index: 1;
 }
 
-blockquote.blockhaus-quote:after {
-  content: '\201D';
-  font-size: 8rem;
-  width: auto;
-  height: 100%;
-  display: flex;
-  padding: 1rem;
-  line-height: 0;
-  align-items: flex-end;
-  font-family: serif;
-  text-shadow: 2px 2px var(--wp--preset--color--accent);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
+blockquote::before {
+  content: '';
+  @apply absolute left-4 top-2 -z-0 inline-block aspect-square h-1/2 rounded-full border-4 border-double border-primary opacity-10 outline-double outline-4 outline-offset-2 outline-primary;
 }
 
 .grain-dots {
