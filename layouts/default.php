@@ -17,7 +17,7 @@
 
 	
  		<?php get_template_part('components/default-header'); ?>
-		<div class="space-y-6">
+		<div id="content" class="space-y-6">
 		
 		<?php the_content(); ?>
 

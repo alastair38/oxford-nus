@@ -11,7 +11,7 @@ $social_sharing = get_field('sharing_enabled');
 
 ?>
 
-<div class="space-y-6 md:col-span-2">
+<div id="content" class="space-y-6 md:col-span-2">
 		<?php
 
 		the_content();

@@ -1667,8 +1667,8 @@ hr {
   /* min-height: 80vh; */
 }
 
-.main-content article ul,
-.main-content article ol {
+#content ul,
+#content ol {
   list-style: revert;
   margin: revert;
   padding: revert;

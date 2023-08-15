@@ -47,7 +47,7 @@ if ( ! function_exists( 'blockhaus_posted_by' ) ) :
 		$authors = get_the_terms( $post->ID , 'contributor' );
 		
 		if (  isset($authors) && !empty($authors)):
-      echo '<ul aria-label="article authors" class="flex font-black gap-1">';
+      echo '<ul aria-label="article authors" class="flex p-0 font-black gap-1">';
       foreach( $authors as $key => $author ) {
       $author_link = get_term_link( $author);?>
       <li class="flex">
