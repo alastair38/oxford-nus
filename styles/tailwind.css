@@ -289,8 +289,7 @@ nav.toggled > .menu-primary-menu-container > ul#primary-menu {
 /* STICKY HEADER */
 
 header.logo-scale .logo svg {
-  height: 2rem;
-  transition: 500ms;
+  @apply h-4 transition duration-500 md:h-8;
 }
 
 header .logo svg {
