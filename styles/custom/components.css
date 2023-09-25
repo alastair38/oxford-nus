@@ -85,32 +85,6 @@
   @apply rounded-br-md bg-grain-dots;
 }
 
-/* .blockhaus-mission:after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 100px;
-  height: 100px;
-  bottom: 1rem;
-  left: 1rem;
-  clip-path: polygon(0 0, 100% 100%, 0 100%);
-  background-color: var(--wp--preset--color--accent);
-  @apply bg-grain-dots rounded-bl-md;
-}
-
-.blockhaus-mission:before {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 100px;
-  height: 100px;
-  top: 1rem;
-  right: 1rem;
-  clip-path: polygon(100% 0, 0 0, 100% 100%);
-  background-color: var(--wp--preset--color--accent);
-  @apply bg-grain-dots rounded-tr-md;
-} */
-
 [class*='blockhaus-profile'] img {
   @apply w-full md:w-auto;
 }
@@ -300,6 +274,12 @@ header .logo svg {
 
 .wp-block-social-links.is-style-logos-only .wp-social-link svg {
   @apply h-6 w-6 md:h-8 md:w-8;
+}
+
+/* FOOTNOTES BLOCK */
+
+#content ol.wp-block-footnotes li {
+  @apply py-4;
 }
 
 /* LOGIN FORM */
