@@ -47,7 +47,7 @@ if ( ! function_exists( 'blockhaus_posted_by' ) ) :
 		$authors = get_the_terms( $post->ID , 'contributor' );
 		
 		if (  isset($authors) && !empty($authors)):
-      echo '<ul aria-label="article authors" class="flex p-0 font-black gap-1">';
+      echo '<ul aria-label="article authors" class="flex flex-wrap p-0 font-black gap-1">';
       foreach( $authors as $key => $author ) {
       $author_link = get_term_link( $author);?>
       <li class="flex">
@@ -71,6 +71,43 @@ if ( ! function_exists( 'blockhaus_posted_by' ) ) :
 
 	}
 endif;
+
+
+/**
+ * Sort contributer taxonomy by term_order
+ *
+ * @param array $terms array of objects to be replaced with sorted list
+ * @param integer $id post id
+ * @param string $taxonomy only 'post_tag' is changed.
+ * @return array of objects
+ */
+function plugin_get_the_ordered_terms ( $terms, $id, $taxonomy ) {
+	if ( 'contributor' != $taxonomy ) // only ordering tags for now but could add other taxonomies here.
+			return $terms;
+
+	$terms = wp_cache_get($id, "{$taxonomy}_relationships_sorted");
+	if ( false === $terms ) {
+			$terms = wp_get_object_terms( $id, $taxonomy, array( 'orderby' => 'term_order' ) );
+			wp_cache_add($id, $terms, $taxonomy . '_relationships_sorted');
+	}
+
+	return $terms;
+}
+
+add_filter( 'get_the_terms', 'plugin_get_the_ordered_terms' , 10, 4 );
+
+// hides taxonomies in Gutenberg if 'No Meta Box' is used when registering 
+
+add_filter( 'rest_prepare_taxonomy', function( $response, $taxonomy, $request ) {
+	$context = ! empty( $request['context'] ) ? $request['context'] : 'view';
+	// Context is edit in the editor
+	if( $context === 'edit' && $taxonomy->meta_box_cb === false ){
+			$data_response = $response->get_data();
+			$data_response['visibility']['show_ui'] = false;
+			$response->set_data( $data_response );
+	}
+	return $response;
+}, 10, 3 );
 
 if ( ! function_exists( 'blockhaus_entry_footer' ) ) :
 	/**

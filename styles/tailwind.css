@@ -2,9 +2,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.is-root-container {
+/* .is-root-container {
   @apply space-y-6;
-}
+} */
 
 html,
 body {
