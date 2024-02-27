@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="main-content w-11/12 mx-auto mt-12">
+	<main id="primary" class="main-content w-11/12 mx-auto">
 
 		<?php
 		while ( have_posts() ) :

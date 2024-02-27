@@ -1,0 +1,64 @@
+/*=====================================
+ Forms CSS
+========================================*/
+
+/* LOGIN FORM */
+
+form#loginform {
+  @apply flex flex-col items-center justify-center gap-6;
+}
+
+form#loginform p {
+  @apply flex flex-col items-center justify-center gap-2;
+}
+
+form#loginform p.login-remember label {
+  @apply mt-6 flex cursor-pointer flex-row-reverse items-center gap-2;
+}
+
+form#loginform label {
+  @apply text-contrast;
+}
+
+form#loginform [type='checkbox'] {
+  @apply h-6 w-6 rounded-full text-contrast focus:ring-contrast;
+}
+
+form#loginform [type='password'],
+form#loginform [type='text'] {
+  @apply rounded-full border border-neutral-light-500 bg-white py-1 ring-transparent ring-offset-2 focus:ring-2 focus:ring-contrast;
+}
+
+form#loginform input#wp-submit {
+  @apply inline-block w-fit cursor-pointer rounded-md bg-contrast px-6 py-2 text-white ring-transparent ring-offset-2 hover:ring-2 hover:ring-contrast focus:ring-2 focus:ring-contrast;
+}
+
+/* SEARCH FORM */
+
+.blockhaus-search input[type='search'] {
+  @apply border border-current px-4 py-1 shadow-retro focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green-400;
+}
+
+.blockhaus-search label {
+  @apply sr-only;
+}
+
+.blockhaus-search button {
+  @apply rounded-full border border-current;
+}
+
+/* WP FORMS OVERRIDES */
+
+form.wpforms-form {
+  @apply rounded-md border border-primary bg-white p-6;
+}
+
+/* input[type='text'],
+input[type='email'],
+textarea {
+  @apply border py-1 px-3 my-1 border-gray-300 bg-gray-50 rounded-sm;
+} */
+
+.wpforms-form button[type='submit'] {
+  @apply rounded-full border border-current bg-neutral-light-100 px-3 py-1 hover:bg-base focus:bg-base;
+}

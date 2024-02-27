@@ -1,5 +1,5 @@
 /*=====================================
- Comment Template CSS
+ Comments CSS
 ========================================*/
 
 article.comment-body {
@@ -83,11 +83,11 @@ article.comment-body {
 }
 
 .comment-reply-link {
-  @apply rounded-md text-sm inline-block w-fit bg-contrast text-white px-4 py-1 hover:ring-2 focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast;
+  @apply inline-block w-fit rounded-md bg-contrast px-4 py-1 text-sm text-white ring-transparent ring-offset-2 hover:ring-2 hover:ring-contrast focus:ring-2 focus:ring-contrast;
 }
 
 .comment-edit-link {
-  @apply rounded-full inline-block w-fit bg-neutral-dark-500 text-tiny text-white px-2 hover:bg-contrast focus:bg-contrast ml-2;
+  @apply ml-2 inline-block w-fit rounded-full bg-neutral-dark-500 px-2 text-tiny text-white hover:bg-contrast focus:bg-contrast;
 }
 
 .comment-form-comment label {
@@ -124,7 +124,7 @@ article.comment-body {
 }
 
 .comment-list li.comment:last-child {
-  @apply border-b-0 pb-0 mb-0;
+  @apply mb-0 border-b-0 pb-0;
 }
 
 .comment-respond,
@@ -133,11 +133,11 @@ article.comment-body {
 }
 
 .comment-respond {
-  @apply p-8 mt-8 bg-neutral-light-100 relative;
+  @apply relative mt-8 bg-neutral-light-100 p-8;
 }
 
 .logged-in-as {
-  @apply w-fit absolute right-8 top-8 text-sm px-3 py-1 rounded-full bg-white;
+  @apply absolute right-8 top-8 w-fit rounded-full bg-white px-3 py-1 text-sm;
 }
 
 .logged-in-as a,
@@ -159,11 +159,11 @@ article.comment-body {
 }
 
 .comment-form input[type='submit'] {
-  @apply rounded-md text-sm inline-block w-fit bg-contrast text-white px-6 py-2 hover:ring-2 focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast;
+  @apply inline-block w-fit rounded-md bg-contrast px-6 py-2 text-sm text-white ring-transparent ring-offset-2 hover:ring-2 hover:ring-contrast focus:ring-2 focus:ring-contrast;
 }
 
 #wp-comment-cookies-consent {
-  @apply w-6 h-6 rounded-full text-primary;
+  @apply h-6 w-6 rounded-full text-primary;
 }
 
 form#commentform {
@@ -175,7 +175,7 @@ form p {
 }
 
 .comment-form-cookies-consent {
-  @apply flex gap-4 items-center py-6 space-y-0;
+  @apply flex items-center gap-4 space-y-0 py-6;
 }
 
 form#commentform p input[type='text'],

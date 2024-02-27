@@ -172,15 +172,15 @@ add_action( 'admin_head', 'blockhaus_fix_svg' );
 
 // Custom excerpt to take the first paragraph of content if the_excerpt does not exist
 
-add_filter( 'wp_trim_excerpt', 'blockhaus_custom_excerpt', 10, 2 );
+// add_filter( 'wp_trim_excerpt', 'blockhaus_custom_excerpt', 10, 2 );
 
-function blockhaus_custom_excerpt($text, $raw_excerpt) {
-    if( ! $raw_excerpt ) {
-        $content = apply_filters( 'the_content', get_the_content() );
-        $text = substr( $content, 0, strpos( $content, '</p>' ) + 4 );
-    }
-    return $text;
-}
+// function blockhaus_custom_excerpt($text, $raw_excerpt) {
+//     if( ! $raw_excerpt ) {
+//         $content = apply_filters( 'the_content', get_the_content() );
+//         $text = substr( $content, 0, strpos( $content, '</p>' ) + 4 );
+//     }
+//     return $text;
+// }
 
 // Ajaxify comments
 
@@ -251,16 +251,7 @@ function blockhaus_submit_ajax_comment(){
 	
 }
 
-// order resources archive and resource-type archives alphabetically
 
-add_action( 'pre_get_posts', function ( $query ) {
-	if (( $query->is_post_type_archive('resource') && $query->is_main_query()) || is_tax('resource-type') ) { 
-    
-		$query->set( 'order', 'ASC' );
-		$query->set( 'orderby', 'title' );
-	  
-	};
-} );
 
 function remove_author_column( $columns ) {
   unset($columns['author']);
@@ -293,17 +284,19 @@ function new_author_base() {
 }
 add_action('init', 'new_author_base');
 
+// order archives depending on post type
 
-function blockhaus_modify_contributor_posts_per_page( $query ) {
+function blockhaus_modify_archive_order( $query ) {
 
   // Check we're on the frontend and modifying the main query.
   if ( ! is_admin() && $query->is_main_query() ) {
 
-      // Change to 10 posts per page when viewing contributor taxonomy.
-      if ( $query->is_tax('contributor') ) {
-          $query->set( 'posts_per_page', 10 );
-      } 
+      // Change to order to A-Z.
+      if ( $query->is_post_type_archive('project') ) {
+        $query->set( 'order', 'ASC' );
+        $query->set( 'orderby', 'title' );
+      }  
 
   } 
 }
-add_action( 'pre_get_posts', 'blockhaus_modify_contributor_posts_per_page' );
+add_action( 'pre_get_posts', 'blockhaus_modify_archive_order' );

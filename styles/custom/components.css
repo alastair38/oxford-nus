@@ -1,16 +1,5 @@
 /* FRONT PAGE */
 
-.blockhaus-gallery
-  .wp-block-gallery.has-nested-images
-  figure.wp-block-image
-  figcaption {
-  @apply bg-white bg-none p-1 text-gray-900;
-}
-
-#hero-curves {
-  @apply z-10 row-start-1 place-self-end;
-}
-
 .grid-hero figure,
 .grid-hero figure img {
   @apply h-96 w-full object-cover md:h-full;
@@ -34,65 +23,6 @@
   }
 }
 
-.triangles-default:after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 10%;
-  aspect-ratio: 1 / 1;
-  bottom: 1rem;
-  left: 1rem;
-  clip-path: polygon(0 0, 100% 100%, 0 100%);
-  /* background-color: var(--wp--preset--color--accent-secondary); */
-  @apply rounded-bl-md bg-secondary bg-grain-dots;
-}
-
-.triangles-default:before {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 10%;
-  aspect-ratio: 1 / 1;
-  top: 1rem;
-  right: 1rem;
-  clip-path: polygon(100% 0, 0 0, 100% 100%);
-  @apply rounded-tr-md bg-secondary bg-grain-dots;
-}
-
-.triangles-alternate:after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 10%;
-  aspect-ratio: 1 / 1;
-  top: 1rem;
-  left: 1rem;
-  clip-path: polygon(100% 0, 0 0, 0 100%);
-  background-color: var(--wp--preset--color--accent-tertiary);
-  @apply rounded-tl-md bg-grain-dots;
-}
-
-.triangles-alternate:before {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 10%;
-  aspect-ratio: 1 / 1;
-  bottom: 1rem;
-  right: 1rem;
-  clip-path: polygon(100% 100%, 100% 0, 0 100%);
-  background-color: var(--wp--preset--color--accent-tertiary);
-  @apply rounded-br-md bg-grain-dots;
-}
-
-[class*='blockhaus-profile'] img {
-  @apply w-full md:w-auto;
-}
-
-[class*='blockhaus-quote'] cite {
-  @apply max-w-fit rounded-full bg-base px-2;
-}
-
 .tax-contributor .grid article:first-of-type,
 .tax-contributor .grid > header {
   @apply col-span-3;
@@ -113,20 +43,6 @@
 
 .blockhaus-search button {
   @apply rounded-full border border-current;
-}
-
-blockquote p {
-  position: relative;
-  z-index: 1;
-}
-
-blockquote::before {
-  content: '';
-  @apply absolute left-4 top-2 -z-0 inline-block aspect-square h-1/2 rounded-full border-4 border-double border-primary opacity-10 outline-double outline-4 outline-offset-2 outline-primary;
-}
-
-.grain-dots {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%230f0f0f' fill-opacity='.25' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 
 iframe {
@@ -158,28 +74,6 @@ iframe {
 .post-template-grid li img {
   aspect-ratio: 5/3;
   object-fit: cover;
-}
-
-.slanted {
-  clip-path: polygon(0% 10%, 100% 0%, 100% 90%, 0% 100%);
-}
-
-.slanted-top {
-  clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-#team-gallery figure {
-  position: relative;
-}
-
-#team-gallery figure figcaption {
-  position: absolute;
-  background: inherit;
-  font-size: 1rem;
-  bottom: 0.5rem;
-
-  right: 1.5rem;
-  transform: rotate(-1deg);
 }
 
 /* POSTS & PAGES */
@@ -221,17 +115,14 @@ iframe {
   @apply ml-auto;
 }
 
+.single .nav-previous,
+.single .nav-next {
+  @apply w-2/5 md:w-1/4;
+}
+
 .nav-previous a,
 .nav-next a {
-  @apply flex items-center rounded-full bg-primary py-1 text-sm text-neutral-dark-900 ring-2 ring-transparent ring-offset-2 transition-all duration-150 hover:ring-primary focus:ring-primary;
-}
-
-.single .nav-next a {
-  @apply pl-3 pr-1;
-}
-
-.single .nav-previous a {
-  @apply pl-1 pr-3;
+  @apply flex items-center rounded-full border-primary py-1 text-sm text-neutral-dark-900 ring-2 ring-transparent ring-offset-2 transition-all duration-150 hover:ring-primary focus:ring-primary;
 }
 
 .nav-previous a,

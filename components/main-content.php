@@ -7,21 +7,49 @@
  * @package blockhaus
  */
 
-$social_sharing = get_field('sharing_enabled');
+
 
 ?>
 
-<div id="content" class="space-y-6 md:col-span-2">
-		<?php
+<div class="space-y-12 mb-0 md:mb-12">
+	<div id="content" class="space-y-6">
+			<?php
 
-		the_content();
+			the_content();
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'blockhaus' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'blockhaus' ),
+					'after'  => '</div>',
+				)
+			);
+			
+			?>
 
-</div><!-- .entry-content -->
+	</div><!-- #content -->
+	<?php if(function_exists('get_field')):
+			
+		$outputs = get_field('outputs');
+				
+	endif;
+			
+	if(! empty($outputs)):?>
+		
+		<aside id="outputs" class="space-y-6 bg-neutral-light-100 p-6">
+			<h2 class="font-black underline"><?php echo esc_html__( 'Outputs', 'blockhaus' );?></h2>
+			<ul class="grid grid-cols-1 gap-6">
+				
+			<?php foreach($outputs as $output):?>
+					
+				<li class="grid gap-2"><a class="font-bold" href="<?php echo get_the_permalink($output->ID);?>"><?php echo $output->post_title;?></a>
+				<div class="text-sm">
+			<?php echo $output->post_content;?></div>
+			</li>
+					
+			<?php	endforeach;?>
+				
+			</ul>
+		</aside> <!-- #outputs -->
+		
+	<?php endif;?>
+</div>

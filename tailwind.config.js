@@ -21,7 +21,18 @@ module.exports = {
     'ring-offset-primary',
     'grid-cols-fit',
     'grid-cols-fill',
+    'grid-cols-2',
+    'grid-cols-3',
+    'grid-cols-4',
+    'col-start-3',
+    'shadow-md',
+    'shadow-xl',
     'sticky',
+    'w-3/4',
+    'w-1/2',
+    'inset-0',
+    'h-8',
+    'mt-auto',
   ],
   theme: {
     screens: {
@@ -55,6 +66,27 @@ module.exports = {
       gigantic: 'var(--wp--preset--font-size--gigantic)',
       display: 'var(--wp--preset--font-size--display)',
     },
+    backgroundPosition: {
+      bottom: 'bottom',
+      'bottom-4': 'center bottom 1rem',
+      center: 'center',
+      left: 'left',
+      'left-bottom': 'left bottom',
+      'left-top': 'left top',
+      right: 'right',
+      'right-bottom': 'right bottom',
+      'right-top': 'right top',
+      top: 'top',
+      'top-4': 'center top 1rem',
+      'polka-pos': '0px 0px, 8px 8px',
+    },
+    backgroundSize: {
+      auto: 'auto',
+      cover: 'cover',
+      contain: 'contain',
+      'polka-size': '16px 16px',
+      'check-size': '8px 8px',
+    },
     extend: {
       colors: {
         base: 'var(--wp--preset--color--base)',
@@ -76,14 +108,12 @@ module.exports = {
       },
       backgroundImage: {
         gradient: 'var(--wp--preset--gradient--gray-to-cyan)',
-        'grain-dots':
-          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%230f0f0f' fill-opacity='.5' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\")",
-        curves:
-          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='visual' viewBox='0 0 900 600' width='900' height='600'%3E%3Cpath d='M584 600L596 550C608 500 632 400 588.5 300C545 200 434 100 378.5 50L323 0L900 0L900 50C900 100 900 200 900 300C900 400 900 500 900 550L900 600Z' fill='%23bfbfbf40'%3E%3C/path%3E%3Cpath d='M251 600L303.5 550C356 500 461 400 455 300C449 200 332 100 273.5 50L215 0L324 0L379.5 50C435 100 546 200 589.5 300C633 400 609 500 597 550L585 600Z' fill='%23ffffff50'%3E%3C/path%3E%3Cpath d='M0 600L0 550C0 500 0 400 0 300C0 200 0 100 0 50L0 0L216 0L274.5 50C333 100 450 200 456 300C462 400 357 500 304.5 550L252 600Z' fill='%23cccbcb3b'%3E%3C/path%3E%3C/svg%3E\")",
-        waves:
-          "url('/wp-content/themes/blockhaus/assets/images/backgrounds/waves.svg')",
-        'waves-alt':
-          "url('/wp-content/themes/blockhaus/assets/images/backgrounds/waves-45.svg')",
+        polka:
+          'radial-gradient(rgba(0, 0, 0, .125) 10%, transparent 10%),radial-gradient(rgba(0, 0, 0, .125) 10%, transparent 10%)',
+        checked:
+          'linear-gradient(rgb(0 0 0 / 3%) 1px, transparent 1px), linear-gradient(to right, rgb(0 0 0 / 3%) 1px, transparent 1px)',
+        horizontal:
+          'repeating-linear-gradient(45deg, rgb(0 0 0 / 3%) 0, rgb(0 0 0 / 3%) 0.8px, transparent 0, transparent 50%)',
       },
       aspectRatio: {
         hero: '16 / 11',
@@ -97,7 +127,8 @@ module.exports = {
       gridTemplateColumns: {
         // Complex site-specific column configuration
         fit: 'repeat(auto-fit, minmax(300px, 1fr))',
-        fill: 'repeat(auto-fill, minmax(300px, 1fr))',
+        fill: 'repeat(auto-fill, minmax(300px, 75ch))',
+        prose: 'minmax(300px, 75ch) 1fr',
       },
       typography: {
         DEFAULT: {

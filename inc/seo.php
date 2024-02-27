@@ -11,16 +11,7 @@ function blockhaus_meta_description() {
   global $post;
   if ( is_singular() && !is_front_page() ) {
       
-      $authors = get_the_terms( $post->ID , 'contributor' );
-      
-      if(!empty($authors)):
-        $metaAuthors = [];
-        foreach($authors as $author) {
-          array_push($metaAuthors, $author->name);
-        }
-        
-        $allAuthors = implode( ', ', $metaAuthors );
-      endif;
+     
     
       $post_description = strip_tags($post->post_content);
       // $post_description = strip_shortcodes( $post->post_content );
@@ -29,9 +20,7 @@ function blockhaus_meta_description() {
       $post_description = normalize_whitespace($post_description);
       echo '<meta name="description" content="' . $post_description . '" />' . "\n";
       
-      if(isset($allAuthors)):
-      echo '<meta name="author" content="' . $allAuthors . '" />' . "\n";
-      endif;
+    
   }
   
   if ( is_home() && !is_front_page() ) {

@@ -9,8 +9,7 @@
 
 ?>
 
-<div class="blockhaus-social-share">
-
+<div>
 <p class="sr-only"><?php _e( 'Share this', 'blockhaus' );?></p>
 
 <ul class="flex gap-6 justify-between">

@@ -67,11 +67,18 @@ function blockhaus_dashboard_widget_render() {
   // Display whatever you want to show.
   $count_posts = wp_count_posts();
   $count_pages = wp_count_posts('page');
-  $users = count_users();
-  if($users['total_users'] === 1):
-    $user_label = 'user';
+  $users = wp_count_posts('person');
+  if($users->publish === 1):
+    $user_label = 'person';
   else:
-    $user_label = 'users';
+    $user_label = 'people';
+  endif;
+  
+  $grants = wp_count_posts('grant');
+  if($grants->publish === 1):
+    $grant_label = 'grant';
+  else:
+    $grant_label = 'grants';
   endif;
 
   $current_user = wp_get_current_user();
@@ -91,25 +98,25 @@ function blockhaus_dashboard_widget_render() {
   </div>
   <div class="dashboard-card">
     <span class="number">
-    <?php esc_html_e( $users['total_users'] , "blockhaus" );?>
+    <?php esc_html_e( $users->publish , "blockhaus" );?>
     </span>
     
     <span class="post-type">
     <?php esc_html_e( $user_label, "blockhaus" );?>
     </span>
     <div class="actions">
-      <a aria-label="View all users" href="/wp-admin/users.php">
+      <a aria-label="View all users" href="/wp-admin/edit.php?post_type=person">
         <svg aria-hidden="none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
         </svg>
-        <?php esc_html_e('users' , "blockhaus" );?>
+        <?php esc_html_e('people' , "blockhaus" );?>
       </a>
-      <a aria-label="Add new user" href="/wp-admin/user-new.php">
+      <a aria-label="Add new user" href="/wp-admin/post-new.php?post_type=person">
         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
         </svg>
-        <?php esc_html_e('User' , "blockhaus" );?>
+        <?php esc_html_e('Person' , "blockhaus" );?>
       </a>
     </div>
   </div>
@@ -160,8 +167,33 @@ if($cpts):
   <?php
   endif;
  }
-endif;
-?>
+endif;?>
+
+<div id="grants" class="dashboard-card">
+    <span class="number">
+    <?php esc_html_e( $grants->publish , "blockhaus" );?>
+    </span>
+    
+    <span class="post-type">
+    <?php esc_html_e( $grant_label, "blockhaus" );?>
+    </span>
+    <div class="actions">
+      <a aria-label="View all users" href="/wp-admin/edit.php?post_type=grant">
+        <svg aria-hidden="none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+        <?php esc_html_e('grants' , "blockhaus" );?>
+      </a>
+      <a aria-label="Add new user" href="/wp-admin/post-new.php?post_type=grant">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+        </svg>
+        <?php esc_html_e('Grant' , "blockhaus" );?>
+      </a>
+    </div>
+  </div>
+
 
   <div class="dashboard-card settings">
     <a href="/wp-admin/admin.php?page=theme-options">
@@ -180,4 +212,13 @@ function blockhaus_admin_bar_remove_logo() {
 }
 add_action( 'wp_before_admin_bar_render', 'blockhaus_admin_bar_remove_logo', 0 );
 
-  
+
+add_filter( 'manage_project_posts_columns', 'remove_project_columns' );
+
+function remove_project_columns( $columns ) {
+    unset($columns['date']);
+    unset($columns['categories']);
+    unset($columns['label']);
+   
+    return $columns;
+}

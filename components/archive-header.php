@@ -16,6 +16,7 @@ $term = get_queried_object();
 $image = get_field('author_image', $term);
 $contact = get_field('contact', $term);
 $post_type = get_post_type();
+$description = get_field($post_type . '_description', 'option');
 $post_type_obj = get_post_type_object( $post_type);
 
 ?>
@@ -70,27 +71,15 @@ if(!empty($contact['email']) ||!empty($contact['website']) || !empty($contact['t
 <?php
 				if(is_post_type_archive() || is_home()):
 					
+				if(!empty($description)):
+					
+					echo '<p>' . $description . '</p>';
+					
+				endif;
+					
 				echo blockhaus_custom_form($post_type_obj->labels->name, $post_type); 
 				
 				endif;?>
-				
-<p class="text-center">
-	
-<?php 
 
-if(is_tax('contributor')):
-
-	if($term->count === 1):
-
-		_e( $term->count . ' article contributed', 'blockhaus' );
-		
-	else:
-		
-		_e($term->count . ' articles contributed', 'blockhaus' );
-		
-	endif;
-
-endif;?>
-</p>
 	</div>
 </header><!-- .page-header -->

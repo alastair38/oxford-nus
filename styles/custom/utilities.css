@@ -1,19 +1,9 @@
-/* SETTING SOME DEFAULTS FOR FIGURE / FIGCAPTION */
-
-address {
-  @apply not-italic;
-}
-
-figure img {
-  @apply object-cover;
-}
-
-figcaption {
-  @apply px-2 text-center;
-}
+/*=====================================
+ Blockhaus Utilities CSS
+========================================*/
 
 blockquote.is-style-default {
-  @apply border-t border-b border-b-current border-t-current w-fit mx-auto p-6 text-center border-l-0;
+  @apply mx-auto w-fit border-b border-l-0 border-t border-b-current border-t-current p-6 text-center;
 }
 
 blockquote.is-style-default p {
@@ -27,6 +17,11 @@ blockquote.is-style-default p {
   color: var(--wp--preset--color--contrast);
 }
 
+a.wp-block-button__link.wp-element-button:hover,
+a.wp-block-read-more:hover {
+  @apply outline outline-2 outline-offset-2 outline-contrast;
+}
+
 /* Basic text shadow */
 
 .blockhaus-text-shadow {
@@ -38,4 +33,31 @@ blockquote.is-style-default p {
 
 .blockhaus-gradient-bg {
   background-image: var(--wp--preset--gradient--gray-to-cyan);
+}
+
+.drop-shadow {
+  @apply drop-shadow-2xl filter;
+}
+
+.balanced {
+  max-inline-size: 50ch;
+  text-wrap: balance;
+}
+
+.highlighted {
+  @apply relative mx-auto flex w-fit items-center;
+}
+
+.highlighted:after {
+  @apply ml-4 h-10 w-10 bg-primary;
+  content: '';
+  background-size: 70%;
+  background-position: center;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="0 0 48 48"%3E%3Cg fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"%3E%3Cpath d="M29 37H11V19"%2F%3E%3Cpath d="M11 36.9998L36.4559 11.5439"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.polka {
+  @apply bg-polka bg-polka-size bg-polka-pos;
 }

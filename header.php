@@ -31,79 +31,13 @@
 <div id="page-blockhaus" class="flex flex-col">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'blockhaus' ); ?></a>
 
-	<header id="masthead" class="main-header bg-neutral-light-100 md:bg-base top-0 left-0 right-0 z-50 p-2 flex flex-col lg:p-6">
+	<header id="masthead" class="main-header bg-neutral-light-100 md:bg-base top-0 left-0 right-0 z-50 p-3 flex flex-col lg:p-6">
 		<div class="flex justify-between items-center">
 		<div class="flex items-center gap-2">
 
 			<a class="logo flex gap-2 items-center" aria-label="Home page" rel="home" href="/">
 			
-		
-				
-		<svg
-		aria-hidden="true"
-	class="h-4 md:h-12 w-auto"
-   width="379.41858mm"
-   height="62.751244mm"
-   viewBox="0 0 379.41858 62.751244"
-   version="1.1"
-   id="svg1"
-   sodipodi:docname="Unnamed document 1"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#eeeeee"
-     borderopacity="1"
-     inkscape:showpageshadow="0"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#505050"
-     inkscape:document-units="mm"
-     showgrid="true">
-    <inkscape:grid
-       id="grid10"
-       units="px"
-       originx="-209.14116"
-       originy="-237.78539"
-       spacingx="0.26458333"
-       spacingy="0.26458333"
-       empcolor="#0099e5"
-       empopacity="0.30196078"
-       color="#0099e5"
-       opacity="0.14901961"
-       empspacing="5"
-       dotted="false"
-       gridanglex="30"
-       gridanglez="30"
-       visible="true" />
-  </sodipodi:namedview>
-  <defs
-     id="defs1" />
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-55.335267,-62.914051)">
-    <text
-       xml:space="preserve"
-       style="font-weight:bold;font-size:64.692px;line-height:0.8;font-family:'Gill Sans MT';-inkscape-font-specification:'Gill Sans MT Bold';fill:#00cfe3;fill-opacity:1;stroke-width:0.485191;stroke-linecap:round;stroke-linejoin:bevel"
-       x="50.806824"
-       y="111.43305"
-       id="text1"
-       inkscape:export-filename="logo_somatos.svg"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96"><tspan
-         sodipodi:role="line"
-         id="tspan1"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'M+ 1mn';-inkscape-font-specification:'M+ 1mn';fill:#00cfe3;fill-opacity:1;stroke-width:0.485191"
-         x="50.806824"
-         y="111.43305">Somatosphere</tspan></text>
-  </g>
-</svg>
-
+<img class="h-8 md:h-16" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.webp" alt="Oxford-NUS Centre for Neuroethics and Society logo">
 
 			</a>
 
@@ -137,7 +71,7 @@
     
 <?php if( is_user_logged_in() ) {
 
-echo '<div class="flex flex-col fixed bottom-0 top-0 left-4 w-fit gap-2 z-50 items-center justify-center">';
+echo '<div class="flex fixed bottom-4 left-4 w-fit gap-2 z-50 items-center justify-center">';
 
   blockhaus_post_edit_link();
   

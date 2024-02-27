@@ -44,34 +44,51 @@ if ( ! function_exists( 'blockhaus_posted_by' ) ) :
 	 */
 	function blockhaus_posted_by($post) {
 	
-		$authors = get_the_terms( $post->ID , 'contributor' );
-		
-		if (  isset($authors) && !empty($authors)):
-      echo '<ul aria-label="article authors" class="flex flex-wrap p-0 font-black gap-1">';
-      foreach( $authors as $key => $author ) {
-      $author_link = get_term_link( $author);?>
-      <li class="flex">
-				<a rel="author" class="not-italic" href="<?php echo $author_link;?>"><?php echo $author->name;?></a>
-				
-				<?php
-				if((count($authors) === 2) && ($key !== count($authors) - 1)):	
-					echo '<span class="font-normal pl-1">and</span>';
-				elseif ((count($authors) > 2) && ($key !== count($authors) - 1)  && ($key !== count($authors) - 2)):
-					print('<span class="font-normal">,</span>');
-					elseif ((count($authors) > 2) && ($key === count($authors) - 2)):
-					echo '<span class="font-normal pl-1">and</span>';
-				endif;?>
-				
-			</li>
-			
-      <?php // Get rid of the other data stored in the object, since it's not needed
-      unset($author); }
-      echo '</ul>';	
-    endif;
+		echo '<span>' . get_the_author() . '</span>';
 
 	}
 endif;
 
+if ( ! function_exists( 'blockhaus_projects_team' ) ) :
+	
+	function blockhaus_projects_team($peopleObj) {
+		
+		if(! empty($peopleObj['people'])):
+		$people = $peopleObj['people'];
+		$title = $peopleObj['title'];
+		
+
+		?>
+		<div class="space-y-3">
+			<span class="font-black"><?php esc_html_e( $title, 'blockhaus' );?></span>
+			<hr class="border-neutral-light-900 hidden md:block">
+			<ul class="flex gap-x-6 gap-y-2 flex-col">
+
+				<?php 
+				
+				
+				
+				foreach( $people as $post ): 
+						
+					// Setup this post for WP functions (variable must be named $post).
+					setup_postdata($post); ?>
+					<li class="flex gap-2 items-center">
+						<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] ); 
+						echo get_the_title($post->ID); ?>	
+					</li>
+					
+				<?php endforeach; ?>
+				
+			</ul>
+		</div>
+    <?php 
+    // Reset the global post object so that the rest of the page works correctly.
+    wp_reset_postdata(); 
+		
+				endif;
+	}
+	
+endif;
 
 /**
  * Sort contributer taxonomy by term_order
@@ -166,7 +183,7 @@ if ( ! function_exists( 'blockhaus_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail h-full">
-				<?php the_post_thumbnail( $size, array( 'class' => 'aspect-video h-full w-full object-cover' ) ); ?>
+				<?php the_post_thumbnail( $size, array( 'class' => 'aspect-video h-full w-full object-cover rounded-md' ) ); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
@@ -175,7 +192,7 @@ if ( ! function_exists( 'blockhaus_post_thumbnail' ) ) :
 					the_post_thumbnail(
 						$size,
 						array(
-							'class' => 'w-full object-cover',
+							'class' => 'w-full object-cover rounded-md',
 							'alt' => the_title_attribute(
 								array(
 									
@@ -205,7 +222,7 @@ endif;
 function blockhaus_get_custom_post_types() {
 
 	$args = array(
-		'public'   => true,
+		 'public'   => true,
 		// '_builtin' => true
 	 );
 
