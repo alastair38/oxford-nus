@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<main id="primary" class="main-content w-11/12 mx-auto mt-6 space-y-24">
+<main id="primary" class="main-content w-11/12 max-w-screen-2xl mx-auto mt-6 space-y-24">
 
 		<?php
 		while ( have_posts() ) :

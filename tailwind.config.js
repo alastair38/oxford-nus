@@ -18,6 +18,7 @@ module.exports = {
     'gap-x-12',
     'gap-y-6',
     'p-0',
+    'lg:p-12',
     'ring-offset-primary',
     'grid-cols-fit',
     'grid-cols-fill',

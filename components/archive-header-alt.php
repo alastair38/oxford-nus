@@ -45,7 +45,7 @@ $post_type_obj = get_post_type_object( $post_type);
 	// endif;
 	?>
 
-<div class="term-meta px-6 w-10/12 md:w-3/4 text-default mx-auto space-y-6 md:space-y-12">
+<div class="term-meta w-full md:w-3/4 text-default mx-auto space-y-6 md:space-y-12">
 
 <?php
 

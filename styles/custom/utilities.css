@@ -25,7 +25,7 @@ a.wp-block-read-more:hover {
 /* Home page wp-block-group stylings */
 
 .offset {
-  @apply md:col-start-2 md:row-start-2;
+  @apply lg:col-start-2 lg:row-start-2;
 }
 
 .blockhaus-home-header .inner-text {
