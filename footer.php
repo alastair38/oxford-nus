@@ -30,7 +30,9 @@ if( have_rows('funder', 'option') ):?>
 					?>
 					<li class="flex-1 flex flex-col gap-4 items-center justify-center">
 						<a aria-label="<?php echo $name;?> website" class="flex-1" href="<?php echo $url;?>">
+						<?php if($logo_img):?>
 						<img loading="lazy" class="p-2 h-full" height='100' width='auto' src="<?php echo $logo_img['sizes']['thumbnail'];?>" alt="<?php echo $logo_img['alt'];?>"/>
+						<?php endif;?>
 					</a>
 					</li>
 					
@@ -66,7 +68,7 @@ if( have_rows('funder', 'option') ):?>
 		</div>
 			<p class="text-center flex flex-col items-center justify-center gap-6 text-small pt-6">
 				
-         <img class="h-10" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.webp" width="280" height="64" alt="Oxford-NUS Centre for Neuroethics and Society logo">
+         <img class="h-10" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.webp" width="100%" height="40" alt="Oxford-NUS Centre for Neuroethics and Society logo">
 					<?php
 							/* translators: 1: Theme name, 2: Theme author. */
 							printf( esc_html_e( ' &copy; ' . date("Y") , 'Blockhaus' ), 'Blockhaus' );
