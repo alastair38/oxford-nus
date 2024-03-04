@@ -14,12 +14,22 @@ blockquote.is-style-default p {
 
 .wp-block-button__link:active,
 .wp-block-button__link:visited {
-  color: var(--wp--preset--color--contrast);
+  color: currentColor;
 }
 
 a.wp-block-button__link.wp-element-button:hover,
 a.wp-block-read-more:hover {
   @apply outline outline-2 outline-offset-2 outline-contrast;
+}
+
+/* Home page wp-block-group stylings */
+
+.offset {
+  @apply md:col-start-2 md:row-start-2;
+}
+
+.blockhaus-home-header .inner-text {
+  @apply p-0 md:p-14;
 }
 
 /* Basic text shadow */
@@ -45,7 +55,7 @@ a.wp-block-read-more:hover {
 }
 
 .highlighted {
-  @apply relative mx-auto flex w-fit items-center;
+  @apply relative flex;
 }
 
 .highlighted:after {

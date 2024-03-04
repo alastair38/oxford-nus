@@ -20,12 +20,12 @@ endif;
 
 
 ?>
-<div class="bg-neutral-light-100 p-6 space-y-12">
+<div class="bg-neutral-light-100 p-6 space-y-12 rounded-md">
 
     <?php
     
     if(get_post_type() === 'post'):?>
-      <div class="space-y-3">
+      <div class="flex flex-col">
       <?php blockhaus_posted_by($post);
         blockhaus_posted_on();?>
       </div>

@@ -293,8 +293,19 @@ function blockhaus_modify_archive_order( $query ) {
 
       // Change to order to A-Z.
       if ( $query->is_post_type_archive('project') ) {
+      
         $query->set( 'order', 'ASC' );
         $query->set( 'orderby', 'title' );
+        $taxquery = array(
+          array(
+            'taxonomy' => 'label',
+            'field' => 'slug',
+            'terms' => 'theme',
+            'operator' => 'IN'
+          )
+        );
+    
+            $query->set( 'tax_query', $taxquery);
       }  
 
   } 

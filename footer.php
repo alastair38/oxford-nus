@@ -50,18 +50,13 @@ if( have_rows('funder', 'option') ):?>
 <div class="p-2 md:p-6 bg-contrast text-base">
 	
 	<div class="place-items-center grid grid-flow-row md:grid-flow-col auto-cols-fr gap-6 py-6 bg-contrast text-base ">
-		
-		<?php echo blockhaus_display_address();?>
-		
-
-  	<?php echo blockhaus_display_social_profiles();?>
-
+	
 		<?php
 					wp_nav_menu(
 						array(
 							'theme_location' => 'footer-1',
 							'menu_id'        => 'footer-menu',
-							'menu_class'		 => 'flex gap-2 md:gap-0 md:flex-col',
+							'menu_class'		 => 'flex gap-6',
 							'container'			 => 'nav',
 							'container_aria_label'	=> 'footer menu',
 						)
@@ -71,7 +66,7 @@ if( have_rows('funder', 'option') ):?>
 		</div>
 			<p class="text-center flex flex-col items-center justify-center gap-6 text-small pt-6">
 				
-         <img class="h-10" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.webp" alt="Oxford-NUS Centre for Neuroethics and Society logo">
+         <img class="h-10" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.webp" width="280" height="64" alt="Oxford-NUS Centre for Neuroethics and Society logo">
 					<?php
 							/* translators: 1: Theme name, 2: Theme author. */
 							printf( esc_html_e( ' &copy; ' . date("Y") , 'Blockhaus' ), 'Blockhaus' );

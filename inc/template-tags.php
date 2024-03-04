@@ -259,62 +259,6 @@ function blockhaus_display_address() {
 	return $address;
 }
 
-function blockhaus_display_social_profiles() {
-	$profiles = '';
-	$facebook_profile = '';
-	$instagram_profile = '';
-	$linkedin_profile = '';
-	$tiktok_profile = '';
-	$twitter_profile = '';
-	$youtube_profile = '';
-	
-	$facebook = get_field('facebook', 'options');
-
-
-	if($facebook['profile_url']) {
-		$facebook_profile = '<li class="wp-social-link wp-block-social-link"><a href="' . $facebook['profile_url'] . '" class="wp-block-social-link-anchor"><svg width="24" height="24"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#facebook" /></svg><span class="wp-block-social-link-label screen-reader-text">Facebook</span></a></li>';
-	}
-
-	$instagram = get_field('instagram', 'options');
-
-	if($instagram['profile_url']) {
-		$instagram_profile = '<li class="wp-social-link wp-block-social-link"><a href="' . $instagram['profile_url'] . '" class="wp-block-social-link-anchor"><svg width="24" height="24"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#instagram" /></svg><span class="wp-block-social-link-label screen-reader-text">Instagram</span></a></li>';
-	}
-
-	$linkedin = get_field('linkedin', 'options');
-
-	if($linkedin) {
-		$linkedin_profile = '<li class="wp-social-link wp-block-social-link"><a href="' . $linkedin['profile_url'] . '" class="wp-block-social-link-anchor"><svg width="24" height="24"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#linkedin" /></svg><span class="wp-block-social-link-label screen-reader-text">LinkedIn</span></a></li>';
-	}
-
-	$tiktok = get_field('tiktok', 'options');
-
-	if($tiktok['profile_url']) {
-		$tiktok_profile = '<li class="wp-social-link wp-block-social-link"><a href=" ' . $tiktok['profile_url'] . ' " class="wp-block-social-link-anchor"><svg width="24" height="24"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#tiktok" /></svg><span class="wp-block-social-link-label screen-reader-text">TikTok</span></a></li>';
-	}
-
-	$twitter = get_field('twitter', 'options');
-
-	if($twitter['profile_url']) {
-		$twitter_profile = '<li class="wp-social-link wp-block-social-link"><a href="' . $twitter['profile_url'] . '" class="text-current"><svg width="24" height="24"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#twitter" /></svg><span class="wp-block-social-link-label screen-reader-text">Twitter</span></a></li>';
-	}
-
-	$youtube = get_field('youtube', 'options');
-
-	if($youtube['profile_url']) {
-		$youtube_profile = '<li class="wp-social-link wp-block-social-link"><a href="' . $youtube['profile_url'] . '" class="wp-block-social-link-anchor text-current"><svg width="24" height="24"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#youtube" /></svg><span class="wp-block-social-link-label screen-reader-text">YouTube</span></a></li>';
-	}
-
-	if($facebook || $instagram || $linkedin || $tiktok || $twitter || $youtube):
-		$profiles = '<ul aria-label="social media links" class="wp-container-1 wp-block-social-links flex items-end gap-6 has-normal-icon-size has-icon-color is-style-logos-only">';
-		$profiles .= $twitter_profile . $youtube_profile . $facebook_profile . $instagram_profile . $tiktok_profile;
-		$profiles .= '</ul>';
-	endif;
-
-	return $profiles;
-
-}
-
 function blockhaus_post_edit_link()  {
 
 		$page_id = get_queried_object_id();

@@ -22,7 +22,7 @@
 			<?php the_content(); ?>
 			</div>
 
-<aside class="p-6 space-y-12 h-fit text-sm rounded-md bg-neutral-light-100 sticky top-28 grid place-content-center gap-3 text-center">
+<aside class="p-6 space-y-6 h-fit text-sm rounded-md bg-neutral-light-100 sticky top-28 grid place-content-center gap-3 text-center">
 	<?php 
 	if(function_exists('get_field')):
   

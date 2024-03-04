@@ -37,7 +37,7 @@
 
 			<a class="logo flex gap-2 items-center" aria-label="Home page" rel="home" href="/">
 			
-<img class="h-8 md:h-16" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.webp" alt="Oxford-NUS Centre for Neuroethics and Society logo">
+<img class="h-8 md:h-16" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.webp" width="100%" height="64" alt="Oxford-NUS Centre for Neuroethics and Society logo">
 
 			</a>
 

@@ -9,17 +9,14 @@
 function blockhaus_meta_description() {
 
   global $post;
-  if ( is_singular() && !is_front_page() ) {
-      
-     
+  if ( is_singular() && !is_front_page() ) {  
     
       $post_description = strip_tags($post->post_content);
       // $post_description = strip_shortcodes( $post->post_content );
       $post_description = str_replace( array("\n", "\'", "\"", "\r", "\t"), ' ', $post_description );
       $post_description = mb_substr( $post_description, 0, 170, 'utf8' );
       $post_description = normalize_whitespace($post_description);
-      echo '<meta name="description" content="' . $post_description . '" />' . "\n";
-      
+      echo '<meta name="description" content="' . $post_description . '" />' . "\n";     
     
   }
   
@@ -92,29 +89,21 @@ function blockhaus_meta_description() {
     if ( $post_types ) { // If there are any custom public post types.
         foreach ( $post_types  as $post_type ) { // loop through
           if ( is_post_type_archive($post_type) ) { // check if on the archive page for that post type
-            $page_settings = get_field($post_type . "_page_description", "options"); // get post type page description from options page
+            $page_settings = get_field($post_type . "_description", "options"); // get post type page description from options page
             
             if($page_settings):
-            $description = $page_settings['page_description'];
             
-              if($description): // if description exists, add it to the head
+              $description = substr(strip_tags($page_settings), 0, 170);
                 
-                $description = strip_tags($description);
-                $description = normalize_whitespace($description);
-                
-              endif;
-            
             else: 
               
             $description = get_bloginfo( "description" );
               
             endif;
-            
-            
+
             echo '<meta name="description" content="' . $description . '" />' . "\n";
             echo '<link rel="canonical" href="' . site_url() . $_SERVER['REQUEST_URI'] .'">';
-            
-            
+
         }
       }
     }

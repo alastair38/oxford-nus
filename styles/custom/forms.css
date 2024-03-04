@@ -47,6 +47,10 @@ form#loginform input#wp-submit {
   @apply rounded-full border border-current;
 }
 
+form.category-select option {
+  @apply text-contrast;
+}
+
 /* WP FORMS OVERRIDES */
 
 form.wpforms-form {
