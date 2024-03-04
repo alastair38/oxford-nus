@@ -68,7 +68,7 @@ if( have_rows('funder', 'option') ):?>
 		</div>
 			<p class="text-center flex flex-col items-center justify-center gap-6 text-small pt-6">
 				
-         <img class="h-10" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.webp" width="100%" height="40" alt="Oxford-NUS Centre for Neuroethics and Society logo">
+         <img class="h-10" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo-white.webp" width="180" height="40" alt="Oxford-NUS Centre for Neuroethics and Society logo">
 					<?php
 							/* translators: 1: Theme name, 2: Theme author. */
 							printf( esc_html_e( ' &copy; ' . date("Y") , 'Blockhaus' ), 'Blockhaus' );
