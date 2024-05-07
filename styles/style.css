@@ -3513,6 +3513,11 @@ header .logo svg {
   color: var(--wp--preset--color--base);
 }
 
+.hover\:underline:hover {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .hover\:no-underline:hover {
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
@@ -3595,6 +3600,11 @@ header .logo svg {
 
 .focus\:ring-offset-2:focus {
   --tw-ring-offset-width: 2px;
+}
+
+.focus-visible\:underline:focus-visible {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .focus-visible\:outline-none:focus-visible {

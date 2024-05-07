@@ -35,7 +35,7 @@
 		
 		<?php foreach($links as $link):?>
 		
-		<a href="<?php echo get_the_permalink( $link->ID );?>"><?php echo $link->post_title;?></a>
+		<a class="hover:underline focus-visible:underline" href="<?php echo get_the_permalink( $link->ID );?>"><?php echo $link->post_title;?></a>
 	
 		<?php endforeach;?>
 		
