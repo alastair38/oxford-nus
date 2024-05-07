@@ -21,6 +21,11 @@
 .editor-styles-wrapper {
   width: 90%;
   margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.editor-styles-wrapper > * + * {
+  margin-top: 1.5rem;
 }
 
 .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper {

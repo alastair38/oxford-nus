@@ -58,14 +58,14 @@ get_header();
 			
 			endif;
 			
-			the_post_navigation(
-				array(
-					// 'in_same_term' => true,
-					// 'taxonomy'           => 'category',
-					'prev_text' => '<span aria-hidden="true" class="nav-subtitle font-bold">	<svg class="w-6 h-6"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#chevronLeft" /></svg></span> <span class="nav-title inline-block mr-6 w-full text-center truncate text-ellipsis text-nowrap overflow-hidden px-2">%title</span>',
-					'next_text' => '<span class="nav-title sr-onlymd:not-sr-only px-2 ml-6 inline-block w-full text-center truncate text-ellipsis text-nowrap overflow-hidden">%title</span><span aria-hidden="true" class="nav-subtitle font-bold"><svg class="w-6 h-6"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#chevronRight" /></svg></span>',
-				)
-			);
+			// the_post_navigation(
+			// 	array(
+			// 		// 'in_same_term' => true,
+			// 		// 'taxonomy'           => 'category',
+			// 		'prev_text' => '<span aria-hidden="true" class="nav-subtitle font-bold">	<svg class="w-6 h-6"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#chevronLeft" /></svg></span> <span class="nav-title inline-block mr-6 w-full text-center truncate text-ellipsis text-nowrap overflow-hidden px-2">%title</span>',
+			// 		'next_text' => '<span class="nav-title sr-onlymd:not-sr-only px-2 ml-6 inline-block w-full text-center truncate text-ellipsis text-nowrap overflow-hidden">%title</span><span aria-hidden="true" class="nav-subtitle font-bold"><svg class="w-6 h-6"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#chevronRight" /></svg></span>',
+			// 	)
+			// );
 
 		endwhile; // End of the loop.
 		?>

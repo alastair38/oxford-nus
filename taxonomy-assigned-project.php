@@ -19,7 +19,7 @@ $postTypeMeta = get_field($post_type . '_page_settings', "options");
 			
 		<?php get_template_part('components/archive-header-alt'); ?>
 			
-		<div class="grid grid-cols-1 gap-8 md:gap-12 w-10/12 md:w-3/4 mx-auto">
+		<div class="grid grid-cols-1 gap-8 md:gap-12 w-full md:w-3/4 mx-auto">
 
 			<?php 
 				

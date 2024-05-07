@@ -1539,10 +1539,6 @@ form#loginform input#wp-submit:focus {
   width: 2.5rem;
 }
 
-.w-10\/12 {
-  width: 83.333333%;
-}
-
 .w-11\/12 {
   width: 91.666667%;
 }
@@ -3522,6 +3518,10 @@ header .logo svg {
           text-decoration-line: none;
 }
 
+.hover\:outline:hover {
+  outline-style: solid;
+}
+
 .hover\:outline-transparent:hover {
   outline-color: transparent;
 }
@@ -3600,6 +3600,10 @@ header .logo svg {
 .focus-visible\:outline-none:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.focus-visible\:outline:focus-visible {
+  outline-style: solid;
 }
 
 .group:hover .group-hover\:not-sr-only {
