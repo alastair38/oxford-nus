@@ -17,7 +17,15 @@ get_header();
 			the_post();
 
 			// get_template_part( 'layouts/content', 'page' );
+			if(is_singular('person')):
+				
+				get_template_part( 'layouts/person');
+				
+			else: 
+				
 			get_template_part( 'layouts/full-width');
+			
+			endif;
 			
 			//If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :

@@ -14,16 +14,7 @@
 function blockhaus_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 
-	$consentPanel = get_field('consent_panel_settings', 'options');
-	
-	if($consentPanel) {
-		$theme = $consentPanel['theme'];
-	} else {
-		$theme = 'consent-default';
-	}
-	
-	
-	$classes[] = 'flex flex-col w-full ' . $theme;
+	$classes[] = 'flex flex-col w-full';
 
 	return $classes;
 }

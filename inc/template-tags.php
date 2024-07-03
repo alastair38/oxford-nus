@@ -72,9 +72,11 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 						
 					// Setup this post for WP functions (variable must be named $post).
 					setup_postdata($post); ?>
-					<li class="flex gap-2 items-center">
+					<li>
+						<a class="flex gap-2 items-center" href="<?php echo get_the_permalink($post->ID);?>">
 						<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] ); 
 						echo get_the_title($post->ID); ?>	
+						</a>
 					</li>
 					
 				<?php endforeach; ?>

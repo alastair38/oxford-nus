@@ -34,6 +34,7 @@ module.exports = {
     'inset-0',
     'h-8',
     'mt-auto',
+    'relative',
   ],
   theme: {
     screens: {

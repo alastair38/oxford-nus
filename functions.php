@@ -174,7 +174,7 @@ function add_acf_columns ( $columns ) {
 	return array_merge ( $columns, array ( 
 		'members' => __ ( 'Project Leads' ),
 		'assoc_members' => __ ( 'Associated Personnel' ),
-		'collab_members' => __ ( 'Lead Collaborators' ),
+		'collab_members' => __ ( 'Collaborators' ),
 	
 	) );
 }
