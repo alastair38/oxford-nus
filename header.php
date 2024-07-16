@@ -37,7 +37,7 @@
 
 			<a class="logo flex gap-2 items-center" aria-label="Home page" rel="home" href="/">
 			
-<img class="h-8 md:h-16" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.webp" width="100%" height="64" alt="Oxford-NUS Centre for Neuroethics and Society logo">
+<img class="h-8 md:h-10 xl:h-16 object-contain" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo/logo.webp" width="100%" height="64" alt="Oxford-NUS Centre for Neuroethics and Society logo">
 
 			</a>
 
@@ -59,7 +59,7 @@
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
-					'menu_class'		 => 'flex flex-col lg:leading-none text-2xl lg:text-contrast lg:flex-row absolute lg:relative left-0 right-0 top-0 -z-10 lg:z-0 bg-gray-100 -translate-y-full lg:translate-y-0 invisible lg:visible lg:bg-transparent gap-4 lg:gap-6 h-screen lg:h-auto justify-center items-center ml-auto ease-in-out duration-200'
+					'menu_class'		 => 'flex flex-col lg:leading-none text-2xl lg:text-contrast lg:flex-row absolute lg:relative left-0 right-0 top-0 -z-10 lg:z-0 bg-gray-100 -translate-y-full lg:translate-y-0 invisible lg:visible lg:bg-transparent gap-4 h-screen lg:h-auto justify-center items-center ml-auto ease-in-out duration-200'
 				)
 			);
 			?>

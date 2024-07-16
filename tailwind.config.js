@@ -128,7 +128,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         // Complex site-specific column configuration
-        fit: 'repeat(auto-fit, minmax(250px, 1fr))',
+        fit: 'repeat(auto-fit, minmax(400px, 1fr))',
         fill: 'repeat(auto-fill, minmax(250px, 75ch))',
         prose: 'minmax(300px, 75ch) 1fr',
       },

@@ -824,14 +824,16 @@ iframe {
 /* Navigation fix for Safari */
 
 #primary-menu li {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
 @media (min-width: 1024px) {
   #primary-menu li {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     padding-top: 0px;
     padding-bottom: 0px;
   }
@@ -1429,6 +1431,10 @@ form#loginform input#wp-submit:focus {
   margin-right: 1.5rem;
 }
 
+.mr-auto {
+  margin-right: auto;
+}
+
 .mt-12 {
   margin-top: 3rem;
 }
@@ -1580,10 +1586,6 @@ form#loginform input#wp-submit:focus {
   max-width: 42rem;
 }
 
-.max-w-prose {
-  max-width: 65ch;
-}
-
 .max-w-screen-2xl {
   max-width: 1700px;
 }
@@ -1634,7 +1636,7 @@ form#loginform input#wp-submit:focus {
 }
 
 .grid-cols-fit {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 .flex-col {
@@ -1867,6 +1869,11 @@ form#loginform input#wp-submit:focus {
 
 .fill-current {
   fill: currentColor;
+}
+
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .object-cover {
@@ -3665,6 +3672,10 @@ header .logo svg {
     margin-bottom: 3rem;
   }
 
+  .md\:ml-0 {
+    margin-left: 0px;
+  }
+
   .md\:mt-12 {
     margin-top: 3rem;
   }
@@ -3681,8 +3692,8 @@ header .logo svg {
     display: inline-block;
   }
 
-  .md\:h-16 {
-    height: 4rem;
+  .md\:h-10 {
+    height: 2.5rem;
   }
 
   .md\:w-3\/4 {
@@ -3711,6 +3722,10 @@ header .logo svg {
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:items-start {
+    align-items: flex-start;
   }
 
   .md\:gap-12 {
@@ -3847,6 +3862,16 @@ header .logo svg {
 
   .lg\:text-contrast {
     color: var(--wp--preset--color--contrast);
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:h-16 {
+    height: 4rem;
+  }
+
+  .xl\:max-w-prose {
+    max-width: 65ch;
   }
 }
 

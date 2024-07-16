@@ -71,12 +71,27 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 				foreach( $people as $post ): 
 						
 					// Setup this post for WP functions (variable must be named $post).
-					setup_postdata($post); ?>
+					setup_postdata($post); 
+					$disable_page_link = get_field('disable_biography_page', $post->ID);
+					?>
 					<li>
+						
+						<?php 
+						
+						if(!$disable_page_link):?>
 						<a class="flex gap-2 items-center" href="<?php echo get_the_permalink($post->ID);?>">
 						<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] ); 
 						echo get_the_title($post->ID); ?>	
 						</a>
+						
+						<?php else:?>
+							<span class="flex gap-2 items-center">
+						<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] ); 
+						echo get_the_title($post->ID); ?>	
+						</span>
+						
+						<?php endif;
+						?>
 					</li>
 					
 				<?php endforeach; ?>

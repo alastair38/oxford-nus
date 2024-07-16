@@ -89,7 +89,7 @@ iframe {
 /* Navigation fix for Safari */
 
 #primary-menu li {
-  @apply py-4 lg:px-4 lg:py-0;
+  @apply min-w-fit py-4 lg:px-2 lg:py-0;
 }
 
 #primary-menu li a {
