@@ -260,7 +260,7 @@
       },
       "h1": {
         "typography": {
-          "fontSize": "var(--wp--preset--font-size--huge)",
+          "fontSize": "var(--wp--preset--font-size--extra-large)",
           "fontFamily": "var(--wp--preset--font-family--montserrat)"
         }
       }

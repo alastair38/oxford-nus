@@ -744,7 +744,7 @@ p a:focus {
           text-decoration-color: var(--wp--preset--color--secondary);
 }
 
-[aria-current='page'] {
+#primary-menu li a[aria-current='page'] {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
   -webkit-text-decoration-color: var(--wp--preset--color--primary);
@@ -841,6 +841,8 @@ iframe {
 
 #primary-menu li a {
   font-size: var(--wp--preset--font-size--small);
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 
 #primary-menu li a:hover {
@@ -1636,7 +1638,7 @@ form#loginform input#wp-submit:focus {
 }
 
 .grid-cols-fit {
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .flex-col {
@@ -2074,6 +2076,11 @@ form#loginform input#wp-submit:focus {
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+}
+
+.no-underline {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 
 .decoration-primary {

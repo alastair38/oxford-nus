@@ -296,6 +296,8 @@ function blockhaus_modify_archive_order( $query ) {
       
         $query->set( 'order', 'ASC' );
         $query->set( 'orderby', 'title' );
+        $query->set( 'post_parent', 0 );
+        $query->set('post__not_in',array(1722)); 
         $taxquery = array(
           array(
             'taxonomy' => 'label',
@@ -305,7 +307,7 @@ function blockhaus_modify_archive_order( $query ) {
           )
         );
     
-            $query->set( 'tax_query', $taxquery);
+           // $query->set( 'tax_query', $taxquery);
       }  
 
   } 

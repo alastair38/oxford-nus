@@ -14,13 +14,14 @@ $members = get_field('members');
 $assoc_members = get_field('assoc_members');
 $collab_members = get_field('collab_members');
 $funders = get_field('project_funders');
+$grants = get_field('project_grants');
 $projects = get_field('projects');
 
 endif;
 
 
 ?>
-<div class="bg-neutral-light-100 p-6 space-y-12 rounded-md">
+<div class="bg-neutral-light-100 p-6 space-y-8 md:space-y-12 rounded-md">
 
     <?php
     
@@ -46,9 +47,40 @@ endif; ?>
   blockhaus_projects_team($collab_members);
 endif; ?>
 
-<?php endif;?>
-    
-<?php if( $funders ): ?>
+<?php endif;
+
+if($grants):?>
+    <div class="space-y-3">
+      <h3 class="font-black">Funders / Grants</h3>
+      <hr class="border-neutral-light-900 hidden md:block">
+      <div class="space-y-6">
+      <?php foreach($grants as $grant):?>
+        <div class="flex flex-col justify-center items-center gap-3 flex-wrap">
+        <?php $grant_funders = get_the_terms($grant->ID, 'grant-funder');
+        
+        foreach($grant_funders as $funder):?>
+          <?php $logo = get_field('funder_logo', 'term_'.$funder->term_id);?>
+          
+          <?php if($logo):?>
+      
+          <img class="object-contain h-24" alt="<?php echo $funder->name . ' logo';?>"  src="<?php echo $logo['sizes']['medium'];?>" />
+      
+          <?php endif;?>
+          <span class="sronly text-center">
+            <span class="sr-only">
+            <?php echo $funder->name . ' &#8594;';?>
+            </span>
+          <?php endforeach;?>
+        
+          <?php echo $grant->post_title;?>
+          </span>
+          </div>
+      <?php endforeach;?>
+      </div>
+    </div>
+  <?php endif;?>
+  
+ <?php if( $funders ): ?>
   <div class="space-y-3">
       <span class="font-black"><?php esc_html_e( 'Funders', 'blockhaus' );?></span>
     <hr class="border-neutral-light-900 hidden md:block">

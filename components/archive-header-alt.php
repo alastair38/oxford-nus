@@ -87,7 +87,7 @@ $post_type_obj = get_post_type_object( $post_type);
 	?>
 					<button class="bg-neutral-light-100 rounded-md px-3 hover:bg-neutral-light-500 focus:bg-neutral-light-500"><?php esc_html_e( 'Filter outputs', 'blockhaus' );?></button>
 					
-					<a href="<?php echo get_post_type_archive_link( get_post_type() );?>" class="outline outline-primary outline-1 outline-offset-2 bg-neutral-light-100 hover:outline-transparent focus:outline-transparent rounded-md px-3 flex items-center">
+					<a href="<?php echo get_post_type_archive_link( get_post_type() );?>" class="outline outline-primary outline-1 no-underline outline-offset-2 bg-neutral-light-100 hover:outline-transparent focus:outline-transparent rounded-md px-3 flex items-center">
 						<?php esc_html_e( 'All outputs', 'blockhaus' );?>
 				</a>
 </form>

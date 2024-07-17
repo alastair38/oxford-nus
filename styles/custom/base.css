@@ -23,7 +23,7 @@ p a {
   @apply underline decoration-contrast decoration-2 hover:decoration-secondary focus:decoration-secondary;
 }
 
-[aria-current='page'] {
+#primary-menu li a[aria-current='page'] {
   @apply underline decoration-primary decoration-2;
 }
 
@@ -93,7 +93,7 @@ iframe {
 }
 
 #primary-menu li a {
-  @apply text-sm hover:text-neutral-dark-100 focus:text-neutral-dark-100;
+  @apply text-sm no-underline hover:text-neutral-dark-100 focus:text-neutral-dark-100;
 }
 
 hr {

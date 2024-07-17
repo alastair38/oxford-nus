@@ -79,7 +79,7 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 						<?php 
 						
 						if(!$disable_page_link):?>
-						<a class="flex gap-2 items-center" href="<?php echo get_the_permalink($post->ID);?>">
+						<a class="flex gap-2 hover:underline focus-visible:underline items-center" href="<?php echo get_the_permalink($post->ID);?>">
 						<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] ); 
 						echo get_the_title($post->ID); ?>	
 						</a>

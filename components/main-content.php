@@ -41,7 +41,7 @@
 				
 			<?php foreach($outputs as $output):?>
 					
-				<li class="grid gap-2"><a class="font-bold" href="<?php echo get_the_permalink($output->ID);?>"><?php echo $output->post_title;?></a>
+				<li class="grid gap-2"><a class="font-bold no-underline" href="<?php echo get_the_permalink($output->ID);?>"><?php echo $output->post_title;?></a>
 				<div class="text-sm">
 			<?php echo $output->post_content;?></div>
 			</li>

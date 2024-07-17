@@ -45,8 +45,10 @@
   max-width: inherit;
 }
 
-.interface-complementary-area.edit-post-sidebar {
-  width: 25rem;
+.interface-navigable-region.interface-interface-skeleton__sidebar,
+.interface-complementary-area__fill,
+.interface-complementary-area.editor-sidebar {
+  width: 25rem !important;
 }
 
 .components-button.edit-post-sidebar__panel-tab {

@@ -21,7 +21,7 @@
 	<p><?php echo get_field('biography', $post->ID); ?></p>
 	
 	<?php if($further_info):?>
-	<a aria-label="View institution biography for <?php the_title(); ?>" class="flex gap-2 w-fit items-center bg-contrast text-white text-sm px-3 py-1 rounded-full hover:ring-2 focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast" href="<?php echo $further_info; ?>">View institution biography
+	<a aria-label="View institution biography for <?php the_title(); ?>" class="flex gap-2 w-fit items-center bg-contrast text-white text-sm px-3 no-underline py-1 rounded-full hover:ring-2 focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast" href="<?php echo $further_info; ?>">View institution biography
   
   </a>
 	

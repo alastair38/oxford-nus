@@ -76,8 +76,11 @@ if(!empty($contact['email']) ||!empty($contact['website']) || !empty($contact['t
 					echo '<p>' . $description . '</p>';
 					
 				endif;
+				
+				if(!empty($post_type_obj)):
 					
 				echo blockhaus_custom_form($post_type_obj->labels->name, $post_type); 
+				endif;
 				
 				endif;?>
 
