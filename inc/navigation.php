@@ -30,7 +30,7 @@ function add_searchbar( $items, $args ) {
     if($args->theme_location == 'menu-1')
     {
       
-      $items .= '<li>' . blockhaus_custom_form() . '</li>';
+    //  $items .= '<li>' . blockhaus_custom_form() . '</li>';
        
     }
 

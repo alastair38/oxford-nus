@@ -7,14 +7,6 @@ body {
   @apply h-full scroll-smooth;
 }
 
-h1 {
-  @apply text-xl;
-}
-
-h2 {
-  @apply text-lg;
-}
-
 h1[contenteditable='true'] {
   @apply text-huge;
 }
