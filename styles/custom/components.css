@@ -162,6 +162,12 @@ header .logo svg {
   @apply h-6 w-6 md:h-8 md:w-8;
 }
 
+/* FEATURED LINK BLOCK */
+
+.blockhaus-featured-link img {
+  @apply w-full;
+}
+
 /* FOOTNOTES BLOCK */
 
 #content ol.wp-block-footnotes li {

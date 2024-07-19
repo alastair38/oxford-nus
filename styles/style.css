@@ -1176,6 +1176,12 @@ header .logo svg {
   }
 }
 
+/* FEATURED LINK BLOCK */
+
+.blockhaus-featured-link img {
+  width: 100%;
+}
+
 /* FOOTNOTES BLOCK */
 
 #content ol.wp-block-footnotes li {
