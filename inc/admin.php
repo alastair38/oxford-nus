@@ -62,6 +62,11 @@ add_filter( 'update_footer',     '__return_empty_string', 11 );
 /**
 * Create the function to output the content of our Dashboard Widget.
 */
+
+function favicon4admin() {
+  echo '<link rel="Shortcut Icon" type="image/x-icon" href="' . get_template_directory_uri() . '/favicon.ico" />';
+  }
+  add_action( 'admin_head', 'favicon4admin' );
 function blockhaus_dashboard_widget_render() {
 
   // Display whatever you want to show.
