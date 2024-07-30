@@ -289,7 +289,7 @@ add_action('init', 'new_author_base');
 function blockhaus_modify_archive_order( $query ) {
 
   // Check we're on the frontend and modifying the main query.
-  if ( ! is_admin() && $query->is_main_query() ) {
+  if ( ! is_admin() && $query->is_main_query() && !$query->is_search(  ) ) {
 
       // Change to order to A-Z.
       if ( $query->is_post_type_archive('project') ) {
