@@ -43,14 +43,15 @@ if( $co_investigators ):
   blockhaus_projects_team($co_investigators);
 endif; 
 
+if( $collab_members ):
+  blockhaus_projects_team($collab_members);
+endif; 
+
 if( $assoc_members ):
   blockhaus_projects_team($assoc_members);
-endif; ?>
+endif; 
 
-  
-<?php if( $collab_members ):
-  blockhaus_projects_team($collab_members);
-endif; ?>
+?>
 
 <?php endif;
 
