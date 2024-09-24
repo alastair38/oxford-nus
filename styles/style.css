@@ -3508,7 +3508,7 @@ sup.fn a {
 .text-balance {
   text-wrap-mode: wrap;
   text-wrap-style: balance;
-  text-wrap: text-balance;
+  text-wrap: balance;
 }
 
 .is-style-button-retro .wp-block-button__link {
