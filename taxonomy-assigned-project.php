@@ -12,7 +12,7 @@ get_header();
 
 $post_type_obj = get_post_type_object( $post_type );
 
-$postTypeMeta = get_field($post_type . '_page_settings', "options");
+
 ?>
 
 		<main class="main-content w-11/12 max-w-screen-2xl mx-auto mt-6 space-y-8 md:space-y-12">

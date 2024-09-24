@@ -49,16 +49,16 @@
 				
 				if(! empty($terms_type)):?>
 					
-					<div class="flex gap-1 items-center text-neutral-dark-500">
+					<div class="flex gap-x-2 text-neutral-dark-500">
 						<span class="sr-only">Project</span>
 						<svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(1 3)"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M11.914.5H15.5a2 2 0 0 1 2 2v3.586a1 1 0 0 1-.293.707l-6.793 6.793a2 2 0 0 1-2.828 0l-3.172-3.172a2 2 0 0 1 0-2.828L11.207.793A1 1 0 0 1 11.914.5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m7.5 13.5l-2.013 1.006A2 2 0 0 1 2.72 13.42L1.105 9.114a2 2 0 0 1 .901-2.45L9.5 2.5"/><rect width="2" height="2" x="14" y="2" fill="currentColor" rx="1"/></g></svg>
-					
+					<div class="divide-x flex gap-1 flex-wrap flex-1">
 					<?php foreach($terms_type as $term):
 						
-						echo '<a href="' . get_term_link($term) . '" class="no-underline">' . $term->name . '</a>';
+						echo '<a href="' . get_term_link($term) . '" class="hover:underline focus-visible:underline no-underline  px-2">' . $term->name . '</a>';
 						
 					endforeach;?>
-					
+				</div>
 					</div>
 				
 				<?php endif;

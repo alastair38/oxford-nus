@@ -35,14 +35,14 @@
 		else :
 			?>
 
-			<p><?php esc_html_e( 'No content has been published in this section yet.', 'blockhaus' ); ?></p>
+			<p><?php esc_html_e( 'No relevant content found.', 'blockhaus' ); ?></p>
 			<p><?php 
 			
 			$referer = $_SERVER['HTTP_REFERER'] ?? null;
 			
 			if($referer):
 				
-				echo '<a class="rounded-full px-3 py-1 bg-primary focus:no-underline hover:no-underline hover:ring-2 hover:ring-offset-2 hover:ring-primary focus:ring-2 focus:ring-offset-2 focus:ring-primary" href="' . $referer . '">' . esc_html( 'Go back to previous page', 'blockhaus' ) . '</a>' ;
+				echo '<a class="rounded-full px-3 py-1 bg-primary focus:no-underline no-underline hover:no-underline hover:ring-2 hover:ring-offset-2 hover:ring-primary focus:ring-2 focus:ring-offset-2 focus:ring-primary" href="' . $referer . '">' . esc_html( 'Go back to previous page', 'blockhaus' ) . '</a>' ;
 
 			endif;
 
