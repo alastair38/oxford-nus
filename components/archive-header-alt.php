@@ -43,7 +43,7 @@ $post_type_obj = get_post_type_object( $post_type);
 					
 				if(!empty($description)):
 					
-					echo '<p class="text-sm text-white text-center">' . $description . '</p>';
+					echo '<p class="text-sm text-white text-center text-balance">' . $description . '</p>';
 					
 				endif;
 			endif;

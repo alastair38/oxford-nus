@@ -126,6 +126,11 @@ sup.fn a {
 
 /* POSTS & PAGES */
 
+.text-balance {
+  text-wrap-mode: wrap;
+  text-wrap-style: balance;
+}
+
 .is-style-button-retro .wp-block-button__link {
   @apply shadow-retro;
 }
