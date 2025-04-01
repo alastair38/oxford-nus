@@ -7,26 +7,104 @@
  * @package blockhaus
  */
 
-
-
 ?>
 
 <div class="space-y-12 mb-0 md:mb-12">
 	<div id="content" class="space-y-6">
 			<?php
 
-			the_content();
+			the_content();?>
 
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'blockhaus' ),
-					'after'  => '</div>',
-				)
-			);
-			
-			?>
+	
+  
+  <?php if(is_singular('output')):
 
-	</div><!-- #content -->
+  $published = get_field('published_year');
+
+    if($published):
+      echo '<p class="text-sm mt-6">Published: ' . $published . '</p>';
+    endif;
+
+  endif;?>
+
+  </div><!-- #content -->
+  
+	<!-- Start 'grant' post type fields  -->
+	<?php
+  
+  if( get_post_type() === 'grant' ): ?>
+  <div class="border border-neutral-light-900 p-6 rounded-md space-y-6 text-sm">
+    <?php 
+    $grant_projects = get_field('grant_projects');
+    $grant_people = get_field('grant_people');
+    $start_date = get_field('start_date');
+    $end_date = get_field('end_date');
+    
+    if($start_date || $end_date):?>
+  
+    <div class="flex flex-col gap-4">
+      <span class="font-black"><?php esc_html_e( 'Grant Dates', 'blockhaus' );?></span>
+      <div class="flex gap-1 flex-wrap">
+        
+        <?php if($start_date):
+          echo '<span>' . $start_date . '</span>';
+        endif;
+        
+        if($start_date || $end_date):
+          echo '<span class="italic">to</span>';
+        endif;
+        
+        if($end_date):
+          echo '<span>' . $end_date . '</span>';
+        endif;?>
+      
+      </div>
+    </div>
+    
+  <?php endif;
+  
+  if( $grant_projects ): ?>
+  
+  <div class="flex flex-col gap-4">
+    <span class="font-black"><?php esc_html_e( 'Funded Projects', 'blockhaus' );?>
+  
+    </span>
+      <div class="grid grid-cols-1 gap-2 flex-wrap">
+      <?php foreach( $grant_projects as $post ): ?>
+        
+        <a class="flex gap-2 underline flex-wrap items-center bg-contrasttext-whitetext-smpx-3py-1rounded-fullhover:ring-2 focus:ring-2ring-offset-2 ring-transparenthover:ring-contrastfocus:ring-contrast" href="<?php echo get_the_permalink($post->ID); ?>">
+          <?php echo get_the_title($post->ID); ?>
+        </a>
+        
+      <?php endforeach; ?>
+      </div>
+  </div>
+
+<?php wp_reset_postdata(); endif; 
+  if($grant_people):?>
+    
+    <div class="flex flex-col gap-4">
+    <span class="font-black"><?php esc_html_e( 'People', 'blockhaus' );?>
+  
+    </span>
+      <div class="grid grid-cols-1 gap-2 flex-wrap">
+      <?php foreach( $grant_people as $post ): ?>
+        
+        <a class="flex gap-2  underline flex-wrap items-center bg-contrasttext-whitetext-smpx-3py-1rounded-fullhover:ring-2 focus:ring-2ring-offset-2 ring-transparenthover:ring-contrastfocus:ring-contrast" href="<?php echo get_the_permalink($post->ID); ?>">
+          <?php echo get_the_title($post->ID); ?>
+        </a>
+        
+      <?php endforeach; ?>
+      </div>
+  </div>
+    
+  <?php wp_reset_postdata(); endif;?>
+ 
+</div>
+ <?php endif;?>
+ 
+ <!-- end 'grant' post type fields -->
+
 	<?php if(function_exists('get_field')):
 			
 		$outputs = get_field('outputs');
@@ -35,16 +113,21 @@
 			
 	if(! empty($outputs)):?>
 		
-		<aside id="outputs" class="space-y-6 bg-neutral-light-100 p-6">
-			<h2 class="font-black underline"><?php echo esc_html__( 'Outputs', 'blockhaus' );?></h2>
+		<aside id="outputs" class="space-y-6 rounded-md border border-neutral-light-900 p-6">
+			<h2 class="font-black"><?php echo esc_html__( 'Outputs', 'blockhaus' );?></h2>
 			<ul class="grid grid-cols-1 gap-6">
 				
 			<?php foreach($outputs as $output):?>
 					
-				<li class="grid gap-2"><a class="font-bold no-underline" href="<?php echo get_the_permalink($output->ID);?>"><?php echo $output->post_title;?></a>
-				<div class="text-sm">
-			<?php echo $output->post_content;?></div>
-			</li>
+				<li class="grid gap-3">
+          <span><?php echo $output->post_title;?></span>
+          <div class="text-sm">
+            <?php echo $output->post_content;?>
+          </div>
+          <a class="no-underline hover:outline focus-visible:outline focus-visible:outline-contrast hover:outline-contrast focus-visible:outline-offset-2 hover:outline-offset-2 bg-contrast w-fit text-sm text-white px-3 py-1 rounded-md" href="<?php echo get_the_permalink($output->ID);?>">
+            <?php esc_html_e( 'View output', 'blockhaus' );?>
+          </a>
+			  </li>
 					
 			<?php	endforeach;?>
 				

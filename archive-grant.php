@@ -21,7 +21,7 @@ $postTypeMeta = get_field($post_type . '_page_settings', "options");
 			
 		<div class="grid grid-cols-3 gap-8 md:gap-12 w-full mdw-3/4 mx-auto">
 			
-		<div class="p-6 border shadow-md bg-white rounded-md text-sm h-fit">
+		<div class="p-6 border rounded-md sticky top-4 text-sm h-fit">
 			
 		<?php echo do_shortcode( '[fe_widget]' ); ?></div>
 		
@@ -34,7 +34,7 @@ $postTypeMeta = get_field($post_type . '_page_settings', "options");
 			while ( have_posts() ) :
 				the_post();
 
-				get_template_part( 'layouts/content-alt');
+				get_template_part( 'layouts/content-grants');
 
 			endwhile;
 			

@@ -23,7 +23,7 @@ get_header();
 				
 			else: 
 				
-			get_template_part( 'layouts/full-width');
+				get_template_part( 'layouts/full-width');
 			
 			endif;
 			

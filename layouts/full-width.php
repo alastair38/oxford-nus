@@ -17,6 +17,8 @@
 
 		<?php get_template_part('components/main-content'); ?>
 		
+		
+		
 		<aside class="md:sticky top-28 entry-meta col-span-1 text-sm h-max space-y-6">
 
 		<?php get_template_part( 'components/post-meta' );?>

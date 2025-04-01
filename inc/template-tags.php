@@ -60,8 +60,8 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 
 		?>
 		<div class="space-y-3">
-			<span class="font-black"><?php esc_html_e( $title, 'blockhaus' );?></span>
-			<hr class="border-neutral-light-900 hidden md:block">
+			<span class="font-black flex border-b border-neutral-light-900"><?php esc_html_e( $title, 'blockhaus' );?></span>
+			
 			<ul class="flex gap-x-6 gap-y-2 flex-col">
 
 				<?php 
@@ -107,7 +107,13 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 	
 endif;
 
+if ( ! function_exists( 'blockhaus_grant_details' ) ) :
+
+endif;
+
 /**
+ * 
+ * 
  * Sort contributer taxonomy by term_order
  *
  * @param array $terms array of objects to be replaced with sorted list

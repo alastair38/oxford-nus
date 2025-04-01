@@ -53,7 +53,9 @@ $post_type_obj = get_post_type_object( $post_type);
 				
 			
 				<div id="filters" class="justify-center flex gap-12">
-<?php echo do_shortcode( '[searchandfilter submit_label="Search" post_types="output" fields="search,pub_year,assigned-project"]' ); ?>
+<?php // echo do_shortcode( '[searchandfilter submit_label="Search" post_types="output" fields="search,pub_year,assigned-project"]' ); ?>
+
+
 			
 
 	</div>

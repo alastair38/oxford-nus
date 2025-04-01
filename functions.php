@@ -218,3 +218,15 @@ function project_custom_column ( $column, $post_id ) {
 	}
 }
 add_action ( 'manage_project_posts_custom_column', 'project_custom_column', 10, 2 );
+
+
+add_filter( 'wpc_filter_post_meta_term_name', 'wpc_custom_term_name', 10, 2 );
+function wpc_custom_term_name( $term_name, $products_name ){
+    if( $products_name === 'associated_projects' || $products_name === 'associated_grants' || $products_name === 'associated_people' || $products_name === 'grant_projects' || $products_name === 'grant_people' || $products_name === 'grant_funder'){
+        $term_name = get_the_title( $term_name );
+    } else {
+			
+		}
+
+    return $term_name;
+}
