@@ -272,6 +272,44 @@ if( $post_type === 'grant' ):
   endif;
   
    /* end 'grant' specific fields */
+   
+   /* 'person' specific fields */
+   
+  if( $post_type === 'person' ):
+    
+    if(function_exists('get_field')):
+    
+      $person_projects = get_field('projects');
+      
+    endif;
+    
+    if( $person_projects ): ?>
+    
+      <div class="flex flex-col gap-3">
+        <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( 'Projects(s)', 'blockhaus' );?></span>
+        
+        <div class="grid grid-cols-1 gap-2 flex-wrap">
+          
+          <?php foreach( $person_projects as $post ):?>
+            
+          <a class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
+            <?php echo get_the_title($post->ID); ?>
+          </a>
+            
+          <?php endforeach; ?>
+          
+        </div>
+      </div>
+    
+      <?php wp_reset_postdata(); 
+    
+    endif; 
+    
+    
+    
+  endif;
+  
+  /* end 'person' specific fields */
   
   get_template_part( 'components/share-buttons' );?>
   

@@ -11,16 +11,19 @@
 
 ?>
 
-<header class="entry-header flex items-center gap-3 md:mt-12">
+<header class="entry-header space-y-6 md:mt-12">
 	
+<div class="flex gap-3 items-center">
 	<?php if(is_singular() && has_post_thumbnail()):
 	the_post_thumbnail( 'post_thumbnail', ['class' => 'rounded-full h-20 w-20 aspect-square object-cover'] );
  endif;?>
- 
+ <div>
+ <h1 class="page-title font-black"><?php the_title();?></h1>
+ <p class="text-sm"><?php echo esc_html( get_field('work_title', $post->ID) ); ?></p>
+</div>
+</div>
 
-<div>
-<h1 class="page-title font-black"><?php the_title();?></h1>
-<p class="text-sm"><?php echo esc_html( get_field('work_title', $post->ID) ); ?></p></div>
+
 <hr aria-hidden="true" class="border-neutral-light-100">
 
 

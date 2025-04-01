@@ -23,7 +23,9 @@ $postTypeMeta = get_field($post_type . '_page_settings', "options");
 			
 		<div class="p-6 border shadow-md bg-white rounded-md text-sm h-fit">
 			
-		<?php echo do_shortcode( '[fe_widget]' ); ?></div>
+		<?php echo do_shortcode( '[fe_widget]' ); ?>
+		
+		</div>
 		
 		<div class="col-span-2 space-y-6">
 
