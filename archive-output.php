@@ -19,7 +19,7 @@ $postTypeMeta = get_field($post_type . '_page_settings', "options");
 			
 		<?php get_template_part('components/archive-header-search'); ?>
 			
-		<div class="grid grid-cols-3 gap-8 md:gap-12 w-full mdw-3/4 mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full mdw-3/4 mx-auto">
 			
 		<div class="p-6 border shadow-md bg-white rounded-md text-sm h-fit">
 			
@@ -27,7 +27,7 @@ $postTypeMeta = get_field($post_type . '_page_settings', "options");
 		
 		</div>
 		
-		<div class="col-span-2 space-y-6">
+		<div class="lg:col-span-2 space-y-6">
 
 			<?php 
 				

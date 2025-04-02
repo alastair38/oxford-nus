@@ -40,13 +40,13 @@
 				
 				if(! empty($grantFunder)):?>
 					
-					<div class="flex flex-col gap-1 text-neutral-dark-500">
-						<span class="font-black">Funder</span>
+					<div class="flex-inline gap-1 text-neutral-dark-500">
+						<span class="font-bold">Funder:</span>
 					
 					
 					<?php foreach($grantFunder as $post):
 						
-						echo '<span>' . get_the_title($post->ID) . '</span>';
+						echo '<span class="px-2">' . get_the_title($post->ID) . '</span>';
 						
 					endforeach;?>
 					
@@ -60,14 +60,14 @@
 				
 				if(! empty($projects_list)):?>
 					
-					<div class="flex flex-col gap-1 text-neutral-dark-500">
+					<div class="flex-inline gap-1 text-neutral-dark-500">
 						
-						<span class="font-black">Projects</span>
+						<span class="font-bold">Project(s):</span>
 				
-						<div class="flex flex-col">
+						<div class="divide-x inline gap-1">
 					<?php foreach($projects_list as $project):
 						
-						echo '<a href="' . get_the_permalink($project->ID) . '" class="hover:no-underline focus-visible:no-underline underline">' . $project->post_title . '</a>';
+						echo '<a href="' . get_the_permalink($project->ID) . '" class="hover:no-underline px-2 focus-visible:no-underline underline">' . $project->post_title . '</a>';
 						
 					endforeach;?>
 					</div>
@@ -78,14 +78,14 @@
 				
 				if(! empty($people_list)):?>
 					
-					<div class="flex flex-col gap-1 text-neutral-dark-500">
+					<div class="flex-inline gap-1 text-neutral-dark-500">
 						
-						<span class="font-black">People</span>
-					<div class="flex flex-col">
+						<span class="font-bold">People:</span>
+					<div class="divide-x inline gap-1">
 						
 					<?php foreach($people_list as $person):
 						
-						echo '<a href="' . get_the_permalink($person->ID) . '" class="hover:no-underline focus-visible:no-underline underline">' . $person->post_title . '</a>';
+						echo '<a href="' . get_the_permalink($person->ID) . '" class="hover:no-underline px-2 focus-visible:no-underline underline">' . $person->post_title . '</a>';
 						
 					endforeach;?>
 					</div>

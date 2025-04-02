@@ -19,15 +19,15 @@ $postTypeMeta = get_field($post_type . '_page_settings', "options");
 			
 		<?php get_template_part('components/archive-header-search'); ?>
 			
-		<div class="grid grid-cols-3 gap-8 md:gap-12 w-full mdw-3/4 mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 w-full mdw-3/4 mx-auto">
 			
-		<div class="p-6 shadow-md bg-white border rounded-md sticky top-4 text-sm h-fit">
+		<div class="p-6 shadow-md bg-white border rounded-md text-sm h-fit">
 			
 		<?php echo do_shortcode( '[fe_widget]' ); ?>
 	
 		</div>
 		
-		<div class="col-span-2 space-y-6">
+		<div class="lg:col-span-2 space-y-6">
 
 			<?php 
 				

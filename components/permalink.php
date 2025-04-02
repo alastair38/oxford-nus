@@ -32,7 +32,7 @@ if(get_post_type() === 'post'):
 
 else:
 	
-	_e( 'View ' . get_post_type(), 'blockhaus' );
+	_e( 'View details', 'blockhaus' );
 
 endif;
 

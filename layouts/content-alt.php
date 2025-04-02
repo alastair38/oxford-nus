@@ -28,11 +28,12 @@
 				$pub_year = get_field('published_year');				
 				$projects_list = get_field('associated_projects');
 				$people_list = get_field('associated_people');
+				$grants_list = get_field('associated_grants');
 				
 				if(! empty($people_list)):?>
 					
-					<div class="inline-flex text-neutral-dark-900">
-						<span class="sronly font-bold">People:</span>
+					<div class="inline text-neutral-dark-900">
+						<span class="font-bold">People:</span>
 					
 					<div class="divide-x inline gap-1 flex-wrap flex-1">
 						
@@ -49,7 +50,7 @@
 				if(! empty($projects_list)):?>
 					
 					<div class="inline text-neutral-dark-900">
-						<span class="sronly font-bold">Project(s):</span>
+						<span class="font-bold">Project(s):</span>
 					<div class="divide-x inline gap-1">
 						
 					<?php foreach($projects_list as $project):
@@ -61,6 +62,23 @@
 				</div>
 				
 				<?php endif; 
+				
+				if(! empty($grants_list)):?>
+					
+					<div class="inline text-neutral-dark-900">
+						<span class="font-bold">Grant(s):</span>
+					
+					<div class="divide-x inline gap-1 flex-wrap flex-1">
+						
+					<?php foreach($grants_list as $grant):
+						
+						echo '<a href="' . get_the_permalink($grant->ID) . '" class="hover:no-underline focus-visible:no-underline underline px-2">' . $grant->post_title . '</a>';
+						
+					endforeach;?>
+					</div>
+				</div>
+				
+				<?php endif;
 				
 				if(! empty($pub_year)):?>
 					
