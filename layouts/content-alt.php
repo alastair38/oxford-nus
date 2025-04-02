@@ -21,7 +21,7 @@
 
 			?>
 			
-			<div class="entry-meta p-4 rounded-md flex flex-col bg-neutral-light-100 space-y-3 itaic flex-wrap text-sm">
+			<div class="entry-meta p-4 rounded-md flex flex-col bg-neutral-light-100 gap-4 flex-wrap text-sm">
 				
 				<?php
 				
@@ -33,7 +33,7 @@
 				if(! empty($people_list)):?>
 					
 					<div class="inline text-neutral-dark-900">
-						<span class="font-bold">People:</span>
+						<span class="font-bold"><?php esc_html_e( 'People:', 'blockhaus' );?></span>
 					
 					<div class="divide-x inline gap-1 flex-wrap flex-1">
 						
@@ -50,7 +50,7 @@
 				if(! empty($projects_list)):?>
 					
 					<div class="inline text-neutral-dark-900">
-						<span class="font-bold">Project(s):</span>
+						<span class="font-bold"><?php esc_html_e( 'Project(s):', 'blockhaus' );?></span>
 					<div class="divide-x inline gap-1">
 						
 					<?php foreach($projects_list as $project):
@@ -66,7 +66,7 @@
 				if(! empty($grants_list)):?>
 					
 					<div class="inline text-neutral-dark-900">
-						<span class="font-bold">Grant(s):</span>
+						<span class="font-bold"><?php esc_html_e( 'Grant(s)', 'blockhaus' );?></span>
 					
 					<div class="divide-x inline gap-1 flex-wrap flex-1">
 						
@@ -83,7 +83,7 @@
 				if(! empty($pub_year)):?>
 					
 					<div class="gap-3 inline-flex text-neutral-dark-900">
-						<span class="font-bold">Published year: </span>
+						<span class="font-bold"><?php esc_html_e( 'Published year:', 'blockhaus' );?></span>
 						<span><?php echo $pub_year;?></span>
 					</div>
 				

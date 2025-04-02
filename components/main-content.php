@@ -37,6 +37,7 @@
     <?php 
     $grant_projects = get_field('grant_projects');
     $grant_people = get_field('grant_people');
+    $grant_outputs = get_field('grant_outputs');
     $start_date = get_field('start_date');
     $end_date = get_field('end_date');
     
@@ -66,13 +67,11 @@
   if( $grant_projects ): ?>
   
   <div class="flex flex-col gap-4">
-    <span class="font-black"><?php esc_html_e( 'Funded Projects', 'blockhaus' );?>
-  
-    </span>
+    <span class="font-black"><?php esc_html_e( 'Funded Projects', 'blockhaus' );?></span>
       <div class="grid grid-cols-1 gap-2 flex-wrap">
       <?php foreach( $grant_projects as $post ): ?>
         
-        <a class="flex gap-2 underline flex-wrap items-center bg-contrasttext-whitetext-smpx-3py-1rounded-fullhover:ring-2 focus:ring-2ring-offset-2 ring-transparenthover:ring-contrastfocus:ring-contrast" href="<?php echo get_the_permalink($post->ID); ?>">
+        <a class="flex gap-2 underline hover:no-underline focus-visible:no-underline" href="<?php echo get_the_permalink($post->ID); ?>">
           <?php echo get_the_title($post->ID); ?>
         </a>
         
@@ -80,17 +79,16 @@
       </div>
   </div>
 
-<?php wp_reset_postdata(); endif; 
+<?php wp_reset_postdata(); endif;
+
   if($grant_people):?>
     
     <div class="flex flex-col gap-4">
-    <span class="font-black"><?php esc_html_e( 'People', 'blockhaus' );?>
-  
-    </span>
+    <span class="font-black"><?php esc_html_e( 'People', 'blockhaus' );?></span>
       <div class="grid grid-cols-1 gap-2 flex-wrap">
       <?php foreach( $grant_people as $post ): ?>
         
-        <a class="flex gap-2  underline flex-wrap items-center bg-contrasttext-whitetext-smpx-3py-1rounded-fullhover:ring-2 focus:ring-2ring-offset-2 ring-transparenthover:ring-contrastfocus:ring-contrast" href="<?php echo get_the_permalink($post->ID); ?>">
+        <a class="flex gap-2 underline hover:no-underline focus-visible:no-underline" href="<?php echo get_the_permalink($post->ID); ?>">
           <?php echo get_the_title($post->ID); ?>
         </a>
         
@@ -101,7 +99,25 @@
   <?php wp_reset_postdata(); endif;?>
  
 </div>
- <?php endif;?>
+
+<?php if( $grant_outputs ): ?>
+  
+  <div class="flex flex-col gap-4 border p-6 text-sm">
+    <span class="font-black"><?php esc_html_e( 'Grant outputs', 'blockhaus' );?></span>
+      <div class="grid grid-cols-1 gap-2 flex-wrap">
+      <?php foreach( $grant_outputs as $post ): ?>
+        
+        <a class="flex gap-2 underline hover:no-underline focus-visible:no-underline flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
+          <?php echo get_the_title($post->ID); ?>
+        </a>
+        
+      <?php endforeach; ?>
+      </div>
+  </div>
+
+<?php wp_reset_postdata(); endif;
+
+endif;?>
  
  <!-- end 'grant' post type fields -->
 
