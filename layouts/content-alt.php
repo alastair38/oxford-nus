@@ -12,7 +12,7 @@
 <article id="post-<?php the_ID(); ?>" class="flex flex-col pb-6 space-y-3 md:space-y-6 border-b">
 
 		
-		<header class="entry-header">
+		<header class="entry-header space-y-6">
 		
 		
 			<?php
@@ -21,41 +21,40 @@
 
 			?>
 			
-			<div class="entry-meta flex gap-y-3 gap-x-6 itaic flex-wrap text-sm pt-2">
+			<div class="entry-meta p-4 rounded-md flex flex-col bg-neutral-light-100 space-y-3 itaic flex-wrap text-sm">
 				
 				<?php
 				
-				$pub_year = get_field('published_year');
+				$pub_year = get_field('published_year');				
+				$projects_list = get_field('associated_projects');
+				$people_list = get_field('associated_people');
 				
-				if(! empty($pub_year)):?>
+				if(! empty($people_list)):?>
 					
-					<div class="flex gap-1 items-center text-neutral-dark-500">
-						<span class="sr-only">Year</span>
-						<svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 24 24"><path fill="currentColor" d="M18.435 4.955h-1.94v-1.41c0-.26-.23-.51-.5-.5c-.27.01-.5.22-.5.5v1.41h-7v-1.41c0-.26-.23-.51-.5-.5c-.27.01-.5.22-.5.5v1.41h-1.93a2.5 2.5 0 0 0-2.5 2.5v11a2.5 2.5 0 0 0 2.5 2.5h12.87a2.5 2.5 0 0 0 2.5-2.5v-11a2.5 2.5 0 0 0-2.5-2.5m1.5 13.5c0 .83-.67 1.5-1.5 1.5H5.565c-.83 0-1.5-.67-1.5-1.5v-8.42h15.87zm0-9.42H4.065v-1.58c0-.83.67-1.5 1.5-1.5h1.93v.59c0 .26.23.51.5.5c.27-.01.5-.22.5-.5v-.59h7v.59c0 .26.23.51.5.5c.27-.01.5-.22.5-.5v-.59h1.94c.83 0 1.5.67 1.5 1.5z"/><path fill="currentColor" d="M11.492 17.173v-3.46a.075.075 0 0 0-.114-.064l-.638.392a.15.15 0 0 1-.228-.128v-.651c0-.105.055-.203.146-.257l.764-.457a.3.3 0 0 1 .154-.043h.626a.3.3 0 0 1 .3.3v4.367a.3.3 0 0 1-.3.3h-.409a.298.298 0 0 1-.301-.299"/></svg>
+					<div class="inline-flex text-neutral-dark-900">
+						<span class="sronly font-bold">People:</span>
+					
+					<div class="divide-x inline gap-1 flex-wrap flex-1">
 						
-						<span><?php echo $pub_year;?></span>
-				
-					
+					<?php foreach($people_list as $people):
+						
+						echo '<a href="' . get_the_permalink($people->ID) . '" class="hover:no-underline focus-visible:no-underline underline px-2">' . $people->post_title . '</a>';
+						
+					endforeach;?>
 					</div>
+				</div>
 				
 				<?php endif;
 				
-				$terms_type = get_the_terms(get_the_ID(), 'assigned-project');
-				
-				$projects_list = get_field('associated_projects');
-				
-			//var_dump($projects_list);
-				
 				if(! empty($projects_list)):?>
 					
-					<div class="flex text-neutral-dark-500">
-						<span class="sr-only">Project</span>
-						<svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(1 3)"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M11.914.5H15.5a2 2 0 0 1 2 2v3.586a1 1 0 0 1-.293.707l-6.793 6.793a2 2 0 0 1-2.828 0l-3.172-3.172a2 2 0 0 1 0-2.828L11.207.793A1 1 0 0 1 11.914.5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m7.5 13.5l-2.013 1.006A2 2 0 0 1 2.72 13.42L1.105 9.114a2 2 0 0 1 .901-2.45L9.5 2.5"/><rect width="2" height="2" x="14" y="2" fill="currentColor" rx="1"/></g></svg>
-					<div class="divide-x flex gap-1 flex-wrap flex-1">
+					<div class="inline text-neutral-dark-900">
+						<span class="sronly font-bold">Project(s):</span>
+					<div class="divide-x inline gap-1">
 						
 					<?php foreach($projects_list as $project):
 						
-						echo '<a href="' . get_the_permalink($project->ID) . '" class="hover:underline focus-visible:underline no-underline px-2">' . $project->post_title . '</a>';
+						echo '<a href="' . get_the_permalink($project->ID) . '" class="hover:no-underline focus-visible:no-underline underline px-2">' . $project->post_title . '</a>';
 						
 					endforeach;?>
 					</div>
@@ -63,21 +62,15 @@
 				
 				<?php endif; 
 				
-				if(! empty($terms_type)):?>
+				if(! empty($pub_year)):?>
 					
-					<!-- <div class="flex text-neutral-dark-500">
-						<span class="sr-only">Project</span>
-						<svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(1 3)"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M11.914.5H15.5a2 2 0 0 1 2 2v3.586a1 1 0 0 1-.293.707l-6.793 6.793a2 2 0 0 1-2.828 0l-3.172-3.172a2 2 0 0 1 0-2.828L11.207.793A1 1 0 0 1 11.914.5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m7.5 13.5l-2.013 1.006A2 2 0 0 1 2.72 13.42L1.105 9.114a2 2 0 0 1 .901-2.45L9.5 2.5"/><rect width="2" height="2" x="14" y="2" fill="currentColor" rx="1"/></g></svg>
-					<div class="divide-x flex gap-1 flex-wrap flex-1">
-					<?php foreach($terms_type as $term):
-						
-						echo '<a href="' . get_term_link($term) . '" class="hover:underline focus-visible:underline no-underline px-2">' . $term->name . '</a>';
-						
-					endforeach;?>
+					<div class="gap-3 inline-flex text-neutral-dark-900">
+						<span class="font-bold">Published year: </span>
+						<span><?php echo $pub_year;?></span>
 					</div>
-				</div> -->
 				
-				<?php endif; ?>
+				<?php endif;?>
+		
 				
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->

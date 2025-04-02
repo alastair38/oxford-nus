@@ -1461,8 +1461,16 @@ form#loginform input#wp-submit:focus {
   display: inline-block;
 }
 
+.inline {
+  display: inline;
+}
+
 .flex {
   display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
 }
 
 .table {
@@ -1724,10 +1732,6 @@ form#loginform input#wp-submit:focus {
   row-gap: 0.5rem;
 }
 
-.gap-y-3 {
-  row-gap: 0.75rem;
-}
-
 .gap-y-6 {
   row-gap: 1.5rem;
 }
@@ -1929,6 +1933,10 @@ form#loginform input#wp-submit:focus {
   padding: 0.75rem;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .p-6 {
   padding: 1.5rem;
 }
@@ -2076,6 +2084,10 @@ form#loginform input#wp-submit:focus {
 
 .text-neutral-dark-500 {
   color: var(--wp--preset--color--neutral-dark-500);
+}
+
+.text-neutral-dark-900 {
+  color: var(--wp--preset--color--neutral-dark-900);
 }
 
 .text-neutral-light-100 {
