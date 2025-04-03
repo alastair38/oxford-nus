@@ -232,7 +232,7 @@ if( $post_type === 'grant' ):
     <?php endif;
     
     if(empty($grant_logo) && $grant_link):?>
-      <a class="w-fit px-3 mt-6 py-1 rounded-md bg-contrast text-white flex mx-auto" href="<?php echo $grant_link;?>">
+      <a class="w-fit px-3 mt-6 py-1 hover:outline hover:outline-offset-2 hover:outline-contrast focus-visible:outline focus-visible:outline-offset-2 focus-visible:otuline-contrast rounded-md bg-contrast text-white flex mx-auto" href="<?php echo $grant_link;?>">
         Grant homepage
       </a>
     <?php endif;

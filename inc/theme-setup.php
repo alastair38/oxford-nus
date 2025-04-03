@@ -306,9 +306,12 @@ function blockhaus_modify_archive_order( $query ) {
             'operator' => 'IN'
           )
         );
-    
-           // $query->set( 'tax_query', $taxquery);
       }  
+      
+      if ( $query->is_post_type_archive('grant') ) { 
+        $query->set( 'order', 'ASC' );
+        $query->set( 'orderby', 'title' );
+      }
 
   } 
 }
