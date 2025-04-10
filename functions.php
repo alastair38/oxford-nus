@@ -92,7 +92,6 @@ add_filter( 'get_the_archive_title', function ($title) {
 	} elseif (is_post_type_archive()) {
 		$title = post_type_archive_title('', false);
 }
-	
 	return $title;
  });
  
@@ -101,88 +100,6 @@ add_filter( 'get_the_archive_title', function ($title) {
 
  
  
-
-// Adapted from https://rudrastyh.com/wordpress/filter-posts-by-terms.html
-
-
-add_action( 'restrict_manage_posts', 'grant_taxonomy_filter_multi' );
-
-function grant_taxonomy_filter_multi( $post_type ){
-	
-	// let's decide about post type first
-	if( 'grant' !== $post_type ){
-		return;
-	}
-	// pass multiple taxonomies as an array of their slugs
-	$taxonomies = array( 'grant-project', 'grant-people' );
-	
-	// for every taxonomy we are going to do the same
-	foreach( $taxonomies as $taxonomy ){
-		
-		$taxonomy_object = get_taxonomy( $taxonomy );
-		$selected = isset( $_GET[ $taxonomy ] ) ? $_GET[ $taxonomy ] : '';
-		
-		wp_dropdown_categories( 
-			array(
-				'show_option_all' =>  $taxonomy_object->labels->all_items,
-				'taxonomy'        =>  $taxonomy,
-				'name'            =>  $taxonomy,
-				'orderby'         =>  'name', // slug / count / term_order etc
-				'value_field'     =>  'slug',
-				'selected'        =>  $selected,
-				'hierarchical'    =>  true,
-			)
-		);
-	}
-}
-
-add_action( 'restrict_manage_posts', 'project_taxonomy_filter_multi' );
-
-function project_taxonomy_filter_multi( $post_type ){
-	
-	// let's decide about post type first
-	if( 'project' !== $post_type ){
-		return;
-	}
-	// pass multiple taxonomies as an array of their slugs
-	$taxonomies = array( 'label');
-	
-	// for every taxonomy we are going to do the same
-	foreach( $taxonomies as $taxonomy ){
-		
-		$taxonomy_object = get_taxonomy( $taxonomy );
-		$selected = isset( $_GET[ $taxonomy ] ) ? $_GET[ $taxonomy ] : '';
-		
-		wp_dropdown_categories( 
-			array(
-				'show_option_all' =>  $taxonomy_object->labels->all_items,
-				'taxonomy'        =>  $taxonomy,
-				'name'            =>  $taxonomy,
-				'orderby'         =>  'name', // slug / count / term_order etc
-				'value_field'     =>  'slug',
-				'selected'        =>  $selected,
-				'hierarchical'    =>  true,
-			)
-		);
-	}
-}
-
-/*
- * Add columns to project post list
- */
-function add_acf_columns ( $columns ) {
-	return array_merge ( $columns, array ( 
-		'members' => __ ( 'Project Leads' ),
-		'assoc_members' => __ ( 'Associated Personnel' ),
-		'collab_members' => __ ( 'Collaborators' ),
-	
-	) );
-}
-add_filter ( 'manage_project_posts_columns', 'add_acf_columns' );
-
-/*
- * Add columns to project post list
- */
 function project_custom_column ( $column, $post_id ) {
 	switch ( $column ) {
 		case 'members':
@@ -229,4 +146,44 @@ function wpc_custom_term_name( $term_name, $products_name ){
 		}
 
     return $term_name;
+}
+
+class Blockhaus_Menu_Walker extends Walker_Nav_Menu {
+	
+	function start_lvl(&$output, $depth = 1, $args = array()) {
+		
+		
+		
+		if ($args->walker->has_children) {
+			$output .= '<ul class="sub-menu grid grid-cols-1 gap-x-6 gap-y-3 shadow-lg border absolute top-full mt-1 rounded-md p-3 bg-white w-max right-0 hidden">';
+		}
+}
+
+	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
+		$output .= "<li class='flex relative items-center" .  implode(" ", $item->classes) . "'>";
+ 
+		if ($item->url && $item->url != '#') {
+			$output .= '<a href="' . $item->url . '">';
+		} else {
+			$output .= '<button aria-controls="' . $item->classes[0] . '" class="text-sm hover:text-neutral-dark-100 focus-visible:text-neutral-dark-100" aria-expanded="false">';
+		}
+ 
+		$output .= $item->title;
+ 
+		if ($item->url && $item->url != '#') {
+			$output .= '</a>';
+		} else {
+			$output .= '</button>';
+		}
+		
+		if ($args->walker->has_children) {
+			$output .= '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m10 16l4-4l-4-4" />
+</svg>';
+		}
+		
+		
+	}
+	
+	
 }

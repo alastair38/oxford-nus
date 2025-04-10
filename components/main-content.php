@@ -135,7 +135,7 @@ endif;?>
 				
 			<?php foreach($outputs as $output):?>
 					
-				<li class="grid gap-3">
+				<li class="grid gap-3 border-b border-neutral-light-900 pb-6 last-of-type:pb-0 last-of-type:border-none">
           <span><?php echo $output->post_title;?></span>
           <div class="text-sm">
             <?php echo $output->post_content;?>
