@@ -235,7 +235,7 @@ if ( ! function_exists( 'blockhaus_people' ) ) :
 					?>
             
 					<?php if($disable_page_link):?>
-						<span class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center">
+						<span class="flex gap-2 w-fit rounded-full group focus-visible:outline-contrast pr-2 text-sm flex-wrap items-center">
 						<?php 
 							if($thumbnail):
 								echo $thumbnail;
