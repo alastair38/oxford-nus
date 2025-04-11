@@ -240,7 +240,7 @@ if ( ! function_exists( 'blockhaus_people' ) ) :
 							if($thumbnail):
 								echo $thumbnail;
 							else:
-							  echo '<span>Hi</span>';
+							  echo '<span class="w-10 h-10 flex items-center justify-center bg-neutral-light-900 rounded-full text-black/30">' . substr(get_the_title($post->ID), 0, 1) . '</span>';
 							endif;
 							echo get_the_title($post->ID); ?>
 						</span>
