@@ -12,7 +12,7 @@ h1[contenteditable='true'] {
 }
 
 p a {
-  @apply underline decoration-contrast decoration-2 hover:decoration-secondary focus:decoration-secondary;
+  @apply underline decoration-contrast hover:decoration-secondary focus:decoration-secondary;
 }
 
 #primary-menu li a[aria-current='page'] {

@@ -162,7 +162,9 @@ class Blockhaus_Menu_Walker extends Walker_Nav_Menu {
 	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
 		$output .= "<li class='flex relative items-center" .  implode(" ", $item->classes) . "'>";
  
-		if ($item->url && $item->url != '#') {
+		if ( $item->current || $item->current_page ) { // Check if the item is current or current page
+			$output .= '<a aria-current="page" href="' . $item->url . '">';
+		} elseif ($item->url && $item->url != '#') {
 			$output .= '<a href="' . $item->url . '">';
 		} else {
 			$output .= '<button aria-controls="' . $item->classes[0] . '" class="text-sm hover:text-neutral-dark-100 focus-visible:text-neutral-dark-100" aria-expanded="false">';
@@ -170,6 +172,8 @@ class Blockhaus_Menu_Walker extends Walker_Nav_Menu {
  
 		$output .= $item->title;
  
+		
+		
 		if ($item->url && $item->url != '#') {
 			$output .= '</a>';
 		} else {
@@ -181,9 +185,5 @@ class Blockhaus_Menu_Walker extends Walker_Nav_Menu {
 	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m10 16l4-4l-4-4" />
 </svg>';
 		}
-		
-		
 	}
-	
-	
 }

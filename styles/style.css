@@ -723,7 +723,6 @@ p a {
           text-decoration-line: underline;
   -webkit-text-decoration-color: var(--wp--preset--color--contrast);
           text-decoration-color: var(--wp--preset--color--contrast);
-  text-decoration-thickness: 2px;
 }
 
 p a:hover {
@@ -2103,6 +2102,10 @@ form#loginform input#wp-submit:focus {
   color: var(--wp--preset--color--base);
 }
 
+.text-black\/30 {
+  color: rgb(0 0 0 / 0.3);
+}
+
 .text-contrast {
   color: var(--wp--preset--color--contrast);
 }
@@ -3267,7 +3270,7 @@ ol.wp-block-footnotes li a {
           text-decoration-line: underline;
   -webkit-text-decoration-color: var(--wp--preset--color--primary);
   text-decoration-color: var(--wp--preset--color--primary);
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1px;
 }
 
 ol.wp-block-footnotes li > a:last-child {
@@ -3281,7 +3284,7 @@ sup.fn a {
           text-decoration-line: underline;
   -webkit-text-decoration-color: var(--wp--preset--color--primary);
   text-decoration-color: var(--wp--preset--color--primary);
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1px;
 }
 
 /* FRONT PAGE */
@@ -3825,6 +3828,16 @@ input[type='submit']:focus {
 .group:hover .group-hover\:py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.group:hover .group-hover\:no-underline {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+
+.group:focus-visible .group-focus-visible\:no-underline {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 
 .group:disabled .group-disabled\:block {

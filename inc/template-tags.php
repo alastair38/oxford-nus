@@ -49,6 +49,8 @@ if ( ! function_exists( 'blockhaus_posted_by' ) ) :
 	}
 endif;
 
+// for showing list of related people on projects pages
+
 if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 	
 	function blockhaus_projects_team($peopleObj) {
@@ -105,6 +107,8 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 	
 endif;
 
+// for showing list of related outputs on single projects, grants  and people pages
+
 if ( ! function_exists( 'blockhaus_outputs' ) ) :
 	
 	function blockhaus_outputs($outputs, $title, $linkLabel) {?>
@@ -131,6 +135,8 @@ if ( ! function_exists( 'blockhaus_outputs' ) ) :
 	<?php }
 
 endif;
+
+// for showing list of related grants on single outputs and projects pages
 
 if ( ! function_exists( 'blockhaus_grants' ) ) :
 	
@@ -173,6 +179,8 @@ if ( ! function_exists( 'blockhaus_grants' ) ) :
 
 endif;
 
+// for showing list of related funders on single outputs and grants pages
+
 if ( ! function_exists( 'blockhaus_funders' ) ) :
 	
 	function blockhaus_funders($funders, $title) {?>
@@ -210,6 +218,8 @@ if ( ! function_exists( 'blockhaus_funders' ) ) :
 
 endif;
 
+// for showing list of related people on single outputs and grants pages
+
 if ( ! function_exists( 'blockhaus_people' ) ) :
 	
 	function blockhaus_people($people, $title) {?>
@@ -219,11 +229,32 @@ if ( ! function_exists( 'blockhaus_people' ) ) :
        
         <div class="grid grid-cols-1 gap-2 flex-wrap">
           
-          <?php foreach( $people as $post ):?>
+          <?php foreach( $people as $post ):
+						$thumbnail = get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] );
+						$disable_page_link = get_field('disable_biography_page', $post->ID);
+					?>
             
-          <a class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
-            <?php echo get_the_title($post->ID); ?>
-          </a>
+					<?php if($disable_page_link):?>
+						<span class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center">
+						<?php 
+							if($thumbnail):
+								echo $thumbnail;
+							else:
+							  echo '<span>Hi</span>';
+							endif;
+							echo get_the_title($post->ID); ?>
+						</span>
+					<?php else:?>
+						<a class="flex gap-2 w-fit rounded-full group focus-visible:outline-contrast pr-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
+						<?php 
+							if($thumbnail):
+								echo $thumbnail;
+							else:
+							  echo '<span class="w-10 h-10 flex items-center justify-center bg-neutral-light-900 rounded-full text-black/30">' . substr(get_the_title($post->ID), 0, 1) . '</span>';
+							endif;
+							echo '<span class="underline group-hover:no-underline group-focus-visible:no-underline">' . get_the_title($post->ID) . '</span>'; ?>
+          	</a>
+					<?php endif;?>
             
           <?php endforeach; ?>
           
@@ -235,6 +266,8 @@ if ( ! function_exists( 'blockhaus_people' ) ) :
 	 }
 
 endif;
+
+// for showing list of related projects on single outputs, grants and people pages
 
 if ( ! function_exists( 'blockhaus_projects' ) ) :
 	
@@ -261,6 +294,8 @@ if ( ! function_exists( 'blockhaus_projects' ) ) :
 	 }
 
 endif;
+
+// for showing list of related outputs on single grants and people pages
 
 if ( ! function_exists( 'blockhaus_outputs_list' ) ) :
 	
