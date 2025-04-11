@@ -11,6 +11,10 @@ function blockhaus_scripts() {
 	wp_style_add_data( 'blockhaus-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'blockhaus-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), wp_get_theme()->get( 'Version' ), true );
+	
+	if(is_singular('output' )):
+		wp_enqueue_script( 'blockhaus-citation', get_template_directory_uri() . '/assets/js/citation.js', array(), wp_get_theme()->get( 'Version' ), true );	
+	endif;
 
 
 

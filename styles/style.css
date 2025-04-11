@@ -1409,10 +1409,6 @@ form#loginform input#wp-submit:focus {
   margin-bottom: 3rem;
 }
 
-.mb-0 {
-  margin-bottom: 0px;
-}
-
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -1447,6 +1443,10 @@ form#loginform input#wp-submit:focus {
 
 .mt-12 {
   margin-top: 3rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mt-6 {
@@ -1517,6 +1517,10 @@ form#loginform input#wp-submit:focus {
   height: 6rem;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
 .h-5 {
   height: 1.25rem;
 }
@@ -1573,6 +1577,10 @@ form#loginform input#wp-submit:focus {
 
 .w-3\/4 {
   width: 75%;
+}
+
+.w-4 {
+  width: 1rem;
 }
 
 .w-5 {
@@ -1843,6 +1851,10 @@ form#loginform input#wp-submit:focus {
 
 .border-neutral-light-100 {
   border-color: var(--wp--preset--color--neutral-light-100);
+}
+
+.border-neutral-light-500 {
+  border-color: var(--wp--preset--color--neutral-light-500);
 }
 
 .border-neutral-light-900 {
@@ -3758,6 +3770,23 @@ input[type='submit']:focus {
   outline-color: var(--wp--preset--color--contrast);
 }
 
+.focus-visible\:ring-contrast:focus-visible {
+  --tw-ring-color: var(--wp--preset--color--contrast);
+}
+
+.disabled\:bg-neutral-light-500:disabled {
+  background-color: var(--wp--preset--color--neutral-light-500);
+}
+
+.disabled\:text-black:disabled {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.disabled\:ring-neutral-light-500:disabled {
+  --tw-ring-color: var(--wp--preset--color--neutral-light-500);
+}
+
 .group:hover .group-hover\:not-sr-only {
   position: static;
   width: auto;
@@ -3798,13 +3827,17 @@ input[type='submit']:focus {
   padding-bottom: 0.25rem;
 }
 
+.group:disabled .group-disabled\:block {
+  display: block;
+}
+
+.group:disabled .group-disabled\:hidden {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .md\:sticky {
     position: sticky;
-  }
-
-  .md\:mb-12 {
-    margin-bottom: 3rem;
   }
 
   .md\:ml-0 {
@@ -3885,6 +3918,12 @@ input[type='submit']:focus {
     --tw-space-y-reverse: 0;
     margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+  }
+
+  .md\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2rem * var(--tw-space-y-reverse));
   }
 
   .md\:bg-base {

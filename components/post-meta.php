@@ -63,37 +63,9 @@ $post_type = get_post_type();?>
 
   endif;
 
-  if( $grants ): ?>
+  if( $grants ):
     
-    <div class="flex flex-col gap-6">
-      <span class="text-sm font-black flex border-b border-neutral-light-900"><?php esc_html_e( 'Funding grant', 'blockhaus' );?></span>
-      
-      <?php foreach( $grants as $post ):?>
-      <div class="space-y-3">
-      <?php 
-      
-      if(function_exists('get_field')):
-      
-      $grant_logo = get_field('grant_logo', $post->ID);
-      
-      endif;
-      
-      if($grant_logo):?>
-      
-        <img class="object-contain mr-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="75" height="75" loading="lazy" />
-          
-      <?php endif;?>
-    
-        <a class="flex w-fit underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
-           <?php echo get_the_title($post->ID); ?>
-        </a>
-      </div>
-      
-      <?php endforeach; ?>
-        
-    </div>
-
-  <?php wp_reset_postdata(); 
+    blockhaus_grants($grants, 'Funding grant(s)');
     
   endif;
     
@@ -124,81 +96,21 @@ if( $post_type === 'output' ):
   
   endif;
   
-    if( $output_projects ): ?>
+    if( $output_projects ):
     
-      <div class="flex flex-col gap-3">
-        <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( 'Projects(s)', 'blockhaus' );?></span>
-        
-        <div class="grid grid-cols-1 gap-2 flex-wrap">
-          
-          <?php foreach( $output_projects as $post ):?>
-            
-          <a class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
-            <?php echo get_the_title($post->ID); ?>
-          </a>
-            
-          <?php endforeach; ?>
-          
-        </div>
-      </div>
-    
-      <?php wp_reset_postdata(); 
+     blockhaus_projects($output_projects, 'Project(s)');
     
     endif; 
     
-    if( $output_people ): ?>
-    
-      <div class="flex flex-col gap-3">
-        <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( 'People', 'blockhaus' );?></span>
+    if( $output_people ):
        
-        <div class="grid grid-cols-1 gap-2 flex-wrap">
-          
-          <?php foreach( $output_people as $post ):?>
-            
-          <a class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
-            <?php echo get_the_title($post->ID); ?>
-          </a>
-            
-          <?php endforeach; ?>
-          
-        </div>
-      </div>
-    
-      <?php wp_reset_postdata(); 
-    
+      blockhaus_people($output_people, 'People'); 
+      
     endif;
     
-    if( $output_grants ): ?>
+    if( $output_grants ):
     
-      <div class="flex flex-col gap-6">
-        <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( 'Funding grant', 'blockhaus' );?></span>
-        
-        <?php foreach( $output_grants as $post ):?>
-          <div class="space-y-3">
-        <?php 
-        
-        if(function_exists('get_field')):
-          
-        $grant_logo = get_field('grant_logo', $post->ID);
-        
-        endif;
-      
-        if($grant_logo):?>
-        
-          <img class="object-contain mr-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="75" height="75" loading="lazy" />
-            
-        <?php endif;?>
-      
-          <a class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
-             <?php echo get_the_title($post->ID); ?>
-          </a>
-        </div>
-        
-        <?php endforeach; ?>
-          
-      </div>
-  
-    <?php wp_reset_postdata(); 
+      blockhaus_grants($output_grants, 'Funding grant(s)');
       
     endif; 
   
@@ -218,98 +130,54 @@ if( $post_type === 'grant' ):
   
   endif;
   
-    if(! empty($grant_logo) && $grant_link):?>
-      <a href="<?php echo $grant_link;?>">
-        <span class="sr-only">Grant homepage</span>
-        <img class="object-contain mx-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="150" height="150" loading="lazy">
-      </a>
-    <?php endif;
+  if(! empty($grant_logo) && $grant_link):?>
+    <a href="<?php echo $grant_link;?>">
+      <span class="sr-only"><?php esc_html_e( 'Grant homepage', 'blockhaus' );?></span>
+      <img class="object-contain mx-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="150" height="150" loading="lazy">
+    </a>
+  <?php endif;
     
-    if(! empty($grant_logo) && !$grant_link):?>
+  if(! empty($grant_logo) && !$grant_link):?>
       
-        <img class="object-contain mx-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="150" height="150" loading="lazy">
+    <img class="object-contain mx-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="150" height="150" loading="lazy">
       
-    <?php endif;
+  <?php endif;
     
-    if(empty($grant_logo) && $grant_link):?>
-      <a class="w-fit px-3 mt-6 py-1 hover:outline hover:outline-offset-2 hover:outline-contrast focus-visible:outline focus-visible:outline-offset-2 focus-visible:otuline-contrast rounded-md bg-contrast text-white flex mx-auto" href="<?php echo $grant_link;?>">
-        Grant homepage
-      </a>
-    <?php endif;
+  if(empty($grant_logo) && $grant_link):?>
+    <a class="w-fit px-3 mt-6 py-1 hover:outline hover:outline-offset-2 hover:outline-contrast focus-visible:outline focus-visible:outline-offset-2 focus-visible:otuline-contrast rounded-md bg-contrast text-white flex mx-auto" href="<?php echo $grant_link;?>">
+      <?php esc_html_e( 'Grant homepage', 'blockhaus' );?>
+    </a>
+  <?php endif;
  
-  
-    if( $grant_funders ): ?>
+  if( $grant_funders ):
     
-      <div class="flex flex-col gap-6">
-        <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( 'Funder(s)', 'blockhaus' );?></span>
-        <div class="grid grid-cols-1 gap-2 flex-wrap">
-          
-          <?php foreach( $grant_funders as $post ): 
-          
-          if(function_exists('get_field')):
-            
-          $logo = get_field('funder_logo');
-          
-          endif;?>
-          
-          <?php if(! empty($logo)):?>
-          <img class="object-contain mx-auto" src="<?php echo $logo['url'];?>" alt="<?php echo $logo['alt'];?>" width="75" height="75" loading="lazy">
-          <?php endif;?>
-          
-          <span class="flex gap-2 text-sm w-fit mx-auto flex-wrap items-center">
-            <?php echo get_the_title($post->ID); ?>
-          </span>
-            
-          <?php endforeach; ?>
-          
-        </div>
-      </div>
+   blockhaus_funders($grant_funders, 'Funder(s)');
     
-      <?php wp_reset_postdata(); 
-    
-    endif; 
+  endif; 
   
-  endif;
+endif;
   
-   /* end 'grant' specific fields */
+  /* end 'grant' specific fields */
    
    /* 'person' specific fields */
    
-  if( $post_type === 'person' ):
+if( $post_type === 'person' ):
     
-    if(function_exists('get_field')):
+  if(function_exists('get_field')):
     
-      $person_projects = get_field('projects');
+    $person_projects = get_field('projects');
       
-    endif;
-    
-    if( $person_projects ): ?>
-    
-      <div class="flex flex-col gap-3">
-        <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( 'Projects(s)', 'blockhaus' );?></span>
-        
-        <div class="grid grid-cols-1 gap-2 flex-wrap">
-          
-          <?php foreach( $person_projects as $post ):?>
-            
-          <a class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
-            <?php echo get_the_title($post->ID); ?>
-          </a>
-            
-          <?php endforeach; ?>
-          
-        </div>
-      </div>
-    
-      <?php wp_reset_postdata(); 
-    
-    endif; 
-    
-    
-    
   endif;
+    
+  if( $person_projects ):
+      
+    blockhaus_projects($person_projects, 'Project(s)');
+    
+  endif; 
+      
+endif;
   
-  /* end 'person' specific fields */
+/* end 'person' specific fields */
   
   get_template_part( 'components/share-buttons' );?>
   

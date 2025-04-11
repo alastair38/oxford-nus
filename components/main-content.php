@@ -9,31 +9,52 @@
 
 ?>
 
-<div class="space-y-12 mb-0 md:mb-12">
+<div class="space-y-6 md:space-y-8">
 	<div id="content" class="space-y-6">
-			<?php
+    
+  <!-- single 'output' pages get different #content layout  -->
+		<?php
+      
+      if(!is_singular('output')):
 
-			the_content();?>
-
-	
+			the_content();
+      
+    endif;?>
   
-  <?php if(is_singular('output')):
+    <?php if(is_singular('output')):?>
 
-  $published = get_field('published_year');
+    <?php $published = get_field('published_year');
 
-    if($published):
-      echo '<p class="text-sm mt-6">Published: ' . $published . '</p>';
-    endif;
+      if($published):
+        echo '<p class="text-sm">Published: ' . $published . '</p>';
+      endif;?>
+      
+      <div data-type="citation">
+        <?php the_content();?>
+      </div>
+      
+      <button id="copy_citation" class="disabled:bg-neutral-light-500 disabled:text-black group flex items-center gap-2 rounded-md text-sm inline-block w-fit bg-contrast disabled:ring-neutral-light-500 text-white px-6 py-2 hover:ring-2 no-underline focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus-visible:ring-contrast focus-visible:outline-none">
+        <span><?php esc_html_e( 'Copy citation', 'blockhaus' );?></span>
+        <svg class="group-disabled:hidden h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+          </g>
+        </svg>
+        <svg class="group-disabled:block hidden h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6L9 17l-5-5" />
+        </svg>
+      </button>
 
-  endif;?>
+    <?php endif;?>
 
   </div><!-- #content -->
   
 	<!-- Start 'grant' post type fields  -->
 	<?php
   
-  if( get_post_type() === 'grant' ): ?>
-  <div class="border border-neutral-light-900 p-6 rounded-md space-y-6 text-sm">
+  if( is_singular( 'grant' ) ): ?>
+  <div class="border border-neutral-light-500 p-3 md:p-6 rounded-md space-y-6 md:space-y-12 text-sm">
     <?php 
     $grant_projects = get_field('grant_projects');
     $grant_people = get_field('grant_people');
@@ -44,7 +65,7 @@
     if($start_date || $end_date):?>
   
     <div class="flex flex-col gap-4">
-      <span class="font-black"><?php esc_html_e( 'Grant Dates', 'blockhaus' );?></span>
+      <span class="font-black border-b border-neutral-light-900"><?php esc_html_e( 'Grant Dates', 'blockhaus' );?></span>
       <div class="flex gap-1 flex-wrap">
         
         <?php if($start_date):
@@ -64,60 +85,27 @@
     
   <?php endif;
   
-  if( $grant_projects ): ?>
+  if( $grant_projects ):
   
-  <div class="flex flex-col gap-4">
-    <span class="font-black"><?php esc_html_e( 'Funded Projects', 'blockhaus' );?></span>
-      <div class="grid grid-cols-1 gap-2 flex-wrap">
-      <?php foreach( $grant_projects as $post ): ?>
-        
-        <a class="flex gap-2 underline hover:no-underline focus-visible:no-underline" href="<?php echo get_the_permalink($post->ID); ?>">
-          <?php echo get_the_title($post->ID); ?>
-        </a>
-        
-      <?php endforeach; ?>
-      </div>
-  </div>
+      blockhaus_projects($grant_projects, 'Funded projects');
+  
+  endif;
 
-<?php wp_reset_postdata(); endif;
-
-  if($grant_people):?>
+  if($grant_people):
     
-    <div class="flex flex-col gap-4">
-    <span class="font-black"><?php esc_html_e( 'People', 'blockhaus' );?></span>
-      <div class="grid grid-cols-1 gap-2 flex-wrap">
-      <?php foreach( $grant_people as $post ): ?>
-        
-        <a class="flex gap-2 underline hover:no-underline focus-visible:no-underline" href="<?php echo get_the_permalink($post->ID); ?>">
-          <?php echo get_the_title($post->ID); ?>
-        </a>
-        
-      <?php endforeach; ?>
-      </div>
-  </div>
+    blockhaus_people($grant_people, 'People');
     
-  <?php wp_reset_postdata(); endif;?>
+  endif;
+  
+  if( $grant_outputs ): 
+  
+  blockhaus_outputs_list($grant_outputs, 'Outputs');
+  
+  endif;?>
  
 </div>
 
-<?php if( $grant_outputs ): ?>
-  
-  <div class="flex flex-col gap-4 border p-6 text-sm">
-    <span class="font-black"><?php esc_html_e( 'Grant outputs', 'blockhaus' );?></span>
-      <div class="grid grid-cols-1 gap-2 flex-wrap">
-      <?php foreach( $grant_outputs as $post ): ?>
-        
-        <a class="flex gap-2 underline hover:no-underline focus-visible:no-underline flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
-          <?php echo get_the_title($post->ID); ?>
-        </a>
-        
-      <?php endforeach; ?>
-      </div>
-  </div>
-
-<?php wp_reset_postdata(); endif;
-
-endif;?>
+<?php endif;?>
  
  <!-- end 'grant' post type fields -->
 
@@ -127,28 +115,10 @@ endif;?>
 				
 	endif;
 			
-	if(! empty($outputs)):?>
-		
-		<aside id="outputs" class="space-y-6 rounded-md border border-neutral-light-900 p-6">
-			<h2 class="font-black"><?php echo esc_html__( 'Outputs', 'blockhaus' );?></h2>
-			<ul class="grid grid-cols-1 gap-6">
-				
-			<?php foreach($outputs as $output):?>
-					
-				<li class="grid gap-3 border-b border-neutral-light-900 pb-6 last-of-type:pb-0 last-of-type:border-none">
-          <span><?php echo $output->post_title;?></span>
-          <div class="text-sm">
-            <?php echo $output->post_content;?>
-          </div>
-          <a class="no-underline hover:outline focus-visible:outline focus-visible:outline-contrast hover:outline-contrast focus-visible:outline-offset-2 hover:outline-offset-2 bg-contrast w-fit text-sm text-white px-3 py-1 rounded-md" href="<?php echo get_the_permalink($output->ID);?>">
-            <?php esc_html_e( 'View output', 'blockhaus' );?>
-          </a>
-			  </li>
-					
-			<?php	endforeach;?>
-				
-			</ul>
-		</aside> <!-- #outputs -->
-		
-	<?php endif;?>
+	if(! empty($outputs)):
+  
+    blockhaus_outputs($outputs, 'Outputs', 'View output');
+  
+  endif; 
+?>
 </div>

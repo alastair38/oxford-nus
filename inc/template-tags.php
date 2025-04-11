@@ -65,9 +65,7 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 			<ul class="flex gap-x-6 gap-y-2 flex-col">
 
 				<?php 
-				
-				
-				
+						
 				foreach( $people as $post ): 
 						
 					// Setup this post for WP functions (variable must be named $post).
@@ -107,7 +105,186 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 	
 endif;
 
-if ( ! function_exists( 'blockhaus_grant_details' ) ) :
+if ( ! function_exists( 'blockhaus_outputs' ) ) :
+	
+	function blockhaus_outputs($outputs, $title, $linkLabel) {?>
+		<aside id="outputs" class="space-y-6 rounded-md border border-neutral-light-900 p-6">
+			<h2 class="font-black"><?php echo esc_html__( $title, 'blockhaus' );?></h2>
+			<ul class="grid grid-cols-1 gap-6">
+				
+			<?php foreach($outputs as $output):?>
+					
+				<li class="grid gap-3 border-b border-neutral-light-900 pb-6 last-of-type:pb-0 last-of-type:border-none">
+          <span><?php echo $output->post_title;?></span>
+          <div class="text-sm">
+            <?php echo $output->post_content;?>
+          </div>
+          <a class="no-underline hover:outline focus-visible:outline focus-visible:outline-contrast hover:outline-contrast focus-visible:outline-offset-2 hover:outline-offset-2 bg-contrast w-fit text-sm text-white px-3 py-1 rounded-md mt-2" href="<?php echo get_the_permalink($output->ID);?>">
+            <?php esc_html_e( $linkLabel, 'blockhaus' );?>
+          </a>
+			  </li>
+					
+			<?php	endforeach;?>
+				
+			</ul>
+		</aside> <!-- #outputs -->
+	<?php }
+
+endif;
+
+if ( ! function_exists( 'blockhaus_grants' ) ) :
+	
+	function blockhaus_grants($grants, $title) {?>
+		<div class="flex flex-col gap-3">
+      <span class="text-sm font-black flex border-b border-neutral-light-900">
+        <?php esc_html_e( $title, 'blockhaus' );?>
+      </span>
+      
+      <?php foreach( $grants as $post ):?>
+      <div>
+				
+				<a class="flex w-fit underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
+					<?php echo get_the_title($post->ID); ?>
+				
+				<?php 
+				
+				if(function_exists('get_field')):
+				
+				$grant_logo = get_field('grant_logo', $post->ID);
+				
+				endif;
+				
+				if($grant_logo):?>
+				
+					<img class="object-contain mr-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="75" height="75" loading="lazy" />
+						
+				<?php endif;?>
+				</a>
+    
+      </div>
+      
+      <?php endforeach; ?>
+        
+    </div>
+
+  <?php wp_reset_postdata();
+	
+	 }
+
+endif;
+
+if ( ! function_exists( 'blockhaus_funders' ) ) :
+	
+	function blockhaus_funders($funders, $title) {?>
+		
+		<div class="flex flex-col gap-6">
+      <span class="text-sm font-black border-b border-neutral-light-900">
+				<?php esc_html_e( $title, 'blockhaus' );?>
+			</span>
+      <div class="grid grid-cols-1 gap-2 flex-wrap">
+          
+        <?php foreach( $funders as $post ): 
+          
+        if(function_exists('get_field')):
+            
+          $logo = get_field('funder_logo', $post->ID);
+          
+        endif;?>
+          
+        <?php if(! empty($logo)):?>
+          <img class="object-contain mx-auto" src="<?php echo $logo['url'];?>" alt="<?php echo $logo['alt'];?>" width="75" height="75" loading="lazy">
+        <?php endif;?>
+          
+        <span class="flex gap-2 text-sm w-fit mx-auto flex-wrap items-center">
+          <?php echo get_the_title($post->ID); ?>
+        </span>
+            
+        <?php endforeach; ?>
+          
+      </div>
+    </div>
+    
+    <?php wp_reset_postdata(); 
+	
+	 }
+
+endif;
+
+if ( ! function_exists( 'blockhaus_people' ) ) :
+	
+	function blockhaus_people($people, $title) {?>
+		
+		<div class="flex flex-col gap-3">
+        <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( $title, 'blockhaus' );?></span>
+       
+        <div class="grid grid-cols-1 gap-2 flex-wrap">
+          
+          <?php foreach( $people as $post ):?>
+            
+          <a class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
+            <?php echo get_the_title($post->ID); ?>
+          </a>
+            
+          <?php endforeach; ?>
+          
+        </div>
+      </div>
+    
+      <?php wp_reset_postdata(); 
+	
+	 }
+
+endif;
+
+if ( ! function_exists( 'blockhaus_projects' ) ) :
+	
+	function blockhaus_projects($projects, $title) {?>
+		
+		<div class="flex flex-col gap-3">
+        <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( $title, 'blockhaus' );?></span>
+        
+        <div class="grid grid-cols-1 gap-2 flex-wrap">
+          
+          <?php foreach( $projects as $post ):?>
+            
+          <a class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
+            <?php echo get_the_title($post->ID); ?>
+          </a>
+            
+          <?php endforeach; ?>
+          
+        </div>
+      </div>
+    
+      <?php wp_reset_postdata(); 
+	
+	 }
+
+endif;
+
+if ( ! function_exists( 'blockhaus_outputs_list' ) ) :
+	
+	function blockhaus_outputs_list($outputs, $title) {?>
+		
+		<div class="flex flex-col gap-3">
+        <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( $title, 'blockhaus' );?></span>
+        
+        <div class="grid grid-cols-1 gap-2 flex-wrap">
+          
+          <?php foreach( $outputs as $post ):?>
+            
+          <a class="flex underline hover:no-underline focus-visible:no-underline gap-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
+            <?php echo get_the_title($post->ID); ?>
+          </a>
+            
+          <?php endforeach; ?>
+          
+        </div>
+      </div>
+    
+      <?php wp_reset_postdata(); 
+	
+	 }
 
 endif;
 
@@ -257,30 +434,30 @@ function blockhaus_get_custom_post_types() {
 	return $post_types;
 }
 
-function blockhaus_display_address() {
+// function blockhaus_display_address() {
 	
-	$addressObject = get_field('address', 'options');
-	$first_line = $addressObject['first_line'];
-	$second_line = $addressObject['second_line'];
-	$town_city = $addressObject['city'];
-	$region = $addressObject['region'];
-	$postcode = $addressObject['postcode'];
+// 	$addressObject = get_field('address', 'options');
+// 	$first_line = $addressObject['first_line'];
+// 	$second_line = $addressObject['second_line'];
+// 	$town_city = $addressObject['city'];
+// 	$region = $addressObject['region'];
+// 	$postcode = $addressObject['postcode'];
 	
-	$phoneNumbers = get_field('phone_numbers', 'options');
-	$mobile = $phoneNumbers['mobile'];
-	$mobile_numeric = preg_replace( '/\D/', '', $mobile ); // remove spaces etc from the mobile string
+// 	$phoneNumbers = get_field('phone_numbers', 'options');
+// 	$mobile = $phoneNumbers['mobile'];
+// 	$mobile_numeric = preg_replace( '/\D/', '', $mobile ); // remove spaces etc from the mobile string
 
-	$address = '<address aria-label="Contact address" class="blockhaus-address text-center md:text-left w-1/3 flex flex-col">';
-	$address .= $first_line ? '<span>' . $first_line . '</span>' : ''; 
-	$address .= $second_line ? '<span>' . $second_line . '</span>' : ''; 
-	$address .= $town_city ? '<span>' . $town_city . '</span>' : ''; 
-	$address .= $region ? '<span>' . $region . '</span>' : ''; 
-	$address .= $postcode ? '<span>' . $postcode . '</span>' : '';
-	$address .= $mobile ? '<a href="tel:+' . $mobile_numeric . '">Tel: ' . $mobile . '</a>' : '';
-	$address .= '</address>';
+// 	$address = '<address aria-label="Contact address" class="blockhaus-address text-center md:text-left w-1/3 flex flex-col">';
+// 	$address .= $first_line ? '<span>' . $first_line . '</span>' : ''; 
+// 	$address .= $second_line ? '<span>' . $second_line . '</span>' : ''; 
+// 	$address .= $town_city ? '<span>' . $town_city . '</span>' : ''; 
+// 	$address .= $region ? '<span>' . $region . '</span>' : ''; 
+// 	$address .= $postcode ? '<span>' . $postcode . '</span>' : '';
+// 	$address .= $mobile ? '<a href="tel:+' . $mobile_numeric . '">Tel: ' . $mobile . '</a>' : '';
+// 	$address .= '</address>';
 
-	return $address;
-}
+// 	return $address;
+// }
 
 function blockhaus_post_edit_link()  {
 
