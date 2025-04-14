@@ -99,7 +99,7 @@
   
   if( $grant_outputs ): 
   
-  blockhaus_outputs_list($grant_outputs, 'Outputs');
+    blockhaus_outputs_list($grant_outputs, 'Outputs');
   
   endif;?>
  

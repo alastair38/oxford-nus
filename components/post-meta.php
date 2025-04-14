@@ -130,24 +130,7 @@ if( $post_type === 'grant' ):
   
   endif;
   
-  if(! empty($grant_logo) && $grant_link):?>
-    <a href="<?php echo $grant_link;?>">
-      <span class="sr-only"><?php esc_html_e( 'Grant homepage', 'blockhaus' );?></span>
-      <img class="object-contain mx-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="150" height="150" loading="lazy">
-    </a>
-  <?php endif;
-    
-  if(! empty($grant_logo) && !$grant_link):?>
-      
-    <img class="object-contain mx-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="150" height="150" loading="lazy">
-      
-  <?php endif;
-    
-  if(empty($grant_logo) && $grant_link):?>
-    <a class="w-fit px-3 mt-6 py-1 hover:outline hover:outline-offset-2 hover:outline-contrast focus-visible:outline focus-visible:outline-offset-2 focus-visible:otuline-contrast rounded-md bg-contrast text-white flex mx-auto" href="<?php echo $grant_link;?>">
-      <?php esc_html_e( 'Grant homepage', 'blockhaus' );?>
-    </a>
-  <?php endif;
+  blockhaus_grant_details($grant_link, $grant_logo, $grant_funders);
  
   if( $grant_funders ):
     
@@ -157,9 +140,9 @@ if( $post_type === 'grant' ):
   
 endif;
   
-  /* end 'grant' specific fields */
+/* end 'grant' specific fields */
    
-   /* 'person' specific fields */
+/* 'person' specific fields */
    
 if( $post_type === 'person' ):
     

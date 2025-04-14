@@ -73,6 +73,7 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 					// Setup this post for WP functions (variable must be named $post).
 					setup_postdata($post); 
 					$disable_page_link = get_field('disable_biography_page', $post->ID);
+					$academic_title = get_field('academic_title', $post->ID);
 					?>
 					<li>
 						
@@ -80,8 +81,15 @@ if ( ! function_exists( 'blockhaus_projects_team' ) ) :
 						
 						if(!$disable_page_link):?>
 						<a class="flex gap-2 hover:underline focus-visible:underline items-center" href="<?php echo get_the_permalink($post->ID);?>">
-						<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] ); 
-						echo get_the_title($post->ID); ?>	
+							<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] );?>
+							<span class="flex gap-1">
+								
+							<?php if($academic_title):
+								echo $academic_title;
+							endif;?>
+							
+							<?php echo get_the_title($post->ID); ?>
+							</span>
 						</a>
 						
 						<?php else:?>
@@ -232,6 +240,7 @@ if ( ! function_exists( 'blockhaus_people' ) ) :
           <?php foreach( $people as $post ):
 						$thumbnail = get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] );
 						$disable_page_link = get_field('disable_biography_page', $post->ID);
+						$academic_title = get_field('academic_title', $post->ID);
 					?>
             
 					<?php if($disable_page_link):?>
@@ -241,8 +250,15 @@ if ( ! function_exists( 'blockhaus_people' ) ) :
 								echo $thumbnail;
 							else:
 							  echo '<span class="w-10 h-10 flex items-center justify-center bg-neutral-light-900 rounded-full text-black/30">' . substr(get_the_title($post->ID), 0, 1) . '</span>';
-							endif;
-							echo get_the_title($post->ID); ?>
+							endif;?>
+							<span class="flex gap-1">
+								
+							<?php if($academic_title):
+								echo $academic_title;
+							endif;?>
+							
+							<?php echo get_the_title($post->ID); ?>
+							</span>
 						</span>
 					<?php else:?>
 						<a class="flex gap-2 w-fit rounded-full group focus-visible:outline-contrast pr-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
@@ -251,8 +267,15 @@ if ( ! function_exists( 'blockhaus_people' ) ) :
 								echo $thumbnail;
 							else:
 							  echo '<span class="w-10 h-10 flex items-center justify-center bg-neutral-light-900 rounded-full text-black/30">' . substr(get_the_title($post->ID), 0, 1) . '</span>';
-							endif;
-							echo '<span class="underline group-hover:no-underline group-focus-visible:no-underline">' . get_the_title($post->ID) . '</span>'; ?>
+							endif;?>
+							<span class="flex gap-1 underline group-hover:no-underline group-focus-visible:no-underline">
+								
+								<?php if($academic_title):
+									echo $academic_title;
+								endif;?>
+								
+								<?php echo get_the_title($post->ID); ?>
+							</span>
           	</a>
 					<?php endif;?>
             
@@ -318,6 +341,33 @@ if ( ! function_exists( 'blockhaus_outputs_list' ) ) :
       </div>
     
       <?php wp_reset_postdata(); 
+	
+	 }
+
+endif;
+
+if ( ! function_exists( 'blockhaus_grant_details' ) ) :
+	
+	function blockhaus_grant_details($grant_link, $grant_logo, $grant_funders) {
+		
+		if(! empty($grant_logo) && $grant_link):?>
+			<a href="<?php echo $grant_link;?>">
+				<span class="sr-only"><?php esc_html_e( 'Grant homepage', 'blockhaus' );?></span>
+				<img class="object-contain mx-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="150" height="150" loading="lazy">
+			</a>
+		<?php endif;
+			
+		if(! empty($grant_logo) && !$grant_link):?>
+				
+			<img class="object-contain mx-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="150" height="150" loading="lazy">
+				
+		<?php endif;
+			
+		if(empty($grant_logo) && $grant_link):?>
+			<a class="w-fit px-3 mt-6 py-1 hover:outline hover:outline-offset-2 hover:outline-contrast focus-visible:outline focus-visible:outline-offset-2 focus-visible:otuline-contrast rounded-md bg-contrast text-white flex mx-auto" href="<?php echo $grant_link;?>">
+				<?php esc_html_e( 'Grant homepage', 'blockhaus' );?>
+			</a>
+		<?php endif;
 	
 	 }
 
