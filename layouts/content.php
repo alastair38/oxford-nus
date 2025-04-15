@@ -7,8 +7,6 @@
  * @package blockhaus
  */
 
-
- 
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="flex flex-col space-y-6 break-words relative col-span-2 2xl:col-span-3">
@@ -22,40 +20,34 @@
 	<div class="space-y-6">
 		
 		<header class="entry-header">
+			
 			<?php
 			
 			the_title( '<h2 class="text-lg font-bold leading-tight">', '</h2>' );
 
 			?>
-			
-			
-				
-				<?php	
-					
-				if ( 'post' === get_post_type() ) :?>
 
-				<div class="entry-meta flex gap-x-6 flex-wrap text-sm italic justify-between py-1">
+			<?php	
+					
+			if ( 'post' === get_post_type() ) :?>
+
+			<div class="entry-meta flex gap-x-6 flex-wrap text-sm italic justify-between py-1">
 	
-				<?php	blockhaus_posted_by($post);
+			<?php	blockhaus_posted_by($post);
 
-					blockhaus_posted_on();?>
+				blockhaus_posted_on();?>
 					
-				</div><!-- .entry-meta -->
+			</div><!-- .entry-meta -->
 
-				<?php endif; ?>
-				
-			
-		
+			<?php endif; ?>
+
 		</header><!-- .entry-header -->
-		
 	
 		<div class="entry-content">
-			
 			
 			<?php
 
 			if(('page' !== get_post_type()) ):
-
 
 				echo wp_trim_words( get_the_content(), 40, '...' );
 

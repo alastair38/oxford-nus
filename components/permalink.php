@@ -16,27 +16,27 @@ endif;?>
 
 <a aria-label="Read <?php the_title();?>" class="rounded-md text-sm inline-block w-fit bg-contrast text-white px-6 py-2 hover:ring-2 no-underline focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast"
 
-<?php if($external_link):?>
+	<?php if($external_link):?>
 
-	href="<?php echo esc_url( $external_link );?>" rel="external">
+		href="<?php echo esc_url( $external_link );?>" rel="external">
 
-<?php else:?>
-	
-	href="<?php echo esc_url( get_permalink() );?>" rel="bookmark">
-	
-<?php endif;
+	<?php else:?>
+		
+		href="<?php echo esc_url( get_permalink() );?>" rel="bookmark">
+		
+	<?php endif;
 
-if(get_post_type() === 'post'):
+	if(get_post_type() === 'post'):
 
-	_e( 'View article', 'blockhaus' );
+		_e( 'View article', 'blockhaus' );
 
-else:
-	
-	_e( 'View details', 'blockhaus' );
+	else:
+		
+		_e( 'View details', 'blockhaus' );
 
-endif;
+	endif;
 
-?>
+	?>
 
 </a>
 

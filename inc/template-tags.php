@@ -207,13 +207,23 @@ if ( ! function_exists( 'blockhaus_funders' ) ) :
           
         endif;?>
           
-        <?php if(! empty($logo)):?>
-          <img class="object-contain mx-auto" src="<?php echo $logo['url'];?>" alt="<?php echo $logo['alt'];?>" width="75" height="75" loading="lazy">
-        <?php endif;?>
+        <?php 
+				if(! is_archive()):
+					if(! empty($logo)):?>
+						<img class="object-contain mx-auto" src="<?php echo $logo['url'];?>" alt="<?php echo $logo['alt'];?>" width="75" height="75" loading="lazy">
+					<?php endif;?>
           
-        <span class="flex gap-2 text-sm w-fit mx-auto flex-wrap items-center">
-          <?php echo get_the_title($post->ID); ?>
-        </span>
+					<span class="flex gap-2 text-sm w-fit mx-auto flex-wrap items-center">
+						<?php echo get_the_title($post->ID); ?>
+					</span>
+				
+				<?php else:?>
+					
+					<span class="flex gap-2 text-sm w-fit flex-wrap items-center">
+						<?php echo get_the_title($post->ID); ?>
+					</span>
+					
+				<?php endif;?>
             
         <?php endforeach; ?>
           

@@ -23,7 +23,11 @@
   
     <?php if(is_singular('output')):?>
 
-    <?php $published = get_field('published_year');
+    <?php 
+    
+      if(function_exists('get_field')):
+        $published = get_field('published_year');
+      endif;
 
       if($published):
         echo '<p class="text-sm">Published: ' . $published . '</p>';
@@ -56,11 +60,13 @@
   if( is_singular( 'grant' ) ): ?>
   <div class="border border-neutral-light-500 p-3 md:p-6 rounded-md space-y-6 md:space-y-12 text-sm">
     <?php 
-    $grant_projects = get_field('grant_projects');
-    $grant_people = get_field('grant_people');
-    $grant_outputs = get_field('grant_outputs');
-    $start_date = get_field('start_date');
-    $end_date = get_field('end_date');
+    if(function_exists('get_field')):
+      $grant_projects = get_field('grant_projects');
+      $grant_people = get_field('grant_people');
+      $grant_outputs = get_field('grant_outputs');
+      $start_date = get_field('start_date');
+      $end_date = get_field('end_date');
+    endif;
     
     if($start_date || $end_date):?>
   
@@ -109,10 +115,10 @@
  
  <!-- end 'grant' post type fields -->
 
-	<?php if(function_exists('get_field')):
-			
-		$outputs = get_field('outputs');
-				
+	<?php 
+  
+  if(function_exists('get_field')):	
+		$outputs = get_field('outputs');		
 	endif;
 			
 	if(! empty($outputs)):

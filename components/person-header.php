@@ -7,8 +7,7 @@
  * @package blockhaus
  */
 
-if(function_exists('get_field')):
-  
+if(function_exists('get_field')):  
 // check if ACF is activated to before grabbing field values
 $academic_title = get_field('academic_title', $post->ID);
 $work_title = get_field('work_title', $post->ID);

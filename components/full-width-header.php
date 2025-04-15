@@ -20,8 +20,12 @@
  <?php if(get_post_type() === 'output' || get_post_type() === 'grant'):?>
  
 	<div class="pt-6">
-		<span class="text-sm text-small uppercase">OCNS <?php echo get_post_type();?></span>
-		<h1 class="page-title text-default md:text-lg leading-snug lg:leading-normal font-black"><?php the_title();?></h1>
+		<span class="text-sm text-small uppercase">
+			<?php esc_html_e( 'OCNS ' . get_post_type() , 'blockhaus' );?>
+		</span>
+		<h1 class="page-title text-default md:text-lg leading-snug lg:leading-normal font-black">
+			<?php the_title();?>
+		</h1>
 	</div>
 
 	<?php else:?>

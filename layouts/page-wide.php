@@ -11,10 +11,8 @@
 
 <article id="post-<?php the_ID(); ?>" class="space-y-12 ">
 
-<?php get_template_part('components/full-width-header'); ?>
-	
-		
-		<?php the_content(); ?>
+	<?php get_template_part('components/full-width-header'); ?>
 
+	<?php the_content(); ?>
 
-</article><!-- #post-<?php the_ID(); ?> -->
+</article><!-- #post-... -->

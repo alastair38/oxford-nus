@@ -7,98 +7,69 @@
  * @package blockhaus
  */
 
+if(function_exists('get_field')):
+		
+	$grantFunder = get_field('grant_funder');
+	$projects_list = get_field('grant_projects');
+	$people_list = get_field('grant_people');
+	
+endif;
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="flex flex-col pb-6 space-y-3 md:space-y-6 border-b">
 
+	<header class="entry-header space-y-3">
 		
-		<header class="entry-header space-y-3">
-		
-		
-			<?php
+		<?php the_title( '<h2 class="text-default font-bold md:leading-tight">', '</h2>' );?>
 			
-			the_title( '<h2 class="text-default font-bold md:leading-tight">', '</h2>' );
-
-			?>
-			
-		
-		</header><!-- .entry-header -->
+	</header><!-- .entry-header -->
 	
-		<div class="entry-content">
+	<div class="entry-content">
 			
-			<?php the_excerpt(); ?>
+		<?php the_excerpt(); ?>
 			
-		</div><!-- .entry-content -->
+	</div><!-- .entry-content -->
 		
-		<div class="entry-meta bg-neutral-light-100 p-4 rounded-md flex flex-col gap-4 text-sm">
+	<div class="entry-meta bg-neutral-light-100 p-4 rounded-md flex flex-col gap-4 text-sm">
 				
+	<?php
 				
-				<?php
-				
-				
-				$grantFunder = get_field('grant_funder');
-				
-				if(! empty($grantFunder)):?>
+	if(! empty($grantFunder)):?>
 					
-					<div class="flex-inline gap-1 text-neutral-dark-500">
-						<span class="font-bold">Funder:</span>
+		<div class="text-neutral-dark-500">
+			
+			<?php blockhaus_funders($grantFunder, 'Funders');?>
 					
+		</div>
+				
+		<?php wp_reset_postdata(); endif;
+			
+		if(! empty($projects_list)):?>
 					
-					<?php foreach($grantFunder as $post):
-						
-						echo '<span class="px-2">' . get_the_title($post->ID) . '</span>';
-						
-					endforeach;?>
+		<div class="text-neutral-dark-500">
+			
+		<?php blockhaus_projects($projects_list, 'Project(s)');?>
+			
+		</div>
+				
+		<?php endif;
+				
+		if(! empty($people_list)):?>
 					
-					</div>
-				
-				<?php wp_reset_postdata(); endif;
-				
-				$projects_list = get_field('grant_projects');
-				
-			//var_dump($projects_list);
-				
-				if(! empty($projects_list)):?>
-					
-					<div class="flex-inline gap-1 text-neutral-dark-500">
+		<div class="text-neutral-dark-500">
+			
+		<?php blockhaus_people($people_list, 'People');?>
 						
-						<span class="font-bold">Project(s):</span>
+		</div>
 				
-						<div class="divide-x inline gap-1">
-					<?php foreach($projects_list as $project):
-						
-						echo '<a href="' . get_the_permalink($project->ID) . '" class="hover:no-underline px-2 focus-visible:no-underline underline">' . $project->post_title . '</a>';
-						
-					endforeach;?>
-					</div>
-				</div>
+	<?php endif; ?>
 				
-				<?php endif;
-				$people_list = get_field('grant_people');
-				
-				if(! empty($people_list)):?>
-					
-					<div class="flex-inline gap-1 text-neutral-dark-500">
-						
-						<span class="font-bold">People:</span>
-					<div class="divide-x inline gap-1">
-						
-					<?php foreach($people_list as $person):
-						
-						echo '<a href="' . get_the_permalink($person->ID) . '" class="hover:no-underline px-2 focus-visible:no-underline underline">' . $person->post_title . '</a>';
-						
-					endforeach;?>
-					</div>
-				</div>
-				
-				<?php endif; ?>
-				
-				</div><!-- .entry-meta -->
+	</div><!-- .entry-meta -->
 
-		<footer class="entry-footer mt-auto">
+	<footer class="entry-footer mt-auto">
 
 			<?php get_template_part('components/permalink'); ?>
 				
-		</footer><!-- .entry-footer -->
+	</footer><!-- .entry-footer -->
 	
-</article><!-- #post-<?php the_ID(); ?> -->
+</article><!-- #post-... -->

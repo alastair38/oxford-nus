@@ -10,11 +10,13 @@
 ?>
 
 <header class="entry-header screen-reader-text">
+	
 	<?php the_title( '<h1>', '</h1>' ); ?>
+	
 </header><!-- .entry-header -->
 
 <div class="space-y-24">
-	<?php
-	the_content();
-	?>
+	
+	<?php the_content();?>
+	
 </div><!-- .entry-content -->

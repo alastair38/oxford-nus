@@ -7,8 +7,14 @@
  * @package blockhaus
  */
 
- $further_info = get_field('further_information', $post->ID);
-
+ if(function_exists('get_field')):
+				
+	$further_info = get_field('further_information', $post->ID);
+	$biography = get_field('biography', $post->ID);
+	$outputs = get_field('person_outputs');
+	
+endif;
+ 
 ?>
 
 <article id="post-<?php the_ID(); ?>" class="container mx-auto space-y-6">
@@ -18,21 +24,24 @@
 	<div class="w-full grid grid-cols-1 md:grid-cols-prose gap-12 ">
 		
 		<div>
+			
 			<div class="space-y-6 mb-12">
-				<p><?php echo get_field('biography', $post->ID); ?></p>
+				
+				<?php if(! empty($biography)):?>
+					<p><?php echo $biography; ?></p>
+				<?php endif;?>
 		
-			<?php if($further_info):?>
-				<a aria-label="View institution biography for <?php the_title(); ?>" class="flex gap-2 mb-6 w-fit items-center bg-contrast text-white text-sm px-3 no-underline py-1 rounded-md hover:ring-2 focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast" href="<?php echo $further_info; ?>">
-					<?php esc_html_e( 'View institution biography', 'blockhaus' );?>
-				</a>
-			<?php endif;?>
+				<?php if(! empty($further_info)):?>
+					
+					<a aria-label="View institution biography for <?php the_title(); ?>" class="flex gap-2 mb-6 w-fit items-center bg-contrast text-white text-sm px-3 no-underline py-1 rounded-md hover:ring-2 focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast" href="<?php echo $further_info; ?>">
+						<?php esc_html_e( 'View institution biography', 'blockhaus' );?>
+					</a>
+					
+				<?php endif;?>
+			
 			</div>
 		
-		<?php if(function_exists('get_field')):
-				
-				$outputs = get_field('person_outputs');
-						
-			endif;
+		<?php 
 					
 			if(! empty($outputs)):
 				

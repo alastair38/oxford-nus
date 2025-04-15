@@ -10,13 +10,19 @@
  // get the header object from blockhaus_header_layout()
 
 $header = blockhaus_header_layout();
-
 $term = get_queried_object();
+$post_type = get_post_type();
+$post_type_obj = get_post_type_object( $post_type);
+
+if(function_exists('get_field')):
+  
+	// check if ACF is activated to before grabbing field values
 $image = get_field('author_image', $term);
 $contact = get_field('contact', $term);
-$post_type = get_post_type();
 $description = get_field($post_type . '_description', 'option');
-$post_type_obj = get_post_type_object( $post_type);
+
+endif;
+
 
 ?>
 

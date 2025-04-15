@@ -75,14 +75,14 @@ endif;
 
 $post_tags = get_the_tags();
 
-  if ( $post_tags ):?>
+if ( $post_tags ):?>
   <ul aria-labelledby="tagsList" class="flex gap-y-2 gap-x-4 items-center flex-wrap">
     <li id="tagsList" class="w-full"><?php esc_html_e( 'Tags', 'blockhaus' );?></li>
     <?php foreach( $post_tags as $tag ) {
         echo '<li><a class="px-3 py-1 bg-neutral-light-900 text-contrast hover:ring-2 ring-offset-2 hover:ring-primary focus:ring-2 focus:ring-primary rounded-full" href="' . esc_attr( get_tag_link( $tag->term_id ) ) . '">' . $tag->name . '</a></li>'; 
       } ;?>
   </ul>
-  <?php endif;
+<?php endif;
  
 /* 'output' specific fields */
   
@@ -96,25 +96,25 @@ if( $post_type === 'output' ):
   
   endif;
   
-    if( $output_projects ):
+  if( $output_projects ):
     
-     blockhaus_projects($output_projects, 'Project(s)');
+    blockhaus_projects($output_projects, 'Project(s)');
     
-    endif; 
+  endif; 
     
-    if( $output_people ):
+  if( $output_people ):
        
-      blockhaus_people($output_people, 'People'); 
+    blockhaus_people($output_people, 'People'); 
       
-    endif;
-    
-    if( $output_grants ):
-    
-      blockhaus_grants($output_grants, 'Funding grant(s)');
-      
-    endif; 
-  
   endif;
+    
+  if( $output_grants ):
+    
+    blockhaus_grants($output_grants, 'Funding grant(s)');
+      
+  endif; 
+  
+endif;
   
 /* end 'output' specific fields */ 
  
