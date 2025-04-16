@@ -29,7 +29,7 @@
 	</div>
 
 	<?php else:?>
-		<h1 class="page-title leading-snug lg:leading-normal font-black"><?php the_title();?></h1>
+		<h1 class="page-title leading-snug text-default md:text-lg lg:leading-normal font-black"><?php the_title();?></h1>
 	<?php endif;?>
 	
 	<hr aria-hidden="true" class="border-neutral-light-100">

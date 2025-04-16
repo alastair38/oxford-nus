@@ -38,7 +38,7 @@ endif;
 					
 		<div class="text-neutral-dark-500">
 			
-			<?php blockhaus_funders($grantFunder, 'Funders');?>
+			<?php blockhaus_funders($grantFunder, 'Funder(s)');?>
 					
 		</div>
 				
