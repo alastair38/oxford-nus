@@ -14,27 +14,21 @@
 
 get_header();
 
-
 ?>
 
-	<main class="main-content w-11/12 mx-auto mt-6">
-
+<main class="main-content w-11/12 mx-auto mt-6">
+	
+	<div class="grid grid-cols-1 md:grid-cols-6 2xl:grid-cols-12 gap-12">
 		<?php
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) :?>
-
-				<div class="grid grid-cols-1 md:grid-cols-6 2xl:grid-cols-12 gap-12">
+			
 				<?php get_template_part('components/archive-header'); ?>
 				
-				
-				
-
 				<?php
 				
 			endif;
-
-		
 
 			/* Start the Loop */
 			while ( have_posts() ) :
@@ -47,14 +41,15 @@ get_header();
 
 			the_posts_navigation(['aria_label' => __( 'More content' ), 'class' => 'col-span-full']);
 
-		else :
+			else :
 
 			get_template_part( 'layouts/none' );
 
-		endif;
-		?>
-		</div>
-	</main><!-- #main -->
+		endif;?>
+		
+	</div>
+		
+</main><!-- #main -->
 
 <?php
 

@@ -168,6 +168,10 @@ sup.fn a {
   @apply ml-auto;
 }
 
+.nav-previous {
+  @apply mr-auto;
+}
+
 .nav-previous a,
 .nav-next a {
   @apply flex items-center rounded-full border py-1 text-sm text-neutral-dark-900 ring-2 ring-transparent ring-offset-2 transition-all duration-150 hover:ring-primary focus:ring-primary;

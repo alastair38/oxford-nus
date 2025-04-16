@@ -168,7 +168,7 @@ if ( ! function_exists( 'blockhaus_grants' ) ) :
 				
 				endif;
 				
-				if($grant_logo):?>
+				if($grant_logo && !is_archive()):?>
 				
 					<img class="object-contain mr-auto" src="<?php echo $grant_logo['url'];?>" alt="<?php echo $grant_logo['alt'];?>" width="75" height="75" loading="lazy" />
 						
@@ -193,7 +193,7 @@ if ( ! function_exists( 'blockhaus_funders' ) ) :
 	
 	function blockhaus_funders($funders, $title) {?>
 		
-		<div class="flex flex-col gap-6">
+		<div class="flex flex-col gap-3">
       <span class="text-sm font-black border-b border-neutral-light-900">
 				<?php esc_html_e( $title, 'blockhaus' );?>
 			</span>

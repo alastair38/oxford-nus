@@ -16,11 +16,10 @@ get_header();
 
 			get_template_part( 'layouts/page-wide' );
 
-
 		endwhile; // End of the loop.
 		?>
 
-	</main><!-- #main -->
+</main><!-- #main -->
 
 <?php
 

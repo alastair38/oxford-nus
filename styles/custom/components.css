@@ -111,10 +111,6 @@ iframe {
   @apply my-8 flex justify-between;
 }
 
-.nav-next {
-  @apply ml-auto;
-}
-
 .single .nav-previous,
 .single .nav-next {
   @apply w-2/5 md:w-1/4;

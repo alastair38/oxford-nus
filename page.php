@@ -13,21 +13,21 @@
  */
 
 get_header();
+
 ?>
 
 <main id="primary" class="main-content w-11/12 mx-auto mt-6 max-w-screen-2xl">
 
-		<?php
+	<?php
 		while ( have_posts() ) :
 			the_post();
 
 			get_template_part( 'layouts/default' );
 
-
 		endwhile; // End of the loop.
-		?>
+	?>
 
-	</main><!-- #main -->
+</main><!-- #main -->
 
 <?php
 

@@ -1080,10 +1080,6 @@ iframe {
   justify-content: space-between;
 }
 
-.nav-next {
-  margin-left: auto;
-}
-
 .single .nav-previous,
 .single .nav-next {
   width: 40%;
@@ -1420,10 +1416,6 @@ form#loginform input#wp-submit:focus {
   margin-left: 1.5rem;
 }
 
-.ml-\[25\%\] {
-  margin-left: 25%;
-}
-
 .ml-auto {
   margin-left: auto;
 }
@@ -1470,10 +1462,6 @@ form#loginform input#wp-submit:focus {
 
 .flex {
   display: flex;
-}
-
-.inline-flex {
-  display: inline-flex;
 }
 
 .table {
@@ -1790,12 +1778,6 @@ form#loginform input#wp-submit:focus {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-
-.divide-x > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-x-reverse: 0;
-  border-right-width: calc(1px * var(--tw-divide-x-reverse));
-  border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
 }
 
 .place-self-end {
@@ -3465,6 +3447,10 @@ sup.fn a {
   margin-left: auto;
 }
 
+.nav-previous {
+  margin-right: auto;
+}
+
 .nav-previous a,
 .nav-next a {
   display: flex;
@@ -3991,10 +3977,6 @@ input[type='submit']:focus {
     grid-column: span 2 / span 2;
   }
 
-  .lg\:ml-auto {
-    margin-left: auto;
-  }
-
   .lg\:hidden {
     display: none;
   }
@@ -4005,10 +3987,6 @@ input[type='submit']:focus {
 
   .lg\:w-3\/4 {
     width: 75%;
-  }
-
-  .lg\:w-auto {
-    width: auto;
   }
 
   .lg\:translate-y-0 {
