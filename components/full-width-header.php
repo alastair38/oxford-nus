@@ -7,8 +7,6 @@
  * @package blockhaus
  */
 
- // get the header object from blockhaus_header_layout()
-
 ?>
 
 <header class="entry-header space-y-6">

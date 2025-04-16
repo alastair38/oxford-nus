@@ -44,12 +44,27 @@ main {
   @apply bg-secondary;
 }
 
-details[open] svg {
+:root {
+  interpolate-size: allow-keywords;
+}
+
+details::details-content {
+  height: 0;
+  transition: height 300ms ease-out, content-visibility 300ms ease-out;
+  transition-behavior: allow-discrete;
+}
+
+details:open::details-content {
+  height: fit-content;
+  content-visibility: visible;
+}
+
+details[open] summary > svg {
   @apply rotate-90 duration-500;
 }
 
-details svg {
-  @apply duration-200;
+details summary > svg {
+  @apply duration-500;
 }
 
 address {

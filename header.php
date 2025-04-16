@@ -80,15 +80,24 @@
 			
 					<?php if( is_user_logged_in() ) {?>
 
-					<div class="flex fixed bottom-4 left-4 w-fit gap-2 z-50 items-center justify-center">
+					<details class="hidden space-y-3 md:block group text-sm fixed bottom-4 left-4 w-fit gap-2 z-50 items-center justify-center">
+						<summary class="flex cursor-pointer items-center justify-center bg-black text-white rounded-full h-8 w-8 aspect-square focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2">
+						
+							<span class="sr-only"><?php esc_html_e( 'Admin menu', 'blockhaus' ); ?></span>
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+							</svg>
+						
+						</summary>
+						
+						<div class="bg-black divide-y divide-neutral-dark-500 h-fit rounded-md shadow-md">
 
 						<?php blockhaus_post_edit_link();
 						
 						blockhaus_admin_link();
 
 						blockhaus_logout_link();?>
-
-					</div>
+						</div>
+					</details>
 					<?php }?>
 
 				</div>

@@ -559,9 +559,9 @@ function blockhaus_post_edit_link()  {
 		$page_id = get_queried_object_id();
 		
 		if(current_user_can( 'edit_post', $page_id ) && !is_post_type_archive()):
-		echo '<a class="flex gap-2 relative group items-center p-2 bg-neutral-light-100 hover:bg-neutral-light-500 focus:bg-neutral-light-500 rounded-full border border-current" href="' . esc_url( get_edit_post_link($page_id) ) . '">
-		<svg class="w-5 h-5"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#pencil" /></svg>
-		<span class="flex rounded-md text-sm sr-only group-hover:px-2 group-hover:py-1 py-1 px-2 group-hover:rounded-sm group-hover:not-sr-only group-hover:absolute right-16 group-hover:w-max bg-neutral-dark-900 text-neutral-light-100">Edit this page</span>
+		echo '<a class="flex gap-2 relative group items-center py-2 px-4 text-white hover:text-neutral-light-500 focus:text-neutral-light-500" href="' . esc_url( get_edit_post_link($page_id) ) . '">
+		<svg class="w-4 h-4"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#pencil" /></svg>
+		<span>Edit page</span>
 		</a>';
 		endif;
 
@@ -570,9 +570,10 @@ function blockhaus_post_edit_link()  {
 function blockhaus_admin_link() {
 	
 	if( is_user_logged_in() ):
-	echo '<a class="flex gap-2 relative group items-center p-2 aspect-square bg-neutral-light-100 hover:bg-neutral-light-500 focus:bg-neutral-light-500 rounded-full border border-current" href="' . admin_url() . '">
-	<svg class="w-5 h-5"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#settings" /></svg>
-	<span class="flex rounded-md text-sm sr-only group-hover:px-2 group-hover:py-1 py-1 px-2 group-hover:rounded-sm group-hover:not-sr-only group-hover:absolute right-16 group-hover:w-max bg-neutral-dark-900 text-neutral-light-100">Admin</span>
+	echo '<a class="flex gap-2 relative group items-center py-2 px-4 text-white hover:text-neutral-light-500 focus:text-neutral-light-500" href="' . admin_url() . '">
+	
+	<svg class="w-4 h-4"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#settings" /></svg>
+	<span>Admin</span>
 	</a>';
 	endif;
 
@@ -581,9 +582,9 @@ function blockhaus_admin_link() {
 function blockhaus_logout_link() {
 
 	if( is_user_logged_in() ):
-	echo '<a class="flex gap-2 relative group items-center p-2 bg-neutral-light-100 hover:bg-neutral-light-500 focus:bg-neutral-light-500 rounded-full border border-current" href="' . esc_url( wp_logout_url() ) . '">
+	echo '<a class="flex gap-2 relative group items-center py-2 px-4 text-white hover:text-neutral-light-500 focus:text-neutral-light-500" href="' . esc_url( wp_logout_url() ) . '">
 	<svg class="w-5 h-5"><use href="' . get_template_directory_uri() . '/assets/images/icons/sprite.svg#logout" /></svg>
-	<span class="flex rounded-md text-sm sr-only group-hover:px-2 group-hover:py-1 py-1 px-2 group-hover:rounded-sm group-hover:not-sr-only group-hover:absolute right-16 group-hover:w-max bg-neutral-dark-900 text-neutral-light-100">Logout</span>
+	<span>Logout</span>
 	</a>';
 	endif;
 
