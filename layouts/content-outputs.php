@@ -32,7 +32,7 @@ endif;
 				
 	</div><!-- .entry-content -->
 	
-	<div class="entry-meta p-4 rounded-md flex flex-col bg-neutral-light-100 gap-6 flex-wrap text-sm">
+	<div class="entry-meta p-4 rounded-md flex flex-col bg-neutral-light-100 gap-6 md:gap-8 flex-wrap text-sm">
 				
 		<?php
 				

@@ -30,7 +30,7 @@ endif;
 			
 	</div><!-- .entry-content -->
 		
-	<div class="entry-meta bg-neutral-light-100 p-4 rounded-md flex flex-col gap-6 text-sm">
+	<div class="entry-meta bg-neutral-light-100 p-4 rounded-md flex flex-col gap-6 md:gap-8 text-sm">
 				
 	<?php
 				

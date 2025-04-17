@@ -245,7 +245,7 @@ if ( ! function_exists( 'blockhaus_people' ) ) :
 		<div class="flex flex-col gap-3">
         <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( $title, 'blockhaus' );?></span>
        
-        <div class="grid grid-cols-1 gap-2 flex-wrap">
+        <div class="flex gap-y-2 gap-x-2 md:gap-y-3 md:gap-x-6 flex-wrap">
           
           <?php foreach( $people as $post ):
 						$thumbnail = get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] );
