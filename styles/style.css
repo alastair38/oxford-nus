@@ -1214,31 +1214,47 @@ header .logo svg {
 
 /* blockhaus_people styles */
 
-.archive div[data-block='blockhaus_people'] > div,
 .single-grant div[data-block='blockhaus_people'] > div {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.tax-contributor .archive div[data-block='blockhaus_people'] > div article:first-of-type,
-.tax-contributor .archive div[data-block='blockhaus_people'] > div > header,.tax-contributor 
-.single-grant div[data-block='blockhaus_people'] > div article:first-of-type,
-.tax-contributor 
-.single-grant div[data-block='blockhaus_people'] > div > header {
+.tax-contributor .single-grant div[data-block='blockhaus_people'] > div article:first-of-type,
+.tax-contributor .single-grant div[data-block='blockhaus_people'] > div > header {
   grid-column: span 3 / span 3;
 }
 
 @media (min-width: 768px) {
-  .archive div[data-block='blockhaus_people'] > div,
-.single-grant div[data-block='blockhaus_people'] > div {
+  .single-grant div[data-block='blockhaus_people'] > div {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
-  .archive div[data-block='blockhaus_people'] > div,
-.single-grant div[data-block='blockhaus_people'] > div {
+  .single-grant div[data-block='blockhaus_people'] > div {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+.archive div[data-block='blockhaus_people'] > div {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.tax-contributor .archive div[data-block='blockhaus_people'] > div article:first-of-type,
+.tax-contributor .archive div[data-block='blockhaus_people'] > div > header {
+  grid-column: span 3 / span 3;
+}
+
+@media (min-width: 768px) {
+  .archive div[data-block='blockhaus_people'] > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .archive div[data-block='blockhaus_people'] > div {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
