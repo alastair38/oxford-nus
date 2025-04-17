@@ -131,7 +131,7 @@ if ( ! function_exists( 'blockhaus_outputs' ) ) :
           <div class="text-sm">
             <?php echo $output->post_content;?>
           </div>
-          <a class="no-underline hover:outline focus-visible:outline focus-visible:outline-contrast hover:outline-contrast focus-visible:outline-offset-2 hover:outline-offset-2 bg-contrast w-fit text-sm text-white px-3 py-1 rounded-md mt-2" href="<?php echo get_the_permalink($output->ID);?>">
+          <a class="no-underline hover:outline focus-visible:outline focus-visible:outline-contrast hover:outline-contrast hover:outline-1 focus-visible:outline-1 duration-100 focus-visible:outline-offset-2 hover:outline-offset-2 bg-contrast w-fit text-sm text-white px-3 py-1 rounded-md mt-2" href="<?php echo get_the_permalink($output->ID);?>">
             <?php esc_html_e( $linkLabel, 'blockhaus' );?>
           </a>
 			  </li>
@@ -242,10 +242,10 @@ if ( ! function_exists( 'blockhaus_people' ) ) :
 	
 	function blockhaus_people($people, $title) {?>
 		
-		<div class="flex flex-col gap-3">
+		<div data-block="blockhaus_people" class="flex flex-col gap-3">
         <span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( $title, 'blockhaus' );?></span>
        
-        <div class="flex gap-y-2 gap-x-2 md:gap-y-3 md:gap-x-6 flex-wrap">
+        <div class="gap-y-2 gap-x-2 md:gap-y-3 md:gap-x-6 flex-wrap">
           
           <?php foreach( $people as $post ):
 						$thumbnail = get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] );

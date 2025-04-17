@@ -1212,6 +1212,37 @@ header .logo svg {
   padding-bottom: 1rem;
 }
 
+/* blockhaus_people styles */
+
+.archive div[data-block='blockhaus_people'] > div {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.tax-contributor .archive div[data-block='blockhaus_people'] > div article:first-of-type,
+.tax-contributor .archive div[data-block='blockhaus_people'] > div > header {
+  grid-column: span 3 / span 3;
+}
+
+@media (min-width: 768px) {
+  .archive div[data-block='blockhaus_people'] > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .archive div[data-block='blockhaus_people'] > div {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* switch to flex layout for single-output in sidebar */
+
+.single-output div[data-block='blockhaus_people'] > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /* LOGIN FORM */
 
 form#loginform {
@@ -3700,6 +3731,10 @@ input[type='submit']:focus {
   outline-style: solid;
 }
 
+.hover\:outline-1:hover {
+  outline-width: 1px;
+}
+
 .hover\:outline-offset-2:hover {
   outline-offset: 2px;
 }
@@ -3810,12 +3845,22 @@ input[type='submit']:focus {
   outline-style: solid;
 }
 
+.focus-visible\:outline-1:focus-visible {
+  outline-width: 1px;
+}
+
 .focus-visible\:outline-offset-2:focus-visible {
   outline-offset: 2px;
 }
 
 .focus-visible\:outline-contrast:focus-visible {
   outline-color: var(--wp--preset--color--contrast);
+}
+
+.focus-visible\:ring-1:focus-visible {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
 .focus-visible\:ring-2:focus-visible {

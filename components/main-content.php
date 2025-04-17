@@ -37,7 +37,7 @@
         <?php the_content();?>
       </div>
       
-      <button id="copy_citation" class="disabled:bg-neutral-light-500 disabled:text-black group flex items-center gap-2 rounded-md text-sm inline-block w-fit bg-contrast disabled:ring-neutral-light-500 text-white px-6 py-2 hover:ring-2 no-underline focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus-visible:ring-contrast focus-visible:outline-none">
+      <button id="copy_citation" class="disabled:bg-neutral-light-500 disabled:text-black group flex items-center gap-2 rounded-md text-sm inline-block w-fit bg-contrast disabled:ring-neutral-light-500 text-white px-6 py-2 hover:ring-1 duration-100 no-underline focus:ring-1 ring-offset-2 ring-transparent hover:ring-contrast focus-visible:ring-contrast focus-visible:outline-none">
         <span><?php esc_html_e( 'Copy citation', 'blockhaus' );?></span>
         <svg class="group-disabled:hidden h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
