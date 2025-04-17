@@ -178,7 +178,8 @@ header .logo svg {
 
 /* switch to flex layout for single-output in sidebar */
 
-.single-output div[data-block='blockhaus_people'] > div {
+.single-output div[data-block='blockhaus_people'] > div,
+.single-grant div[data-block='blockhaus_people'] > div {
   @apply flex flex-wrap;
 }
 
