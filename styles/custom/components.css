@@ -172,14 +172,14 @@ header .logo svg {
 
 /* blockhaus_people styles */
 
-.archive div[data-block='blockhaus_people'] > div {
+.archive div[data-block='blockhaus_people'] > div,
+.single-grant div[data-block='blockhaus_people'] > div {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
 }
 
 /* switch to flex layout for single-output in sidebar */
 
-.single-output div[data-block='blockhaus_people'] > div,
-.single-grant div[data-block='blockhaus_people'] > div {
+.single-output div[data-block='blockhaus_people'] > div {
   @apply flex flex-wrap;
 }
 
