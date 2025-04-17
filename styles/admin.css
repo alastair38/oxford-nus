@@ -72,7 +72,7 @@ bg-accent-tertiary*/
 
 .interface-complementary-area.editor-sidebar,
 .interface-complementary-area__fill {
-  width: 100% !important;
+  width: 33vw !important;
 }
 
 .acf-label label {
