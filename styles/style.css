@@ -1238,7 +1238,7 @@ header .logo svg {
 @media (min-width: 1024px) {
   .archive div[data-block='blockhaus_people'] > div,
 .single-grant div[data-block='blockhaus_people'] > div {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 }
 
