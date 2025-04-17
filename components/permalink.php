@@ -14,7 +14,7 @@ if(function_exists('get_field')):
 endif;?>
 
 
-<a aria-label="Read <?php the_title();?>" class="rounded-md text-sm inline-block w-fit bg-contrast text-white px-6 py-2 hover:ring-2 no-underline focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast"
+<a aria-label="Read <?php the_title();?>" class="rounded-md text-sm inline-block w-fit bg-contrast text-white px-6 py-2 hover:ring-1 no-underline focus:ring-1 duration-200 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast"
 
 	<?php if($external_link):?>
 

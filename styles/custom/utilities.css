@@ -17,9 +17,16 @@ blockquote.is-style-default p {
   color: currentColor;
 }
 
+a.wp-block-button__link.wp-element-button,
+a.wp-block-read-more {
+  @apply outline-transparent duration-200;
+}
+
 a.wp-block-button__link.wp-element-button:hover,
-a.wp-block-read-more:hover {
-  @apply outline outline-2 outline-offset-2 outline-contrast;
+a.wp-block-button__link.wp-element-button:focus-visible,
+a.wp-block-read-more:hover,
+a.wp-block-read-more:focus-visible {
+  @apply outline outline-1 outline-offset-2 outline-contrast duration-200;
 }
 
 /* Home page wp-block-group stylings */

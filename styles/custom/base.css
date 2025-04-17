@@ -44,13 +44,20 @@ main {
   @apply bg-secondary;
 }
 
+/* profile blocks */
+
+div[id^='profile-']:has(> a:hover),
+div[id^='profile-']:has(> a:focus-visible) {
+  @apply bg-neutral-light-100 transition-colors duration-200;
+}
+
 :root {
   interpolate-size: allow-keywords;
 }
 
 details::details-content {
   height: 0;
-  transition: height 300ms ease-out, content-visibility 300ms ease-out;
+  transition: height 200ms ease;
   transition-behavior: allow-discrete;
 }
 
