@@ -786,8 +786,9 @@ div[id^='profile-']:has(> a:focus-visible) {
 
 details::details-content {
   height: 0;
-  transition: height 200ms ease;
+  transition: height 300ms ease, content-visibility 200ms ease;
   transition-behavior: allow-discrete;
+  content-visibility: hidden;
 }
 
 details:open::details-content {
@@ -797,6 +798,12 @@ details:open::details-content {
 }
 
 details[open] summary > svg {
+  --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transition-duration: 500ms;
+}
+
+details[open] summary::marker {
   --tw-rotate: 90deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   transition-duration: 500ms;

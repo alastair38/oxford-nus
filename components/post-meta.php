@@ -40,28 +40,35 @@ $post_type = get_post_type();?>
       $funders = get_field('project_funders');
       $grants = get_field('project_grants');
       $projects = get_field('projects');
+      $staff = get_field('staff_block');
       
     endif;
 
     if(empty($sidebar)):
       
-    if( $members ): 
-      blockhaus_projects_team($members);
+      if(!empty($staff)):
+      
+        blockhaus_staff();
+      
+      endif;
+      
+      if( $members ): 
+        blockhaus_projects_team($members);
+      endif;
+
+      if( $co_investigators ):
+        blockhaus_projects_team($co_investigators);
+      endif; 
+
+      if( $collab_members ):
+        blockhaus_projects_team($collab_members);
+      endif; 
+
+      if( $assoc_members ):
+        blockhaus_projects_team($assoc_members);
+      endif;
+
     endif;
-
-    if( $co_investigators ):
-      blockhaus_projects_team($co_investigators);
-    endif; 
-
-    if( $collab_members ):
-      blockhaus_projects_team($collab_members);
-    endif; 
-
-    if( $assoc_members ):
-      blockhaus_projects_team($assoc_members);
-    endif;
-
-  endif;
 
   if( $grants ):
     

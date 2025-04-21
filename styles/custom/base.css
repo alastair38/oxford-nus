@@ -57,8 +57,9 @@ div[id^='profile-']:has(> a:focus-visible) {
 
 details::details-content {
   height: 0;
-  transition: height 200ms ease;
+  transition: height 300ms ease, content-visibility 200ms ease;
   transition-behavior: allow-discrete;
+  content-visibility: hidden;
 }
 
 details:open::details-content {
@@ -67,6 +68,10 @@ details:open::details-content {
 }
 
 details[open] summary > svg {
+  @apply rotate-90 duration-500;
+}
+
+details[open] summary::marker {
   @apply rotate-90 duration-500;
 }
 
