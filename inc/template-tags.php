@@ -51,70 +51,6 @@ endif;
 
 // for showing list of related people on projects pages
 
-if ( ! function_exists( 'blockhaus_projects_team' ) ) :
-	
-	function blockhaus_projects_team($peopleObj) {
-		
-		if(! empty($peopleObj['people'])):
-		$people = $peopleObj['people'];
-		$title = $peopleObj['title'];
-		
-
-		?>
-		<div class="space-y-3">
-			<span class="font-black flex border-b border-neutral-light-900"><?php esc_html_e( $title, 'blockhaus' );?></span>
-			
-			<ul class="flex gap-x-6 gap-y-2 flex-col">
-
-				<?php 
-						
-				foreach( $people as $post ): 
-						
-					// Setup this post for WP functions (variable must be named $post).
-					setup_postdata($post); 
-					$disable_page_link = get_field('disable_biography_page', $post->ID);
-					$academic_title = get_field('academic_title', $post->ID);
-					?>
-					<li>
-						
-						<?php 
-						
-						if(!$disable_page_link):?>
-						<a class="flex gap-2 hover:underline focus-visible:underline items-center" href="<?php echo get_the_permalink($post->ID);?>">
-							<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] );?>
-							<span class="flex gap-1">
-								
-							<?php if($academic_title):
-								echo $academic_title;
-							endif;?>
-							
-							<?php echo get_the_title($post->ID); ?>
-							</span>
-						</a>
-						
-						<?php else:?>
-							<span class="flex gap-2 items-center">
-						<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] ); 
-						echo get_the_title($post->ID); ?>	
-						</span>
-						
-						<?php endif;
-						?>
-					</li>
-					
-				<?php endforeach; ?>
-				
-			</ul>
-		</div>
-    <?php 
-    // Reset the global post object so that the rest of the page works correctly.
-    wp_reset_postdata(); 
-		
-				endif;
-	}
-	
-endif;
-
 if(! function_exists('blockhaus_staff')):
 	
 	function blockhaus_staff() {
@@ -146,7 +82,7 @@ if(! function_exists('blockhaus_staff')):
 					<?php 
 					
 					if(!$disable_page_link):?>
-					<a class="flex gap-2 hover:underline focus-visible:underline items-center" href="<?php echo get_the_permalink($post->ID);?>">
+					<a class="flex w-fit gap-2 hover:underline focus-visible:underline items-center" href="<?php echo get_the_permalink($post->ID);?>">
 						<?php echo get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] );?>
 						<span class="flex gap-1">
 							

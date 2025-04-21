@@ -33,10 +33,6 @@ $post_type = get_post_type();?>
     if(function_exists('get_field')):
   
       $sidebar = get_field('sidebar_hide');
-      $members = get_field('members');
-      $assoc_members = get_field('assoc_members');
-      $collab_members = get_field('collab_members');
-      $co_investigators = get_field('co-investigators');
       $funders = get_field('project_funders');
       $grants = get_field('project_grants');
       $projects = get_field('projects');
@@ -50,22 +46,6 @@ $post_type = get_post_type();?>
       
         blockhaus_staff();
       
-      endif;
-      
-      if( $members ): 
-        blockhaus_projects_team($members);
-      endif;
-
-      if( $co_investigators ):
-        blockhaus_projects_team($co_investigators);
-      endif; 
-
-      if( $collab_members ):
-        blockhaus_projects_team($collab_members);
-      endif; 
-
-      if( $assoc_members ):
-        blockhaus_projects_team($assoc_members);
       endif;
 
     endif;
