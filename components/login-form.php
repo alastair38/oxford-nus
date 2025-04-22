@@ -17,17 +17,28 @@
 
 		if( !is_user_logged_in() ) {
 
-			wp_login_form( $args );
-			echo '<div class="flex gap-6 items-center justify-center py-12"><a class="password-reset underline decoration-primary decoration-1" href="' . wp_lostpassword_url( ) . '" title="Lost Password">Click this link to reset your password</a></div>';
+			wp_login_form( $args );?>
 			
-		} else {
+			<div class="flex gap-6 items-center justify-center py-12">
+				
+				<a class="password-reset underline hover:no-underline focus-visible:no-underline decoration-1" href="<?php echo wp_lostpassword_url( );?>" title="Lost Password">
+					<?php esc_html_e( 'Click this link to reset your password', 'blockhaus' );?>
+				</a>
+				
+			</div>
+			
+		<?php } else {
 
-			$current_user = wp_get_current_user();
+			$current_user = wp_get_current_user();?>
 		
-			echo '<div class="flex flex-col gap-6 items-center justify-center py-12">
-			<p>Hi, ' . $current_user->display_name . '</p>
-			<a class="rounded-md inline-block w-fit bg-contrast text-white px-6 py-2 hover:ring-2 focus:ring-2 ring-offset-2 ring-transparent hover:ring-contrast focus:ring-contrast" href="' . esc_url( wp_logout_url() ) . '">Logout</a></div>';
+			<div class="flex flex-col gap-6 items-center justify-center py-12">
+				
+				<p><?php esc_html_e( "Hi, $current_user->display_name ", 'blockhaus' );?></p>
+				
+				<a class="rounded-md inline-block w-fit bg-contrast text-white px-6 py-2 ring-1 ring-offset-2 ring-transparent duration-200 hover:ring-contrast focus:ring-contrast" href="<?php echo esc_url( wp_logout_url() );?>">
+					<?php esc_html_e( 'Logout', 'blockhaus' );?>
+				</a>
+				
+			</div>
 			
-		}
-
-?>
+		<?php } ?>

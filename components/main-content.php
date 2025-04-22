@@ -123,7 +123,7 @@
 			
 	if(! empty($outputs)):
   
-    blockhaus_outputs($outputs, 'Outputs', 'View output');
+    blockhaus_outputs($outputs, 'Project outputs', 'View output');
   
   endif; 
 ?>

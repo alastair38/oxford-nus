@@ -131,13 +131,14 @@ if ( ! function_exists( 'blockhaus_outputs' ) ) :
 	
 	function blockhaus_outputs($outputs, $title, $linkLabel) {?>
 		<aside id="outputs" class="space-y-6 rounded-md border border-neutral-light-900 p-6">
-			<h2 class="font-black"><?php echo esc_html__( $title, 'blockhaus' );?></h2>
+			<h2 class="text-default md:text-lg "><?php echo esc_html__( $title, 'blockhaus' );?></h2>
 			<ul class="grid grid-cols-1 gap-6">
 				
 			<?php foreach($outputs as $output):?>
 					
 				<li class="grid gap-3 border-b border-neutral-light-900 pb-6 last-of-type:pb-0 last-of-type:border-none">
-          <span><?php echo $output->post_title;?></span>
+          <span class="font-bold"><?php echo $output->post_title;?></span>
+					
           <div class="text-sm">
             <?php echo $output->post_content;?>
           </div>

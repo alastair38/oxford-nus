@@ -33,7 +33,6 @@ $post_type = get_post_type();?>
     if(function_exists('get_field')):
   
       $sidebar = get_field('sidebar_hide');
-      $funders = get_field('project_funders');
       $grants = get_field('project_grants');
       $projects = get_field('projects');
       $staff = get_field('staff_block');
