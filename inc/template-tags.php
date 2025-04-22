@@ -12,15 +12,20 @@ if ( ! function_exists( 'blockhaus_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function blockhaus_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-		}
-
-		// <time class="updated" datetime="%3$s">%4$s</time>
-
+		
+		$updated_string = '<time class="entry-date published updated italic" datetime="%3$s">(updated on %4$s)</time>';
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+		
 		$time_string = sprintf(
 			$time_string,
+			esc_attr( get_the_date( DATE_W3C ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( DATE_W3C ) ),
+			esc_html( get_the_modified_date() )
+		);
+		
+		$updated_string = sprintf(
+			$updated_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
@@ -29,22 +34,88 @@ if ( ! function_exists( 'blockhaus_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'blockhaus' ),
+			esc_html_x( '%s', 'post date', 'blockhaus' ),
 			 $time_string
 		);
+		
+		$updated_on = sprintf(
+			/* translators: %s: post date. */
+			esc_html_x( '%s', 'post date updated', 'blockhaus' ),
+			 $updated_string
+		);?>
 
-		echo '<span class="posted-on italic">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-	}
+		<div data-block="blockhaus_people" class="flex flex-col gap-3">
+			<span class="text-sm font-black border-b border-neutral-light-900">
+				<?php esc_html_e( 'Published', 'blockhaus' );?>
+			</span>
+			<div class="posted-on flex gap-3 flex-wrap text-neutral-dark-900">
+				<?php echo $posted_on;?><?php echo $updated_on;?>
+			</div>
+		</div>
+		
+		<?php }
+		
 endif;
 
 if ( ! function_exists( 'blockhaus_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current author.
 	 */
-	function blockhaus_posted_by($post) {
+	function blockhaus_posted_by($authors) {?>
 	
-		echo '<span>Written by ' . get_the_author() . '</span>';
+		<div data-block="blockhaus_people" class="flex flex-col gap-3">
+		<span class="text-sm font-black border-b border-neutral-light-900"><?php esc_html_e( 'Author(s)', 'blockhaus' );?></span>
+	 
+		<div class="gap-y-2 gap-x-2 md:gap-y-3 md:gap-x-6 flex flex-wrap">
+			
+			<?php foreach( $authors as $post ):
+				$thumbnail = get_the_post_thumbnail($post->ID, 'thumbnail', ['class' => 'rounded-full w-10 h-10'] );
+				$disable_page_link = get_field('disable_biography_page', $post->ID);
+				$academic_title = get_field('academic_title', $post->ID);
+			?>
+				
+			<?php if($disable_page_link):?>
+				<span class="flex gap-2 w-fit rounded-full group focus-visible:outline-contrast pr-2 text-sm flex-wrap items-center">
+				<?php 
+					if($thumbnail):
+						echo $thumbnail;
+					else:
+						echo '<span class="w-10 h-10 flex items-center justify-center bg-neutral-light-900 rounded-full text-black/30">' . substr(get_the_title($post->ID), 0, 1) . '</span>';
+					endif;?>
+					<span class="flex gap-1">
+						
+					<?php if($academic_title):
+						echo $academic_title;
+					endif;?>
+					
+					<?php echo get_the_title($post->ID); ?>
+					</span>
+				</span>
+			<?php else:?>
+				<a class="flex gap-2 w-fit rounded-full group focus-visible:outline-contrast pr-2 text-sm flex-wrap items-center" href="<?php echo get_the_permalink($post->ID); ?>">
+				<?php 
+					if($thumbnail):
+						echo $thumbnail;
+					else:
+						echo '<span class="w-10 h-10 flex items-center justify-center bg-neutral-light-900 rounded-full text-black/30">' . substr(get_the_title($post->ID), 0, 1) . '</span>';
+					endif;?>
+					<span class="flex gap-1 underline group-hover:no-underline group-focus-visible:no-underline">
+						
+						<?php if($academic_title):
+							echo $academic_title;
+						endif;?>
+						
+						<?php echo get_the_title($post->ID); ?>
+					</span>
+				</a>
+			<?php endif;?>
+				
+			<?php endforeach; ?>
+			
+		</div>
+	</div>
+
+	<?php wp_reset_postdata(); 
 
 	}
 endif;

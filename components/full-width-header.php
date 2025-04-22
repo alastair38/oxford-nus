@@ -18,7 +18,18 @@
  <?php if(get_post_type() === 'output' || get_post_type() === 'grant'):?>
  
 	<div class="pt-6">
-		<span class="text-sm text-small uppercase">
+		<span aria-hidden="true" class="text-sm uppercase">
+			<?php esc_html_e( 'OCNS ' . get_post_type() , 'blockhaus' );?>
+		</span>
+		<h1 class="page-title text-default md:text-lg leading-snug lg:leading-normal font-black">
+			<?php the_title();?>
+		</h1>
+	</div>
+	
+	<?php elseif(get_post_type() === 'project' && has_post_parent( )):?>
+		
+		<div>
+		<span aria-hidden="true" class="text-sm uppercase">
 			<?php esc_html_e( 'OCNS ' . get_post_type() , 'blockhaus' );?>
 		</span>
 		<h1 class="page-title text-default md:text-lg leading-snug lg:leading-normal font-black">
@@ -27,6 +38,7 @@
 	</div>
 
 	<?php else:?>
+		
 		<h1 class="page-title leading-snug text-default md:text-lg lg:leading-normal font-black"><?php the_title();?></h1>
 	<?php endif;?>
 	

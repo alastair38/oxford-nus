@@ -15,10 +15,21 @@ $post_type = get_post_type();?>
   <?php
   
   /* 'post' specific fields */
-  if(get_post_type() === 'post'):?>
+  if(get_post_type() === 'post'):
   
-    <div class="flex items-center gap-2 flex-col">
-    <?php blockhaus_posted_by($post);
+    if(function_exists('get_field')):
+      $authors = get_field('post_author');
+    endif;
+  
+  ?>
+  
+    <div class="space-y-6 md:space-y-12">
+    <?php 
+    
+    if($authors):
+      blockhaus_posted_by($authors);
+    endif;
+    
       blockhaus_posted_on();?>
     </div>
     
