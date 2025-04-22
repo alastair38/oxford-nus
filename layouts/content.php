@@ -33,7 +33,13 @@
 
 			<div class="entry-meta flex gap-x-6 flex-wrap text-sm italic justify-between py-1">
 	
-			<?php	blockhaus_posted_by($post);
+			<?php	
+			
+			// if(function_exists('get_field')):
+			// 	$authors = get_field('post_author', $post->ID);
+			// endif;
+			
+		//	blockhaus_posted_by($authors);
 
 				blockhaus_posted_on();?>
 					

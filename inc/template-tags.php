@@ -45,9 +45,11 @@ if ( ! function_exists( 'blockhaus_posted_on' ) ) :
 		);?>
 
 		<div data-block="blockhaus_people" class="flex flex-col gap-3">
+			<?php if(!is_home()):?>
 			<span class="text-sm font-black border-b border-neutral-light-900">
 				<?php esc_html_e( 'Published', 'blockhaus' );?>
 			</span>
+			<?php endif;?>
 			<div class="posted-on flex gap-3 flex-wrap text-neutral-dark-900">
 				<?php echo $posted_on;?><?php echo $updated_on;?>
 			</div>
