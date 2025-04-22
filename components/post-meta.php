@@ -17,7 +17,7 @@ $post_type = get_post_type();?>
   /* 'post' specific fields */
   if(get_post_type() === 'post'):?>
   
-    <div class="flex flex-col">
+    <div class="flex items-center gap-2 flex-col">
     <?php blockhaus_posted_by($post);
       blockhaus_posted_on();?>
     </div>

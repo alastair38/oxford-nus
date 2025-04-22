@@ -44,7 +44,7 @@ if ( ! function_exists( 'blockhaus_posted_by' ) ) :
 	 */
 	function blockhaus_posted_by($post) {
 	
-		echo '<span>' . get_the_author() . '</span>';
+		echo '<span>Written by ' . get_the_author() . '</span>';
 
 	}
 endif;
